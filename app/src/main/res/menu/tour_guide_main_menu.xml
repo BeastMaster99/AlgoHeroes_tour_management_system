@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/TGYourProfile"
+            android:title="@string/MenuTGYourProfile" />
+
+        <item
+            android:id="@+id/TGAddAttractions"
+            android:title="@string/MenuTGAddAttractions" />
+
+        <item
+            android:id="@+id/TGYourAttractions"
+            android:title="@string/MenuTGYourAttractions" />
+
+        <item
+            android:id="@+id/TGAllAttractions"
+            android:title="@string/MenuTGAllAttractions" />
+
+        <item
+            android:id="@+id/TGGetHelp"
+            android:title="@string/MenuTGGetHelp" />
+
+        <item
+            android:id="@+id/TGSignOut"
+            android:title="@string/MenuTGSignOut" />
+
+
+    </group>
+</menu>

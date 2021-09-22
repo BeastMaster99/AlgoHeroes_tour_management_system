@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:ignore="SpeakableTextPresentCheck"
+    tools:layout_editor_absoluteY="1dp"
+    tools:context=".HotelOwnerRegistration">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/backImageHO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/BImageMarginLeft"
+            android:layout_marginLeft="@dimen/BImageMarginLeft"
+            android:layout_marginTop="@dimen/BImageMarginTop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/hotelOwnerSignUpImage" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="@dimen/hotelOwnerImageWidth"
+            android:layout_height="@dimen/hotelOwnerImageHeight"
+            android:layout_marginTop="@dimen/SignUpPagesImageMarginTop"
+            android:contentDescription="@string/hotelOwnerSignUpImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_hotel_owner" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hotelOwnerSignUpTopic1MarginTop"
+            android:text="@string/hotleOwnerSignUpTopic1"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hotelOnwerSignUpTopic2"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <EditText
+            android:id="@+id/firstNameHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/hotelOwnerSignUpPageF1MargnTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF1"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/lastNameHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF2"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstNameHotelOwner"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/emailHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF3"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastNameHotelOwner"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/contactHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF4"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailHotelOwner"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/birthdayHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF5"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactHotelOwner"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/passwordHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelrRegistrationF6"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/birthdayHotelOwner"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/reEnterPasswordHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelrRegistrationF7"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordHotelOwner"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/signUpHotelOwner"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/travelerSignUpPageF8MarginTop"
+            android:layout_marginBottom="@dimen/travelerSignUpPageF8MarginBottom"
+            android:background="@drawable/rounded_button"
+            android:text="@string/travelerRegistrationF8"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/theme_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reEnterPasswordHotelOwner"
+            tools:ignore="TextContrastCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/HOYourProfile"
+            android:title="@string/MenuHOYourProfile" />
+
+        <item
+            android:id="@+id/HOAddHotel"
+            android:title="@string/MenuHOAddHotel" />
+
+        <item
+            android:id="@+id/HOYourHotels"
+            android:title="@string/MenuHOYourHotels" />
+
+        <item
+            android:id="@+id/HOTouristAttraction"
+            android:title="@string/MenuHOTouristAttraction" />
+
+        <item
+            android:id="@+id/HOBookings"
+            android:title="@string/MenuHOBookings" />
+
+        <item
+            android:id="@+id/HOGetHelp"
+            android:title="@string/MenuHOGetHelp" />
+
+        <item
+            android:id="@+id/HOSignOut"
+            android:title="@string/MenuHOSignOut" />
+
+
+    </group>
+</menu>

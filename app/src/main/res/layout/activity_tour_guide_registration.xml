@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    tools:context=".TourGuideRegistration">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/backImageTG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/BImageMarginLeft"
+            android:layout_marginLeft="@dimen/BImageMarginLeft"
+            android:layout_marginTop="@dimen/BImageMarginTop"
+            android:contentDescription="@string/backWardNavigationImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="@dimen/tourGuideSignUpImageWidth"
+            android:layout_height="@dimen/tourGuideSignUpHegiht"
+            android:layout_marginTop="@dimen/SignUpPagesImageMarginTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_guide" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/toutGuideSignUpTopic1MarginTop"
+            android:text="@string/tourGuideSignUpPageTopic1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:text="@string/tourGuideSignUpPageTopic2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <EditText
+            android:id="@+id/firstNameTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/tourGuideRegistrationF1MarginTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF1"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/lastNameTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF2"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstNameTourGuide"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/emailTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF3"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastNameTourGuide"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/contactTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF4"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTourGuide"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/birthdayTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelerRegistrationF5"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactTourGuide"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/passwordTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelrRegistrationF6"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/birthdayTourGuide"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/reEnterPasswordTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/trvelerRegistrationFMarginTop"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button"
+            android:ems="10"
+            android:fontFamily="@font/font4"
+            android:gravity="center"
+            android:hint="@string/travelrRegistrationF7"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            app:backgroundTint="@color/inputField_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTourGuide"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/signUpTourGuide"
+            android:layout_width="@dimen/ButtonWidth"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_marginTop="@dimen/travelerSignUpPageF8MarginTop"
+            android:layout_marginBottom="@dimen/travelerSignUpPageF8MarginBottom"
+            android:background="@drawable/rounded_button"
+            android:text="@string/travelerRegistrationF8"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/theme_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reEnterPasswordTourGuide"
+            tools:ignore="TextContrastCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

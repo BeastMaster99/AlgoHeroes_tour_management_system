@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/TRYourProfile"
+            android:title="@string/MenuTRYourProfile" />
+
+        <item
+            android:id="@+id/TRHotels"
+            android:title="@string/MenuTRHotels" />
+
+        <item
+            android:id="@+id/TRfavourite"
+            android:title="@string/MenuTRfavourite" />
+
+        <item
+            android:id="@+id/TRSignOut"
+            android:title="@string/MenuTRSignOut" />
+
+    </group>
+
+</menu>

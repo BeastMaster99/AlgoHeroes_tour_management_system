@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="landPageImageWidth">411dp</dimen>
+    <dimen name="landPageImageHeight">350dp</dimen>
+    <dimen name="signInageImageWidth">411dp</dimen>
+    <dimen name="signInPageImageHeight">320dp</dimen>
+    <dimen name="signUpageImageWidth">410dp</dimen>
+    <dimen name="signUpPageImageHeight">220dp</dimen>
+    <dimen name="landPageTopicTopMargin">40dp</dimen>
+    <dimen name="signInPageTopicTopMargin">35dp</dimen>
+    <dimen name="signUpPageTopicTopMargin">68dp</dimen>
+    <dimen name="landPageTopicBottomMargin">243dp</dimen>
+    <dimen name="landPagePara1TopMargin">16dp</dimen>
+    <dimen name="landPageButton">20dp</dimen>
+    <dimen name="ButtonWidth">375dp</dimen>
+    <dimen name="ButtonHeight">72dp</dimen>
+    <dimen name="signInPageInput1TopMargin">20dp</dimen>
+    <dimen name="signInPageinput2">8dp</dimen>
+    <dimen name="signInPageButton">15dp</dimen>
+    <dimen name="signInpageTextMarginTop">10dp</dimen>
+    <dimen name="signInPageTextMarginTop">20dp</dimen>
+    <dimen name="signUpPageImageTopMargin">60dp</dimen>
+    <dimen name="signUpButton1MarginTop">20dp</dimen>
+    <dimen name="signUpPageButton2TopMargin">10dp</dimen>
+    <dimen name="signUpPageButton3TopMargin">10dp</dimen>
+    <dimen name="signUpPageTextMarginTop">40dp</dimen>
+    <dimen name="travelerRegsitartionImageWidth">411dp</dimen>
+    <dimen name="travelerRegsitartionImageHeight">320dp</dimen>
+    <dimen name="travelerRegistrationTopic1MarginTop">35dp</dimen>
+    <dimen name="toutGuideSignUpTopic1MarginTop">35dp</dimen>
+    <dimen name="travlerResgistrationF1MarginTop">20dp</dimen>
+    <dimen name="trvelerRegistrationFMarginTop">8dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="travelerSignUpPageF8MarginTop">20dp</dimen>
+    <dimen name="travelerSignUpPageF8MarginBottom">30dp</dimen>
+    <dimen name="SignUpPagesImageMarginTop">50dp</dimen>
+    <dimen name="BImageMarginTop">14dp</dimen>
+    <dimen name="BImageMarginLeft">14dp</dimen>
+    <dimen name="hotelOwnerImageWidth">411dp</dimen>
+    <dimen name="hotelOwnerImageHeight">247dp</dimen>
+    <dimen name="hotelOwnerSignUpTopic1MarginTop">35dp</dimen>
+    <dimen name="hotelOwnerSignUpPageF1MargnTop">20dp</dimen>
+    <dimen name="tourGuideSignUpImageWidth">411dp</dimen>
+    <dimen name="tourGuideSignUpHegiht">333dp</dimen>
+    <dimen name="tourGuideRegistrationF1MarginTop" >20dp</dimen>
+
+</resources>

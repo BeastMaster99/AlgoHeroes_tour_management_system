@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/signInageImageWidth"
+        android:layout_height="@dimen/signInPageImageHeight"
+        android:contentDescription="@string/signInPageImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_login" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signInPageTopicTopMargin"
+        android:text="@string/signInPageTopic"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="@dimen/ButtonWidth"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="@dimen/signInPageInput1TopMargin"
+        android:background="@drawable/rounded_button"
+        android:ems="10"
+        android:fontFamily="@font/font4"
+        android:gravity="center"
+        android:hint="@string/signInPageInput1"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="@color/edit_text_color"
+        android:textSize="20sp"
+        app:backgroundTint="@color/inputField_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="@dimen/ButtonWidth"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="@dimen/signInPageinput2"
+        android:background="@drawable/rounded_button"
+        android:ems="10"
+        android:fontFamily="@font/font4"
+        android:gravity="center"
+        android:hint="@string/signInPageInput2"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textColor="@color/edit_text_color"
+        android:textSize="20sp"
+        app:backgroundTint="@color/inputField_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="@dimen/ButtonWidth"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="@dimen/signInPageButton"
+        android:background="@drawable/rounded_button"
+        android:text="@string/signInButton"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/theme_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signInPageTextMarginTop"
+        android:fontFamily="@font/font4"
+        android:text="@string/signInPageText"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInButton" />
+
+    <TextView
+        android:id="@+id/createAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signInPageTextMarginTop"
+        android:fontFamily="@font/font4"
+        android:text="@string/signInPageCreateAcc"
+        android:textColor="@color/theme_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/signInButton"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/signUpageImageWidth"
+        android:layout_height="@dimen/signUpPageImageHeight"
+        android:layout_marginTop="@dimen/signUpPageImageTopMargin"
+        android:contentDescription="@string/signUpPageImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_signup" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signUpPageTopicTopMargin"
+        android:text="@string/signUppageTopic"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/buttonTraveler"
+        android:layout_width="@dimen/ButtonWidth"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="@dimen/signUpButton1MarginTop"
+        android:background="@drawable/rounded_button"
+        android:text="@string/signUpPageButton1"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/theme_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/buttonHotelOwner"
+        android:layout_width="@dimen/ButtonWidth"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="@dimen/signUpPageButton2TopMargin"
+        android:background="@drawable/rounded_button"
+        android:text="@string/signUpPageButton2"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/theme_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTraveler"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/buttonTourGuide"
+        android:layout_width="@dimen/ButtonWidth"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="@dimen/signUpPageButton3TopMargin"
+        android:background="@drawable/rounded_button"
+        android:text="@string/signUpPageButton3"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/theme_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHotelOwner"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signUpPageTextMarginTop"
+        android:fontFamily="@font/font4"
+        android:text="@string/signUpPageText"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTourGuide" />
+
+    <TextView
+        android:id="@+id/signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signUpPageTextMarginTop"
+        android:fontFamily="@font/font4"
+        android:text="@string/signUpPageSignIn"
+        android:textColor="@color/theme_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTourGuide"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
