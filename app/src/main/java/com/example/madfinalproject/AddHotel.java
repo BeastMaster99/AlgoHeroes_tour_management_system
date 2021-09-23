@@ -4,48 +4,107 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.chip.Chip;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.UUID;
 
 
 public class AddHotel extends AppCompatActivity {
 
+    DatabaseReference databaseReference;
+    StorageReference storageReference;
+
     ArrayList<Uri> imageURIs = new ArrayList<>();
 
     TextView title;
+    EditText hotelName, hotelAddress, hotelContact, hotelDescription, hotelCity;
     ImageView imageBack, hotelImg1, hotelImg2, hotelImg3, hotelImg4, hotelImg5;
-    Button hotelImgUploadBtn;
+    Button hotelImgUploadBtn, hotelSubmitBtn;
+    Chip chipPetFriendly, chipFreeParking, chipBar, chipWifi, chipYoga, chipGym,
+            chipSpa, chipSalon, chipRestaurant, chipPool, chipCoffeeShop, chipAtm, chipSnackBar;
 
+    RelativeLayout mainLayout, progressBarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_hotel);
 
+        //generating a UUID for hotel id
+        String uuid = UUID.randomUUID().toString();
+
+        //getting the current hotel owner
+        SessionsHotelOwner hotelOwner = new SessionsHotelOwner(this);
+
+        HashMap<String, String> hotelOwnerDetails = hotelOwner.getHotelOwnerDetailsFromSessions();
+        String email = hotelOwnerDetails.get(SessionsHotelOwner.KEY_EMAIL);
+
         title = findViewById(R.id.actionBar);
         imageBack = findViewById(R.id.imageBack);
+
         hotelImgUploadBtn = findViewById(R.id.hotelImgUploadBtn);
+        hotelSubmitBtn = findViewById(R.id.hotelSubmitBtn);
+
+        hotelName = findViewById(R.id.hotelName);
+        hotelAddress = findViewById(R.id.hotelAddress);
+        hotelContact = findViewById(R.id.hotelContact);
+        hotelDescription = findViewById(R.id.hotelDescription);
+        hotelCity = findViewById(R.id.hotelCity);
 
         hotelImg1 = findViewById(R.id.hotelImg1);
         hotelImg2 = findViewById(R.id.hotelImg2);
         hotelImg3 = findViewById(R.id.hotelImg3);
         hotelImg4 = findViewById(R.id.hotelImg4);
         hotelImg5 = findViewById(R.id.hotelImg5);
+
+        chipPetFriendly = findViewById(R.id.chipPetFriendly);
+        chipFreeParking = findViewById(R.id.chipFreeParking);
+        chipBar = findViewById(R.id.chipBar);
+        chipWifi = findViewById(R.id.chipWifi);
+        chipYoga = findViewById(R.id.chipYoga);
+        chipGym = findViewById(R.id.chipGym);
+        chipSpa = findViewById(R.id.chipSpa);
+        chipSalon = findViewById(R.id.chipSalon);
+        chipPool = findViewById(R.id.chipPool);
+        chipAtm = findViewById(R.id.chipAtm);
+        chipSnackBar = findViewById(R.id.chipSnackBar);
+        chipRestaurant = findViewById(R.id.chipRestaurant);
+        chipCoffeeShop = findViewById(R.id.chipCoffeeShop);
+
+        mainLayout = findViewById(R.id.mainLayout);
+        progressBarLayout = findViewById(R.id.progressBarLayout);
 
         //setting the activity title
         title.setText(R.string.hotel_activity_topic);
@@ -65,8 +124,8 @@ public class AddHotel extends AppCompatActivity {
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
+                            assert result.getData() != null;
                             ClipData clipData = result.getData().getClipData();
-
 
                             //if multiple images were selected
                             if (clipData != null) {
@@ -247,6 +306,130 @@ public class AddHotel extends AppCompatActivity {
             }
         });
 
+        //creating the submit handler
+        hotelSubmitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainLayout.setVisibility(View.GONE);
+                progressBarLayout.setVisibility(View.VISIBLE);
+
+                databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+                storageReference = FirebaseStorage.getInstance().getReference();
+
+                ArrayList<String> amenities = new ArrayList<>();
+
+                if (chipPetFriendly.isChecked()) {
+                    amenities.add("Pet Friendly");
+                }
+                if (chipFreeParking.isChecked()) {
+                    amenities.add("Free Parking");
+                }
+                if (chipBar.isChecked()) {
+                    amenities.add("Bar");
+                }
+                if (chipWifi.isChecked()) {
+                    amenities.add("Wi-Fi");
+                }
+                if (chipYoga.isChecked()) {
+                    amenities.add("Yoga");
+                }
+                if (chipGym.isChecked()) {
+                    amenities.add("Gym");
+                }
+                if (chipSpa.isChecked()) {
+                    amenities.add("Spa");
+                }
+                if (chipSalon.isChecked()) {
+                    amenities.add("Salon");
+                }
+                if (chipRestaurant.isChecked()) {
+                    amenities.add("Restaurant");
+                }
+                if (chipPool.isChecked()) {
+                    amenities.add("Pool");
+                }
+                if (chipCoffeeShop.isChecked()) {
+                    amenities.add("Coffee Shop");
+                }
+                if (chipAtm.isChecked()) {
+                    amenities.add("ATM");
+                }
+                if (chipSnackBar.isChecked()) {
+                    amenities.add("Snack Bar");
+                }
+
+                Hotel hotel = new Hotel();
+
+                hotel.setName(hotelName.getText().toString());
+                hotel.setOwner(email);
+                hotel.setAddress((hotelAddress.getText().toString()));
+                hotel.setContact(hotelContact.getText().toString());
+                hotel.setDescription((hotelDescription.getText().toString()));
+                hotel.setCity(hotelCity.getText().toString());
+                hotel.setAmenities((amenities));
+
+                databaseReference.child("Hotels").child(uuid).setValue(hotel).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddHotel.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                //uploading images to fire based storage
+                if (imageURIs.size() != 0) {
+                    for (int i = 0; i < imageURIs.size(); i++) {
+                        String uuidForImg = UUID.randomUUID().toString();
+                        StorageReference newStorageRef = storageReference.child("Hotel_Images").child(uuidForImg + "." + getImgExtension(imageURIs.get(i)));
+
+                        newStorageRef.putFile(imageURIs.get(i))
+                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                        String id = UUID.randomUUID().toString();
+
+                                        //without onSuccess listener URI cannot be grabbed as the method id async
+                                        //Objects.requireNonNull is used to handle Null Pointer exception as getReference and getDownloadUrl could throw them.
+                                        Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                databaseReference
+                                                        .child("Hotels")
+                                                        .child(uuid).child("images")
+                                                        .child(id)
+                                                        .setValue(uri.toString());
+                                            }
+                                        });
+
+                                    }
+
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(AddHotel.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    }
+                }
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(AddHotel.this, HotelOwnerMainView.class);
+                        startActivity(intent);
+                    }
+                }, 20000);
+            }
+
+
+        });
+
     }
 
+    private String getImgExtension(Uri uri) {
+        ContentResolver resolver = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(resolver.getType(uri));
+    }
 }

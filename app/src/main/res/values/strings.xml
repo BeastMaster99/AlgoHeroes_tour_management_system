@@ -91,5 +91,7 @@
     <string name="hotel_img3_desc">hotel Image 3</string>
     <string name="hotel_img4_desc">hotel Image 4</string>
     <string name="hotel_img5_desc">hotel Image 5</string>
+    <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
+    <string name="chooseImgCount">Choose Up To 5 Images</string>
     <!--Benuka Strings end-->
 </resources>

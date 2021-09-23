@@ -19,6 +19,7 @@ tools:context=".AddHotel">
     android:fillViewport="true">
 
     <RelativeLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -302,7 +303,7 @@ tools:context=".AddHotel">
             android:layout_height="wrap_content"
             android:layout_below="@+id/hotelCity"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/rounded_button"
             android:gravity="center"
             android:padding="11dp"
@@ -312,11 +313,20 @@ tools:context=".AddHotel">
             android:textSize="20sp"
             app:backgroundTint="@color/inputField_color" />
 
+        <TextView
+            android:id="@+id/maxImgPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hotelImgUploadBtn"
+            android:text="@string/chooseImgCount"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"/>
+
         <LinearLayout
             android:id="@+id/hotelImgContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/hotelImgUploadBtn"
+            android:layout_below="@+id/maxImgPrompt"
             android:orientation="vertical">
 
             <ImageView
@@ -372,6 +382,7 @@ tools:context=".AddHotel">
 
 
         <Button
+            android:id="@+id/hotelSubmitBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/hotelImgContainer"
@@ -391,5 +402,35 @@ tools:context=".AddHotel">
     </RelativeLayout>
 
 </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/progressBarLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone">
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/hotelUploadProgress"
+            android:layout_below="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
