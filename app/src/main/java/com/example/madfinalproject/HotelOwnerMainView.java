@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -100,6 +101,10 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
             case R.id.HOSignOut:
                 SessionsHotelOwner sessions = new SessionsHotelOwner(HotelOwnerMainView.this);
                 sessions.hotelOwnerLogout();
+                break;
+            case R.id.HOAddHotel:
+                Intent intent = new Intent(HotelOwnerMainView.this, AddHotel.class);
+                startActivity(intent);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
