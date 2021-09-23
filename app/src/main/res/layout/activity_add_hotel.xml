@@ -35,8 +35,10 @@ tools:context=".AddHotel">
             android:hint="@string/hotel_name"
             android:inputType="text"
             android:padding="20dp"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/edit_text_color"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/hotelAddress"
@@ -51,7 +53,9 @@ tools:context=".AddHotel">
             android:inputType="text"
             android:padding="20dp"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/hotelContact"
@@ -66,7 +70,9 @@ tools:context=".AddHotel">
             android:inputType="text"
             android:padding="20dp"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/amenitiesTitle"
@@ -87,7 +93,7 @@ tools:context=".AddHotel">
             android:layout_height="wrap_content"
             android:layout_below="@+id/amenitiesTitle">
 
-            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -270,7 +276,9 @@ tools:context=".AddHotel">
             android:minLines="12"
             android:padding="20dp"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck,TextContrastCheck"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/hotelCity"
@@ -285,7 +293,8 @@ tools:context=".AddHotel">
             android:inputType="text"
             android:padding="20dp"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/hotelImgUploadBtn"
@@ -316,7 +325,8 @@ tools:context=".AddHotel">
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:contentDescription="@string/hotel_img1_desc" />
 
             <ImageView
                 android:id="@+id/hotelImg2"
@@ -325,7 +335,8 @@ tools:context=".AddHotel">
                 android:layout_marginTop="7dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:contentDescription="@string/hotel_img2_desc"/>
 
             <ImageView
                 android:id="@+id/hotelImg3"
@@ -334,7 +345,8 @@ tools:context=".AddHotel">
                 android:layout_marginTop="7dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:contentDescription="@string/hotel_img3_desc"/>
 
             <ImageView
                 android:id="@+id/hotelImg4"
@@ -343,7 +355,8 @@ tools:context=".AddHotel">
                 android:layout_marginTop="7dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:contentDescription="@string/hotel_img4_desc"/>
 
             <ImageView
                 android:id="@+id/hotelImg5"
@@ -352,7 +365,8 @@ tools:context=".AddHotel">
                 android:layout_marginTop="7dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:contentDescription="@string/hotel_img5_desc"/>
 
         </LinearLayout>
 

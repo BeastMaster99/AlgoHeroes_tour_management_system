@@ -86,5 +86,10 @@
     <string name="hotel_description">Description</string>
     <string name="hotel_city">City</string>
     <string name="hotel_image_select">Select Images</string>
+    <string name="hotel_img1_desc">hotel Image 1</string>
+    <string name="hotel_img2_desc">hotel Image 2</string>
+    <string name="hotel_img3_desc">hotel Image 3</string>
+    <string name="hotel_img4_desc">hotel Image 4</string>
+    <string name="hotel_img5_desc">hotel Image 5</string>
     <!--Benuka Strings end-->
 </resources>
