@@ -63,5 +63,35 @@
     <string name="homeActionBarContent">Your Hotels</string>
     <string name="actionBarTitle">MAD UI</string>
 
-
+    <!--Benuka Strings Start-->
+    <string name="hotel_activity_topic">Add Hotel</string>
+    <string name="dummy_title">Title</string>
+    <string name="hotel_name">Name</string>
+    <string name="hotel_address">Address</string>
+    <string name="hotel_contact">Contact Number</string>
+    <string name="amenities_title">Choose Amenities</string>
+    <string name="pet_friendly">Pet Friendly</string>
+    <string name="free_parking">Free Parking</string>
+    <string name="Bar">Bar</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="yoga">Yoga</string>
+    <string name="gym">Gym</string>
+    <string name="spa">Spa</string>
+    <string name="salon">Salon</string>
+    <string name="Restaurant">Restaurant</string>
+    <string name="pool">Pool</string>
+    <string name="coffee_shop">Coffee Shop</string>
+    <string name="atm">ATM</string>
+    <string name="snack_bar">Snack Bar</string>
+    <string name="hotel_description">Description</string>
+    <string name="hotel_city">City</string>
+    <string name="hotel_image_select">Select Images</string>
+    <string name="hotel_img1_desc">hotel Image 1</string>
+    <string name="hotel_img2_desc">hotel Image 2</string>
+    <string name="hotel_img3_desc">hotel Image 3</string>
+    <string name="hotel_img4_desc">hotel Image 4</string>
+    <string name="hotel_img5_desc">hotel Image 5</string>
+    <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
+    <string name="chooseImgCount">Choose Up To 5 Images</string>
+    <!--Benuka Strings end-->
 </resources>
