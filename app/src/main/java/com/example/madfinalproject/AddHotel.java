@@ -35,6 +35,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -57,19 +62,31 @@ public class AddHotel extends AppCompatActivity {
 
     RelativeLayout mainLayout, progressBarLayout;
 
+    //Creating the paypal configurations
+    private final static PayPalConfiguration payPalConfiguration = new PayPalConfiguration()
+            .environment(PayPalConfiguration.ENVIRONMENT_NO_NETWORK)
+            .clientId(PayPal.paypalClientID);
+
+    String uuid, email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_hotel);
 
         //generating a UUID for hotel id
-        String uuid = UUID.randomUUID().toString();
+        uuid = UUID.randomUUID().toString();
 
         //getting the current hotel owner
         SessionsHotelOwner hotelOwner = new SessionsHotelOwner(this);
 
         HashMap<String, String> hotelOwnerDetails = hotelOwner.getHotelOwnerDetailsFromSessions();
-        String email = hotelOwnerDetails.get(SessionsHotelOwner.KEY_EMAIL);
+        email = hotelOwnerDetails.get(SessionsHotelOwner.KEY_EMAIL);
+
+        //Starting the paypal service
+        Intent intent = new Intent(this, PayPalService.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
+        startService(intent);
 
         title = findViewById(R.id.actionBar);
         imageBack = findViewById(R.id.imageBack);
@@ -306,11 +323,46 @@ public class AddHotel extends AppCompatActivity {
             }
         });
 
+        //activity launcher for payment gateway
+        ActivityResultLauncher<Intent> onStartActivityResultLauncherForPaymentGateway = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Toast.makeText(AddHotel.this, "Payment Successful", Toast.LENGTH_SHORT).show();
+                            uploadHotel();
+                        } else {
+                            Toast.makeText(AddHotel.this, "Payment Unsuccessful", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
         //creating the submit handler
         hotelSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainLayout.setVisibility(View.GONE);
+                PayPalPayment payment = new PayPalPayment(new BigDecimal(10), "USD", "Hotel Registration Payment", PayPalPayment.PAYMENT_INTENT_SALE);
+                Intent intent = new Intent(AddHotel.this, PaymentActivity.class);
+                intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
+                intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+                onStartActivityResultLauncherForPaymentGateway.launch(intent);
+            }
+
+
+        });
+
+    }
+
+    private String getImgExtension(Uri uri) {
+        ContentResolver resolver = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(resolver.getType(uri));
+    }
+
+    private void uploadHotel(){
+                        mainLayout.setVisibility(View.GONE);
                 progressBarLayout.setVisibility(View.VISIBLE);
 
                 databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
@@ -420,16 +472,11 @@ public class AddHotel extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }, 20000);
-            }
-
-
-        });
-
     }
 
-    private String getImgExtension(Uri uri) {
-        ContentResolver resolver = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(resolver.getType(uri));
+    @Override
+    protected void onDestroy(){
+        stopService(new Intent(this, PayPalService.class));
+        super.onDestroy();
     }
 }
