@@ -5,13 +5,17 @@ public class Users {
     private String lastname;
     private String email;
     private String contactnumber;
+    private String birthDay;
     private String password;
 
-    public Users(String firstname, String lastname, String email, String contactnumber, String password) {
+
+
+    public Users(String firstname, String lastname, String email, String contactnumber, String birthDay, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.contactnumber = contactnumber;
+        this.birthDay = birthDay;
         this.password = password;
     }
 
@@ -45,6 +49,14 @@ public class Users {
 
     public void setContactnumber(String contactnumber) {
         this.contactnumber = contactnumber;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
     }
 
 

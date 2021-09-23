@@ -144,7 +144,7 @@
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="TextContrastCheck" />
 
-        <EditText
+        <Button
             android:id="@+id/birthdayTraveler"
             android:layout_width="@dimen/ButtonWidth"
             android:layout_height="@dimen/ButtonHeight"
@@ -155,6 +155,7 @@
             android:gravity="center"
             android:hint="@string/travelerRegistrationF5"
             android:importantForAutofill="no"
+            android:letterSpacing="0"
             android:inputType="date"
             android:textColor="@color/edit_text_color"
             android:textSize="20sp"
@@ -169,7 +170,7 @@
             android:id="@+id/passwordTraveler"
             android:layout_width="@dimen/ButtonWidth"
             android:layout_height="@dimen/ButtonHeight"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/rounded_button"
             android:ems="10"
             android:fontFamily="@font/font4"

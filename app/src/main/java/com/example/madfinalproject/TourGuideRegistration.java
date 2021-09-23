@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,9 +24,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 public class TourGuideRegistration extends AppCompatActivity {
     //Creating object to access firebase
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+
+    int year;
+    int month;
+    int day;
+    DatePickerDialog.OnDateSetListener listener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +56,32 @@ public class TourGuideRegistration extends AppCompatActivity {
         EditText lastNameTourGuide = findViewById(R.id.lastNameTourGuide);
         EditText emailTourGuide= findViewById(R.id.emailTourGuide);
         EditText contactTourGuide = findViewById(R.id.contactTourGuide);
-        TextView birthDayTourGuide = findViewById(R.id.birthdayTourGuide);
+        Button birthDayTourGuide = findViewById(R.id.birthdayTourGuide);
         EditText passwordTourGuide = findViewById(R.id.passwordTourGuide);
         EditText reEnterPasswordTourGuide = findViewById(R.id.reEnterPasswordTourGuide);
         Button signUpTourGuide = findViewById(R.id.signUpTourGuide);
+
+        //Creating calender and select date listener for birthday
+        Calendar calendar = Calendar.getInstance();
+        birthDayTourGuide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(TourGuideRegistration.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,listener,year,month,day);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+        listener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dateOdMonth) {
+                month = month + 1;
+                String date = dateOdMonth + "/" + month + "/" + year;
+                birthDayTourGuide.setText(date);
+            }
+        };
 
 
         signUpTourGuide.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +215,7 @@ public class TourGuideRegistration extends AppCompatActivity {
 //                                                databaseReference.child("TourGuide").child(email).child("Contact Number").setValue(contactText);
 //                                                databaseReference.child("TourGuide").child(email).child("Password").setValue(passwordText);
 
-                                                Users tourGuide = new Users(firstNameText, lastNameText, email, contactText, passwordText);
+                                                Users tourGuide = new Users(firstNameText, lastNameText, email, contactText, birthdayText, passwordText);
                                                 databaseReference.child("Tour Guide").child(email).setValue(tourGuide);
 
                                                 //Sendin toast to user to tell signUp is successfully
