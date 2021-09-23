@@ -187,6 +187,7 @@ public class HotelOwnerRegistration extends AppCompatActivity {
                                                         Users hotelOwner = new Users(firstNameText, lastNameText, email, contactText, passwordText);
                                                         databaseReference.child("Hotel Owner").child(email).setValue(hotelOwner);
 
+
                                                         //Sendin toast to user to tell signUp is successfully
                                                         Toast.makeText(HotelOwnerRegistration.this, "Successfully SignUp as a Hotel Owner", Toast.LENGTH_SHORT).show();
                                                         Intent intent2 = new Intent(HotelOwnerRegistration.this, SignIn.class); //Redirect user to the login page

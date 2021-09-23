@@ -173,15 +173,16 @@ public class TourGuideRegistration extends AppCompatActivity {
 
                                             } else {
 
+
                                                 //Sending data to the data base
-//                                                databaseReference.child("TourGuide").child(email).child("Email").setValue(email);
+//                                               databaseReference.child("TourGuide").child(email).child("Email").setValue(email);
 //                                                databaseReference.child("TourGuide").child(email).child("First Name").setValue(firstNameText);
 //                                                databaseReference.child("TourGuide").child(email).child("Last Name").setValue(lastNameText);
 //                                                databaseReference.child("TourGuide").child(email).child("Contact Number").setValue(contactText);
 //                                                databaseReference.child("TourGuide").child(email).child("Password").setValue(passwordText);
 
-                                                Users hotelOwner = new Users(firstNameText, lastNameText, email, contactText, passwordText);
-                                                databaseReference.child("Tour Guide").child(email).setValue(hotelOwner);
+                                                Users tourGuide = new Users(firstNameText, lastNameText, email, contactText, passwordText);
+                                                databaseReference.child("Tour Guide").child(email).setValue(tourGuide);
 
                                                 //Sendin toast to user to tell signUp is successfully
                                                 Toast.makeText(TourGuideRegistration.this, "Successfully SignUp as a Tour Guide", Toast.LENGTH_SHORT).show();

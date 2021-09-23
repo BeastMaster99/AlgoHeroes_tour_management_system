@@ -174,6 +174,7 @@ public class TravelerRegistration extends AppCompatActivity {
 
                                                     } else {
 
+
                                                         //Sending data to the data base
 //                                                        databaseReference.child("Traveler").child(email).child("Email").setValue(email);
 //                                                        databaseReference.child("Traveler").child(email).child("First Name").setValue(firstNameText);
