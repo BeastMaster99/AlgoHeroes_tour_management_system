@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,6 +96,11 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
                 SessionsTourGuide sessionsTourGuide = new SessionsTourGuide(TourGuideMainView.this);
                 sessionsTourGuide.tourGuideLogout();
                 break;
+            case R.id.TGAddAttractions:
+                Intent intent = new Intent(TourGuideMainView.this, addTouristAttraction.class);
+                startActivity(intent);
+                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

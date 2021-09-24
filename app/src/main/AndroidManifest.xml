@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
         <activity
+            android:name=".addTouristAttraction"
+            android:exported="true" />
+        <activity
             android:name=".TravelerMainView"
             android:exported="true" />
         <activity
