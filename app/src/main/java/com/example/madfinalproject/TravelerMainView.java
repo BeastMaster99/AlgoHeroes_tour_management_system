@@ -9,9 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
+
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +53,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         toolbar = findViewById(R.id.TR_home_action_bar);
 
         recyclerView = findViewById(R.id.hotelsRecView);
+
 
         setSupportActionBar(toolbar);//adding the action bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);//Disabling the default title
@@ -135,8 +141,13 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.TRSignOut:
-                SessionsTraveler sessionsTraveler = new SessionsTraveler(TravelerMainView.this);
-                sessionsTraveler.travelerLogout();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        SessionsTraveler sessionsTraveler = new SessionsTraveler(TravelerMainView.this);
+                        sessionsTraveler.travelerLogout();
+                    }
+                }, 250);
                 break;
 
         }

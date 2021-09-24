@@ -63,6 +63,13 @@
     <string name="homeActionBarContent">Your Hotels</string>
     <string name="actionBarTitle">MAD UI</string>
 
+
+    <string name="hotelBookPageF1">"Check in Date "</string>
+    <string name="hotelBookPageF2">Check Out Date</string>
+    <string name="hotelBookPageNUM">Number of Rooms</string>
+    <string name="hotelBookPageF3">Extra Details(If Required)</string>
+    <string name="hoteBookPagePRButton">Proceed</string>
+
     <!--Benuka Strings Start-->
     <string name="hotel_activity_topic">Add Hotel</string>
     <string name="dummy_title">Title</string>
