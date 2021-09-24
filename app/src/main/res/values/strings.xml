@@ -95,5 +95,15 @@
     <string name="chooseImgCount">Choose Up To 5 Images</string>
     <string name="traveler_hotel_title">Explore Hotels</string>
     <string name="hotel_detail_title">Hotel Details</string>
+    <string name="visit_btn">Visit</string>
+    <string name="reservation_btn">Make a Reservation</string>
+    <string name="dis_hotel_rating">Rating</string>
+    <string name="dis_hotel_amenities">Amenities</string>
+    <string name="dis_hotel_Address">Address</string>
+    <string name="dis_hotel_Contact">Contact</string>
+    <string name="dis_hotel_City">City</string>
+    <string name="dis_hotel_desc">Description</string>
+    <string name="review_btn">Write a Review</string>
+    <string name="user_review_title">User Reviews</string>
     <!--Benuka Strings end-->
 </resources>

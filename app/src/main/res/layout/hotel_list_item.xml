@@ -63,7 +63,7 @@
                 android:background="@drawable/rounded_button"
                 android:paddingStart="45dp"
                 android:paddingEnd="45dp"
-                android:text="@string/dummy_title"
+                android:text="@string/visit_btn"
                 android:textAllCaps="false"
                 android:textSize="18sp"
                 android:textStyle="bold"
