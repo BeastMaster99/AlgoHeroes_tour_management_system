@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,6 +96,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                 SessionsTraveler sessionsTraveler = new SessionsTraveler(TravelerMainView.this);
                 sessionsTraveler.travelerLogout();
                 break;
+            
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
