@@ -7,7 +7,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -92,8 +94,13 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.TRSignOut:
-                SessionsTraveler sessionsTraveler = new SessionsTraveler(TravelerMainView.this);
-                sessionsTraveler.travelerLogout();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        SessionsTraveler sessionsTraveler = new SessionsTraveler(TravelerMainView.this);
+                        sessionsTraveler.travelerLogout();
+                    }
+                }, 250);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -99,12 +100,22 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
 
         switch (menuItem.getItemId()) {
             case R.id.HOSignOut:
-                SessionsHotelOwner sessions = new SessionsHotelOwner(HotelOwnerMainView.this);
-                sessions.hotelOwnerLogout();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        SessionsHotelOwner sessions = new SessionsHotelOwner(HotelOwnerMainView.this);
+                        sessions.hotelOwnerLogout();
+                    }
+                }, 250);
                 break;
             case R.id.HOAddHotel:
-                Intent intent = new Intent(HotelOwnerMainView.this, AddHotel.class);
-                startActivity(intent);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(HotelOwnerMainView.this, AddHotel.class);
+                        startActivity(intent);
+                    }
+                }, 250);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
