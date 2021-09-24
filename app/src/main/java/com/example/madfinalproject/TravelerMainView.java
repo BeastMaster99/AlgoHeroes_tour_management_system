@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.nav_menu_TR);
         title = findViewById(R.id.homeActionBarTitle);
         toolbar = findViewById(R.id.TR_home_action_bar);
+
 
 
         setSupportActionBar(toolbar);//adding the action bar
