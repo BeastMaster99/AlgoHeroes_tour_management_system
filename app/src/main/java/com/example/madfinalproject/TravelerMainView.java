@@ -6,17 +6,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Intent;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
-
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class TravelerMainView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -24,7 +31,12 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
     TextView title;
     Toolbar toolbar;
+    RecyclerView recyclerView;
 
+    ArrayList<Hotel> hotels = new ArrayList<>();
+    DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,17 +47,21 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         title = findViewById(R.id.homeActionBarTitle);
         toolbar = findViewById(R.id.TR_home_action_bar);
 
+        recyclerView = findViewById(R.id.hotelsRecView);
 
         setSupportActionBar(toolbar);//adding the action bar
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//Disabling the default title
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);//Disabling the default title
 
-        title.setText("HI");//Passing the new title
+        title.setText(R.string.traveler_hotel_title);//Passing the new title
+
+        //hotel database Ref
+        DatabaseReference hotelRef = databaseReference.child("Hotels");
 
         //Setting the header menu
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_menu_TR);
+        NavigationView navigationView = findViewById(R.id.nav_menu_TR);
         View headerView = navigationView.inflateHeaderView(R.layout.header_menu);
-        ImageView backImage = (ImageView)headerView.findViewById(R.id.backImageMenuBar);
-        TextView ownerName = (TextView)headerView.findViewById(R.id.userNameText);
+        ImageView backImage = headerView.findViewById(R.id.backImageMenuBar);
+        TextView ownerName = headerView.findViewById(R.id.userNameText);
 
         //Creating the navigation drawer
         navigationView.bringToFront();
@@ -73,7 +89,33 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         });
 
         //Setting user name in the navigation
-        ownerName.setText(firstName + " " + lastName);
+        ownerName.setText(firstName + ' ' + lastName);
+
+        //instantiating the adapter obj
+        HotelRecyclerAdapter adapter = new HotelRecyclerAdapter(this);
+        //setting hotels in the adapter class
+        adapter.setHotels(hotels);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //getting the hotels in the database
+        hotelRef.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Hotel hotel = dataSnapshot.getValue(Hotel.class);
+                    hotels.add(hotel);
+                    System.out.println(Objects.requireNonNull(hotel).getImages().size());
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -89,6 +131,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     }
 
     //To Select navigation Items
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -96,9 +139,11 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                 SessionsTraveler sessionsTraveler = new SessionsTraveler(TravelerMainView.this);
                 sessionsTraveler.travelerLogout();
                 break;
-            
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
