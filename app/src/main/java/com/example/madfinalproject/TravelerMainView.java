@@ -106,7 +106,6 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Hotel hotel = dataSnapshot.getValue(Hotel.class);
                     hotels.add(hotel);
-                    System.out.println(Objects.requireNonNull(hotel).getImages().size());
                 }
                 adapter.notifyDataSetChanged();
             }

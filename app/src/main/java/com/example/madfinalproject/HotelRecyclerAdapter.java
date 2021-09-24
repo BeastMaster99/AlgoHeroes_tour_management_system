@@ -1,9 +1,11 @@
 package com.example.madfinalproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -29,7 +31,7 @@ public class HotelRecyclerAdapter extends RecyclerView.Adapter<HotelRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //int itemPosition = holder.getAdapterPosition();
+        int itemPosition = holder.getAdapterPosition();
         holder.hotelName.setText(hotels.get(position).getName());
         holder.hotelCity.setText(hotels.get(position).getCity());
         String displayImgUrl = "";
@@ -43,6 +45,15 @@ public class HotelRecyclerAdapter extends RecyclerView.Adapter<HotelRecyclerAdap
                 .asBitmap()
                 .load(displayImgUrl)
                 .into(holder.hotelImgId);
+
+        holder.visitHotelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, HotelTravelerMainView.class);
+                intent.putExtra("hotelId", hotels.get(itemPosition).getHotelId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -57,12 +68,14 @@ public class HotelRecyclerAdapter extends RecyclerView.Adapter<HotelRecyclerAdap
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private final ImageView hotelImgId;
         private final TextView hotelName, hotelCity;
+        private final Button visitHotelBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             hotelImgId = itemView.findViewById(R.id.hotelImgId);
             hotelName = itemView.findViewById(R.id.hotelName);
             hotelCity = itemView.findViewById(R.id.hotelCity);
+            visitHotelBtn = itemView.findViewById(R.id.visitHotelBtn);
         }
     }
 }

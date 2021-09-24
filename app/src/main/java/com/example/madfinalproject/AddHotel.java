@@ -419,6 +419,7 @@ public class AddHotel extends AppCompatActivity {
                 hotel.setDescription((hotelDescription.getText().toString()));
                 hotel.setCity(hotelCity.getText().toString());
                 hotel.setAmenities((amenities));
+                hotel.setHotelId(uuid);
 
                 databaseReference.child("Hotels").child(uuid).setValue(hotel).addOnFailureListener(new OnFailureListener() {
                     @Override

@@ -94,5 +94,6 @@
     <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
     <string name="chooseImgCount">Choose Up To 5 Images</string>
     <string name="traveler_hotel_title">Explore Hotels</string>
+    <string name="hotel_detail_title">Hotel Details</string>
     <!--Benuka Strings end-->
 </resources>
