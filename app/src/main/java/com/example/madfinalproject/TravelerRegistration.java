@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,10 +24,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 public class TravelerRegistration extends AppCompatActivity {
 
     //Creating object to access firebase
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+    int year;
+    int month;
+    int day;
+    DatePickerDialog.OnDateSetListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +55,32 @@ public class TravelerRegistration extends AppCompatActivity {
         EditText lastNameTraveler = findViewById(R.id.lastNameTraveler);
         EditText emailTraveler = findViewById(R.id.emailTraveler);
         EditText contactTraveler = findViewById(R.id.contactTraveler);
-        TextView birthDayTraveler = findViewById(R.id.birthdayTraveler);
+        Button birthDayTraveler = findViewById(R.id.birthdayTraveler);
         EditText passwordTraveler = findViewById(R.id.passwordTraveler);
         EditText reEnterPasswordTraveler = findViewById(R.id.reEnterPasswordTraveler);
         Button signUpTraveler = findViewById(R.id.signUpTraveler);
+
+        //Creating calender and select date listener for birthday
+        Calendar calendar = Calendar.getInstance();
+        birthDayTraveler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(TravelerRegistration.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,listener,year,month,day);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+        listener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dateOdMonth) {
+                month = month + 1;
+                String date = dateOdMonth + "/" + month + "/" + year;
+                birthDayTraveler.setText(date);
+            }
+        };
 
 
         signUpTraveler.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +206,7 @@ public class TravelerRegistration extends AppCompatActivity {
 
                                                     } else {
 
+
                                                         //Sending data to the data base
 //                                                        databaseReference.child("Traveler").child(email).child("Email").setValue(email);
 //                                                        databaseReference.child("Traveler").child(email).child("First Name").setValue(firstNameText);
@@ -181,7 +214,7 @@ public class TravelerRegistration extends AppCompatActivity {
 //                                                        databaseReference.child("Traveler").child(email).child("Contact Number").setValue(contactText);
 //                                                        databaseReference.child("Traveler").child(email).child("Password").setValue(passwordText);
 
-                                                        Users hotelOwner = new Users(firstNameText, lastNameText, email, contactText, passwordText);
+                                                        Users hotelOwner = new Users(firstNameText, lastNameText, email, contactText, birthdayText, passwordText);
                                                         databaseReference.child("Traveler").child(email).setValue(hotelOwner);
 
                                                         //Sendin toast to user to tell signUp is successfully

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class addTouristAttraction extends AppCompatActivity {
 
     DatabaseReference databaseReference;
-    StorageReference storageReference;
+//    StorageReference storageReference;
 
     ArrayList<Uri> imageURIs = new ArrayList<>();
 
