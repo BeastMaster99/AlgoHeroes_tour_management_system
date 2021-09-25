@@ -39,7 +39,8 @@ tools:context=".AddHotel">
             android:textColor="@color/edit_text_color"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:fontFamily="@font/font4"/>
 
         <EditText
             android:id="@+id/hotelAddress"
@@ -56,7 +57,8 @@ tools:context=".AddHotel">
             android:textColor="@color/black"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:fontFamily="@font/font4"/>
 
         <EditText
             android:id="@+id/hotelContact"
@@ -73,7 +75,8 @@ tools:context=".AddHotel">
             android:textColor="@color/black"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:fontFamily="@font/font4"/>
 
         <TextView
             android:id="@+id/amenitiesTitle"
@@ -85,7 +88,8 @@ tools:context=".AddHotel">
             android:text="@string/amenities_title"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/font4"/>
 
 
         <com.google.android.material.chip.ChipGroup
@@ -112,7 +116,8 @@ tools:context=".AddHotel">
                     android:text="@string/pet_friendly"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipFreeParking"
@@ -124,7 +129,8 @@ tools:context=".AddHotel">
                     android:text="@string/free_parking"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipBar"
@@ -136,7 +142,8 @@ tools:context=".AddHotel">
                     android:text="@string/Bar"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipWifi"
@@ -148,7 +155,8 @@ tools:context=".AddHotel">
                     android:text="@string/wifi"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipYoga"
@@ -160,7 +168,8 @@ tools:context=".AddHotel">
                     android:text="@string/yoga"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipGym"
@@ -172,7 +181,8 @@ tools:context=".AddHotel">
                     android:text="@string/gym"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipSpa"
@@ -184,7 +194,8 @@ tools:context=".AddHotel">
                     android:text="@string/spa"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipSalon"
@@ -196,7 +207,8 @@ tools:context=".AddHotel">
                     android:text="@string/salon"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipRestaurant"
@@ -208,7 +220,8 @@ tools:context=".AddHotel">
                     android:text="@string/Restaurant"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipPool"
@@ -220,7 +233,8 @@ tools:context=".AddHotel">
                     android:text="@string/pool"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipCoffeeShop"
@@ -232,7 +246,8 @@ tools:context=".AddHotel">
                     android:text="@string/coffee_shop"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipAtm"
@@ -244,7 +259,8 @@ tools:context=".AddHotel">
                     android:text="@string/atm"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipSnackBar"
@@ -256,7 +272,8 @@ tools:context=".AddHotel">
                     android:text="@string/snack_bar"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
             </com.google.android.flexbox.FlexboxLayout>
 
@@ -279,7 +296,8 @@ tools:context=".AddHotel">
             android:textColor="@color/black"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck,TextContrastCheck"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:fontFamily="@font/font4"/>
 
         <EditText
             android:id="@+id/hotelCity"
@@ -295,7 +313,8 @@ tools:context=".AddHotel">
             android:padding="20dp"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:fontFamily="@font/font4"/>
 
         <Button
             android:id="@+id/hotelImgUploadBtn"
@@ -311,7 +330,8 @@ tools:context=".AddHotel">
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:backgroundTint="@color/inputField_color" />
+            app:backgroundTint="@color/inputField_color"
+            android:fontFamily="@font/font4"/>
 
         <TextView
             android:id="@+id/maxImgPrompt"
@@ -320,7 +340,8 @@ tools:context=".AddHotel">
             android:layout_below="@id/hotelImgUploadBtn"
             android:text="@string/chooseImgCount"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/font4"/>
 
         <LinearLayout
             android:id="@+id/hotelImgContainer"
@@ -396,7 +417,8 @@ tools:context=".AddHotel">
             android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:backgroundTint="@color/theme_color" />
+            app:backgroundTint="@color/theme_color"
+            android:fontFamily="@font/font4"/>
 
 
     </RelativeLayout>

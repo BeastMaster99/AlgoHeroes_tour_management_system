@@ -43,7 +43,8 @@
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:id="@+id/hotelCity"
@@ -51,7 +52,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:fontFamily="@font/font4"/>
 
             </LinearLayout>
 
@@ -68,7 +70,8 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:backgroundTint="@color/theme_color"
-                tools:ignore="RelativeOverlap" />
+                tools:ignore="RelativeOverlap"
+                android:fontFamily="@font/font4"/>
 
         </RelativeLayout>
 

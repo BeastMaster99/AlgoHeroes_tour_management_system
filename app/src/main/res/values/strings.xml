@@ -112,7 +112,7 @@
     <string name="dis_hotel_desc">Description</string>
     <string name="review_btn">Write a Review</string>
     <string name="user_review_title">User Reviews</string>
-    <string name="hotel_pkg_manage_title">Manage Room Packages</string>
+    <string name="hotel_pkg_manage_title">Room Packages</string>
     <string name="hotel_edit_title">Edit Details</string>
     <string name="hotel_delete_title">Delete Hotel</string>
     <!--Benuka Strings end-->
