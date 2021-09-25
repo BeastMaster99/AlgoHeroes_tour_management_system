@@ -421,7 +421,6 @@ tools:context=".AddHotel">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:text="@string/hotelUploadProgress"
             android:layout_below="@+id/progressBar"
             android:layout_centerHorizontal="true"

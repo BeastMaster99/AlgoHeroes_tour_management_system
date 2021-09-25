@@ -1,8 +1,10 @@
 package com.example.madfinalproject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Hotel {
+    private String hotelId;
     private String name;
     private String owner;
     private String address;
@@ -10,11 +12,13 @@ public class Hotel {
     private String description;
     private String city;
     private ArrayList<String> amenities;
+    private HashMap<String, String> images;
 
     public Hotel() {
     }
 
-    public Hotel(String name, String owner, String address, String contact, String description, String city, ArrayList<String> amenities) {
+    public Hotel(String hotelId, String name, String owner, String address, String contact, String description, String city, ArrayList<String> amenities, HashMap<String, String> images) {
+        this.hotelId = hotelId;
         this.name = name;
         this.owner = owner;
         this.address = address;
@@ -22,6 +26,15 @@ public class Hotel {
         this.description = description;
         this.city = city;
         this.amenities = amenities;
+        this.images = images;
+    }
+
+    public String getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
     }
 
     public String getName() {
@@ -78,5 +91,13 @@ public class Hotel {
 
     public void setAmenities(ArrayList<String> amenities) {
         this.amenities = amenities;
+    }
+
+    public HashMap<String, String> getImages() {
+        return images;
+    }
+
+    public void setImages(HashMap<String, String> images) {
+        this.images = images;
     }
 }

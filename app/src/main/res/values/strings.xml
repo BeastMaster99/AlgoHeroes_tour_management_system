@@ -63,6 +63,13 @@
     <string name="homeActionBarContent">Your Hotels</string>
     <string name="actionBarTitle">MAD UI</string>
 
+
+    <string name="hotelBookPageF1">"Check in Date "</string>
+    <string name="hotelBookPageF2">Check Out Date</string>
+    <string name="hotelBookPageNUM">Number of Rooms</string>
+    <string name="hotelBookPageF3">Extra Details(If Required)</string>
+    <string name="hoteBookPagePRButton">Proceed</string>
+
     <!--Benuka Strings Start-->
     <string name="hotel_activity_topic">Add Hotel</string>
     <string name="dummy_title">Title</string>
@@ -93,6 +100,18 @@
     <string name="hotel_img5_desc">hotel Image 5</string>
     <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
     <string name="chooseImgCount">Choose Up To 5 Images</string>
+    <string name="traveler_hotel_title">Explore Hotels</string>
+    <string name="hotel_detail_title">Hotel Details</string>
+    <string name="visit_btn">Visit</string>
+    <string name="reservation_btn">Make a Reservation</string>
+    <string name="dis_hotel_rating">Rating</string>
+    <string name="dis_hotel_amenities">Amenities</string>
+    <string name="dis_hotel_Address">Address</string>
+    <string name="dis_hotel_Contact">Contact</string>
+    <string name="dis_hotel_City">City</string>
+    <string name="dis_hotel_desc">Description</string>
+    <string name="review_btn">Write a Review</string>
+    <string name="user_review_title">User Reviews</string>
     <!--Benuka Strings end-->
 
     <!--Kavindu Strings Start-->

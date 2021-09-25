@@ -46,5 +46,6 @@
     <dimen name="tourGuideSignUpImageWidth">411dp</dimen>
     <dimen name="tourGuideSignUpHegiht">333dp</dimen>
     <dimen name="tourGuideRegistrationF1MarginTop" >20dp</dimen>
+    <dimen name="bookHotelPageF4Width">375dp</dimen>
 
 </resources>
