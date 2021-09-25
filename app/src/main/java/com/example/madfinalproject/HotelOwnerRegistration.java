@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,10 +24,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class HotelOwnerRegistration extends AppCompatActivity {
 
     //Creating object to access firebase
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+    int year;
+    int month;
+    int day;
+    DatePickerDialog.OnDateSetListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +58,34 @@ public class HotelOwnerRegistration extends AppCompatActivity {
         EditText lastNameHotelOwner = findViewById(R.id.lastNameHotelOwner);
         EditText emailHotelOwner = findViewById(R.id.emailHotelOwner);
         EditText contactHotelOwner = findViewById(R.id.contactHotelOwner);
-        TextView birthDayHotelOwner = findViewById(R.id.birthdayHotelOwner);
+        Button birthDayHotelOwner = findViewById(R.id.birthdayHotelOwner);
         EditText passwordHotelOwner = findViewById(R.id.passwordHotelOwner);
         EditText reEnterPasswordHotelOwner = findViewById(R.id.reEnterPasswordHotelOwner);
         Button signUpHotelOwner = findViewById(R.id.signUpHotelOwner);
 
+        //Creating calender and select date listener for birthday
+        Calendar calendar = Calendar.getInstance();
+        birthDayHotelOwner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(HotelOwnerRegistration.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,listener,year,month,day);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+        listener = new DatePickerDialog.OnDateSetListener() {
+               @Override
+               public void onDateSet(DatePicker datePicker, int year, int month, int dateOdMonth) {
+                   month = month + 1;
+                   String date = dateOdMonth + "/" + month + "/" + year;
+                   birthDayHotelOwner.setText(date);
+               }
+           };
 
-
+        //setting up a onclick listener for the signup button
         signUpHotelOwner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +97,7 @@ public class HotelOwnerRegistration extends AppCompatActivity {
                 String birthdayText = birthDayHotelOwner.getText().toString();
                 String passwordText = passwordHotelOwner.getText().toString();
                 String reEnterPasswordText = reEnterPasswordHotelOwner.getText().toString();
+
 
                 String email = encodeUserEmail(emailText);//Encoding the Email
 
@@ -184,8 +217,9 @@ public class HotelOwnerRegistration extends AppCompatActivity {
 //                                                        databaseReference.child("HotelOwner").child(email).child("Contact Number").setValue(contactText);
 //                                                        databaseReference.child("HotelOwner").child(email).child("Password").setValue(passwordText);
 
-                                                        Users hotelOwner = new Users(firstNameText, lastNameText, email, contactText, passwordText);
+                                                        Users hotelOwner = new Users(firstNameText, lastNameText, email, contactText, birthdayText, passwordText);
                                                         databaseReference.child("Hotel Owner").child(email).setValue(hotelOwner);
+
 
                                                         //Sendin toast to user to tell signUp is successfully
                                                         Toast.makeText(HotelOwnerRegistration.this, "Successfully SignUp as a Hotel Owner", Toast.LENGTH_SHORT).show();

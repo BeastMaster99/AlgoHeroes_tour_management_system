@@ -3,7 +3,10 @@ package com.example.madfinalproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,17 +19,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //creating session hotel owner object and validating the login
-        SessionsHotelOwner sessionsHotelOwner = new SessionsHotelOwner(MainActivity.this);
-        sessionsHotelOwner.checkHotelOwnerLogin();
 
-        //creating session tour guide object and validating the login
-        SessionsTourGuide sessionsTourGuide = new SessionsTourGuide(MainActivity.this);
-        sessionsTourGuide.checkTourGuideLogin();
+            //Checking weather application starting for the first time
+            SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+            boolean FirstTimeInstall = sharedPreferences.getBoolean("firstTime", true);
 
-        //creating session traveler object and validating the login
-        SessionsTraveler sessionsTraveler = new SessionsTraveler(MainActivity.this);
-        sessionsTraveler.checkTravelerGuideLogin();
+            if(FirstTimeInstall){
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("firstTime", false);
+                editor.commit();
+            } else {
+                Intent intent = new Intent(MainActivity.this, SignIn.class);
+                startActivity(intent);
+                finish();
+            }
+
 
         getStart = (Button) findViewById(R.id.landButton);
         getStart.setOnClickListener(new View.OnClickListener() {
@@ -37,5 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
+
+
+
 }
