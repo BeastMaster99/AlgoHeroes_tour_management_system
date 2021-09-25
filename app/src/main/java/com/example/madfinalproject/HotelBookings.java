@@ -3,6 +3,7 @@ package com.example.madfinalproject;
 public class HotelBookings {
     private String hotelName;
     private String hotelId;
+    private String uuid;
     private String travelerEmail;
     private String hotelOwnerEmail;
     private String travelerContactNumber;
@@ -15,9 +16,10 @@ public class HotelBookings {
     public HotelBookings() {
     }
 
-    public HotelBookings(String hotelName, String hotelId, String travelerEmail, String hotelOwnerEmail, String travelerContactNumber, String travelerFirstName, String checkInDate, String checkOutDate, String numberOfRooms, String extraDetails) {
+    public HotelBookings(String hotelName, String hotelId, String uuid, String travelerEmail, String hotelOwnerEmail, String travelerContactNumber, String travelerFirstName, String checkInDate, String checkOutDate, String numberOfRooms, String extraDetails) {
         this.hotelName = hotelName;
         this.hotelId = hotelId;
+        this.uuid = uuid;
         this.travelerEmail = travelerEmail;
         this.hotelOwnerEmail = hotelOwnerEmail;
         this.travelerContactNumber = travelerContactNumber;
@@ -26,6 +28,14 @@ public class HotelBookings {
         this.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
         this.extraDetails = extraDetails;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getHotelOwnerEmail() {

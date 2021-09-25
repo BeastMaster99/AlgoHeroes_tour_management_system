@@ -231,7 +231,7 @@ public class BookHotel extends AppCompatActivity {
 
     //Creating book hotel method (for update the database)
     private void bookHotel() {
-        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelId, travelerEmail, hotelOwnerEmail,travelerContactNumber, travelerFirstName, checkInDateText,
+        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelId, uuid,travelerEmail, hotelOwnerEmail,travelerContactNumber, travelerFirstName, checkInDateText,
                 chekOutDateText, numberOfRoomsText, extraDetailsText);
         databaseReference.child("Hotel Bookings").child(uuid).setValue(hotelBookings).addOnFailureListener(new OnFailureListener() {
             @Override
