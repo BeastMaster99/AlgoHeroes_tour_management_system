@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,18 +17,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HotelOwnerMainView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    ArrayList<Hotel> hotels = new ArrayList<>();
+    DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    TextView title, hotelOwnerName;
+    TextView title;
     Toolbar toolbar;
+
+    RecyclerView recyclerView;
 
 
     @Override
@@ -37,18 +51,31 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
         navigationView = findViewById(R.id.nav_menu);
         title = findViewById(R.id.homeActionBarTitle);
         toolbar = findViewById(R.id.home_action_bar);
-        hotelOwnerName = findViewById(R.id.text);
+
+        recyclerView = findViewById(R.id.hotelsRecViewOwner);
 
         setSupportActionBar(toolbar);//adding the action bar
         getSupportActionBar().setDisplayShowTitleEnabled(false);//Disabling the default title
 
         title.setText("Your Hotels");//Passing the new title
 
+
+        //hotel database Ref
+        DatabaseReference hotelRef = databaseReference.child("Hotels");
+
         //Setting the header menu
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_menu);
         View headerView = navigationView.inflateHeaderView(R.layout.header_menu);
         ImageView backImage = (ImageView)headerView.findViewById(R.id.backImageMenuBar);
         TextView ownerName = (TextView)headerView.findViewById(R.id.userNameText);
+
+        //creating session hotel owner object and validating the login
+        SessionsHotelOwner sessionsHotelOwner = new SessionsHotelOwner(HotelOwnerMainView.this);
+        if (sessionsHotelOwner.checkHotelOwnerLogin() == false){
+            Intent intent = new Intent(this, SignIn.class);
+            startActivity(intent);
+            finish();
+        }
 
         //Creating the navigation drawer
         navigationView.bringToFront();
@@ -65,8 +92,7 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
 
         String firstName = hotelOwnerDetails.get(SessionsHotelOwner.KEY_FIRSTNAME);
         String lastName = hotelOwnerDetails.get(SessionsHotelOwner.KEY_LASTNAME);
-
-        hotelOwnerName.setText(firstName + " " + lastName);
+        String ownerEmail = hotelOwnerDetails.get(SessionsHotelOwner.KEY_EMAIL);
 
 
         //Setting onclick listener for the back button
@@ -79,6 +105,33 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
 
         //Setting user name in the navigation
         ownerName.setText(firstName + " " + lastName);
+
+        //instantiating the adapter obj
+        HotelRecyclerAdapterOwner adapter = new HotelRecyclerAdapterOwner(this);
+        //setting hotels in the adapter class
+        adapter.setHotels(hotels);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //getting the hotels in the database
+        hotelRef.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Hotel hotel = dataSnapshot.getValue(Hotel.class);
+                    if(hotel.getOwner().equalsIgnoreCase(ownerEmail)) {
+                        hotels.add(hotel);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HotelOwnerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

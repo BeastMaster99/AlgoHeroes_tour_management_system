@@ -35,10 +35,14 @@ public class HotelTravelerMainView extends AppCompatActivity {
     TextView actionBar, hotelName, HotelRating, hotelAmenities, hotelAddress, hotelContact, hotelCity, hotelDescription;
     ImageView imageBack;
     SliderView sliderView;
+
     Button reviewBtn;
 
     RecyclerView reviewRecycleView;
     ArrayList<Review> reviews = new ArrayList<>();
+
+    Button reserveBtn;
+
 
     Hotel hotel = new Hotel();
 
@@ -73,10 +77,15 @@ public class HotelTravelerMainView extends AppCompatActivity {
                 hotelCity= findViewById(R.id.hotelCity);
                 hotelDescription= findViewById(R.id.hotelDescription);
 
+
         reviewRecycleView = findViewById(R.id.travelerReviews);
 
 
         reviewBtn = findViewById(R.id.reviewBtn);
+
+
+        reserveBtn = findViewById(R.id.reserveBtn);
+
 
         sliderView = findViewById(R.id.imageSlider);
         //instantiating the slider adapter
@@ -129,6 +138,7 @@ public class HotelTravelerMainView extends AppCompatActivity {
             }
         });
 
+
         Query reviewsQuery = databaseReference.child("Reviews").orderByChild("hotelId").equalTo(hotelId);
 
         SessionsTraveler traveler = new SessionsTraveler(this);
@@ -171,7 +181,19 @@ public class HotelTravelerMainView extends AppCompatActivity {
                 Intent intent1 = new Intent(HotelTravelerMainView.this,AddReview.class);
                 intent1.putExtra("hotelId", hotelId);
                 startActivity(intent1);
+
             }
         });
-    }
-}
+
+        reserveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HotelTravelerMainView.this, BookHotel.class);
+                intent1.putExtra("HotelId", hotelId);
+                intent1.putExtra("hotelName", hotel.getName());
+                intent1.putExtra("hotelOwnerEmail", hotel.getOwner());
+
+                startActivity(intent1);
+            }
+        });
+    }}

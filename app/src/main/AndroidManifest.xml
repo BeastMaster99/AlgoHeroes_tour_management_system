@@ -8,23 +8,28 @@
     <application
         android:name=".NotificationHelper"
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
         <activity
-
             android:name=".EditReview"
             android:exported="true" />
-
 
         <activity
             android:name=".AddReview"
             android:exported="true" />
+        <activity
+            android:name=".HotelHotelOwnerMainView"
+            android:exported="true" />
 
         <activity
             android:name=".BookHotel"
+            android:exported="true" />
+        <activity
+            android:name=".TravelerAllBookings"
             android:exported="true" />
         <activity
             android:name=".HotelTravelerMainView"

@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -39,6 +40,14 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
         getSupportActionBar().setDisplayShowTitleEnabled(false);//Disabling the default title
 
         title.setText("Attractions");//Passing the new title
+
+        //creating session tour guide object and validating the login
+        SessionsTourGuide sessionsTourGuide1 = new SessionsTourGuide(TourGuideMainView.this);
+        if (sessionsTourGuide1.checkTourGuideLogin() == false) {
+            Intent intent = new Intent(this, SignIn.class);
+            startActivity(intent);
+            finish();
+        }
 
         //Setting the header menu
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_menu_TG);
