@@ -2,20 +2,32 @@ package com.example.madfinalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class HotelHotelOwnerMainView extends AppCompatActivity {
     String hotelId;
@@ -25,8 +37,13 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
     TextView actionBar, hotelName, HotelRating, hotelAmenities, hotelAddress, hotelContact, hotelCity, hotelDescription;
     ImageView imageBack;
     SliderView sliderView;
+    Button deleteHotelBtn;
 
     Hotel hotel = new Hotel();
+
+    HashMap<String, String> images = new HashMap<>();
+    
+    DatabaseReference hotelRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +74,8 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         hotelCity = findViewById(R.id.hotelCity);
         hotelDescription = findViewById(R.id.hotelDescription);
 
+        deleteHotelBtn = findViewById(R.id.deleteHotelBtn);
+
         sliderView = findViewById(R.id.imageSlider);
         //instantiating the slider adapter
         HotelImageSliderAdapter adapter = new HotelImageSliderAdapter(this);
@@ -69,7 +88,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         sliderView.startAutoCycle();
 
         //hotel database Ref
-        DatabaseReference hotelRef = databaseReference.child("Hotels").child(hotelId);
+         hotelRef = databaseReference.child("Hotels").child(hotelId);
 
         //getting the hotels in the database
         hotelRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -99,12 +118,65 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
                     }
 
                     hotelAmenities.setText(amenities.toString());
+                    images = hotel.getImages();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(HotelHotelOwnerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //delete hotels functionality
+        deleteHotelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(HotelHotelOwnerMainView.this)
+                        .setTitle("Warning")
+                        .setMessage("This hotel will be permanently deleted! Are you sure that you want to continue?")
+                        .setCancelable(true)
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                deleteData();
+                            }
+                        })
+                        .show();
+            }
+        });
+    }
+
+    private void deleteData(){
+        StorageReference imageRef;
+        for (Map.Entry<String,String> entry : images.entrySet()){
+            imageRef = FirebaseStorage.getInstance().getReferenceFromUrl(entry.getValue());
+            imageRef.delete().addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(HotelHotelOwnerMainView.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        hotelRef.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(HotelHotelOwnerMainView.this, "Successfully Deleted the Hotel", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HotelHotelOwnerMainView.this, HotelOwnerMainView.class);
+                startActivity(intent);
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(HotelHotelOwnerMainView.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
