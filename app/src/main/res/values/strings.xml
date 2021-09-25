@@ -94,4 +94,58 @@
     <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
     <string name="chooseImgCount">Choose Up To 5 Images</string>
     <!--Benuka Strings end-->
+
+    <!--Kavindu Strings Start-->
+    <!--<string name="app_name">Add Packages</string>-->
+    <string name="name">Name</string>
+    <string name="number">Number of Guest</string>
+    <string name="price">Price per Day</string>
+    <string name="choose_room_features">Choose Room Features</string>
+    <string name="air">Air Conditioned</string>
+    <string name="housekeeping">Housekeeping</string>
+    <string name="tel">Telephone</string>
+    <string name="sofa">Sofa</string>
+    <string name="desk">Desk</string>
+    <string name="safe">Safe</string>
+    <string name="minibar">Minibar</string>
+    <string name="refrigerator">Refrigerator</string>
+    <string name="private_bathrooms">Private Bathrooms</string>
+    <string name="bottled_water">Bottled Water</string>
+    <string name="television">Television</string>
+    <string name="choose_room_types">Choose Room Types</string>
+    <string name="city_view">City View</string>
+    <string name="landmark_view">Landmark View</string>
+    <string name="family_rooms">Family Rooms</string>
+    <string name="non_smoking_rooms">Non-Smoking Rooms</string>
+    <string name="smoking_rooms">Smoking Rooms</string>
+    <string name="description">Description</string>
+    <string name="nu_of_rooms">Number of Rooms</string>
+    <string name="refundable">Refundable</string>
+    <string name="add_package">Add Package</string>
+
+    <!--Admin View Package-->
+    <!--<string name="app_name">Package Details</string>-->
+    <string name="package_name">Garden Dewlling</string>
+    <string name="guest_count">Guest Count</string>
+    <string name="guest_count_number">2</string>
+    <string name="room_features">Room Features</string>
+    <string name="sentence1">Air Conditioning, Housekeeping, Telephone, Sofa,</string>
+    <string name="sentence2">Desk, Safe, Minibar, Refrigerator, Private</string>
+    <string name="sentence3">Bathrooms, Bottled Water, Televison</string>
+    <string name="rooms_types">Room Types</string>
+    <string name="sentence4">Landmark view, Family Rooms, Smorking Rooms</string>
+    <string name="fee_per_day">Fee per Day</string>
+    <!--<string name="price">LKR 137194.00</string>
+    <string name="description">Description</string>-->
+    <string name="sentence5">Spend two night in a charming Deluxe Landmark</string>
+    <string name="sentence6">View Room and start the day with a breakfast </string>
+    <string name="sentence7">served at the restaurant.</string>
+    <string name="excellency_ratings">Excellency Ratings</string>
+    <string name="rating">9.8</string>
+    <!--<string name="refundable">Refundable</string>-->
+    <string name="yes">Yes</string>
+    <string name="edit_package">Edit Package</string>
+    <string name="delete">Delete Package</string>
+    <!--End-->
+    <!--Kavindu String End-->
 </resources>

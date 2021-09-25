@@ -51,12 +51,12 @@ tools:context=".AddHotel">
             android:backgroundTint="@color/inputField_color"
             android:gravity="center"
             android:hint="@string/hotel_address"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:padding="20dp"
             android:textColor="@color/black"
             android:textSize="20sp"
-            tools:ignore="TextContrastCheck"
-            android:importantForAutofill="no" />
+            tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/hotelContact"
@@ -273,13 +273,13 @@ tools:context=".AddHotel">
             android:backgroundTint="@color/inputField_color"
             android:gravity="center_horizontal"
             android:hint="@string/hotel_description"
+            android:importantForAutofill="no"
             android:inputType="textMultiLine"
             android:minLines="12"
             android:padding="20dp"
             android:textColor="@color/black"
             android:textSize="20sp"
-            tools:ignore="TextContrastCheck,TextContrastCheck"
-            android:importantForAutofill="no" />
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
 
         <EditText
             android:id="@+id/hotelCity"
@@ -291,11 +291,11 @@ tools:context=".AddHotel">
             android:backgroundTint="@color/inputField_color"
             android:gravity="center"
             android:hint="@string/hotel_city"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:padding="20dp"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:importantForAutofill="no" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/hotelImgUploadBtn"
