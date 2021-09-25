@@ -62,9 +62,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="homeActionBarContent">Your Hotels</string>
     <string name="actionBarTitle">MAD UI</string>
-
-<<<<<<< HEAD
-<!--    Sadeevya's and Kalpani's Strings-->
     <string name="topic">Room Packages</string>
     <string name="topicNew">Packages</string>
     <string name="image1">TODO</string>
@@ -145,6 +142,7 @@
     <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
     <string name="chooseImgCount">Choose Up To 5 Images</string>
     <string name="traveler_hotel_title">Explore Hotels</string>
+    <string name="maxImages">Select upto 5 images</string>
     <!--Benuka Strings end-->
 >>>>>>> 15482acbd8fe56216b50c40e549643ba62ccfb84
 </resources>

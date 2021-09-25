@@ -18,7 +18,7 @@
             android:id="@+id/button6"
             android:layout_width="375dp"
             android:layout_height="72dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="65dp"
             android:background="@drawable/rounded_button"
             android:fontFamily="@font/font4"
             android:text="@string/uploadImages"
@@ -33,6 +33,82 @@
             app:layout_constraintTop_toBottomOf="@+id/textView19"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="750dp"
+            android:text="@string/maxImages"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/hotelImgContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView20"
+            android:layout_marginTop="910dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/placeImg1"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="@string/hotel_img1_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/placeImg2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img2_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/placeImg3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img3_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/placeImg4"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img4_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/placeImg5"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img5_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+
 
     <Button
         android:id="@+id/button10"
@@ -86,9 +162,12 @@
         android:fontFamily="@font/font6"
         android:gravity="center_horizontal"
         android:hint="@string/box4"
+        android:textColor="@color/black"
         android:importantForAutofill="no"
-        android:inputType="textLongMessage"
+        android:inputType="textMultiLine"
+        android:minLines="11"
         android:textSize="20sp"
+        android:padding="20dp"
         app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,6 +179,7 @@
 
     <EditText
         android:id="@+id/textView12"
+        android:textColor="@color/black"
         android:layout_width="375dp"
         android:layout_height="72dp"
         android:layout_marginStart="-1dp"
@@ -107,12 +187,11 @@
         android:layout_marginBottom="400dp"
         android:background="@drawable/rounded_button_tourist"
         android:ems="10"
-        android:fontFamily="@font/font4"
+        android:fontFamily="@font/font6"
         android:gravity="center"
         android:hint="@string/box2"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:textColor="#9E9E9E"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -124,6 +203,7 @@
 
     <EditText
         android:id="@+id/textView13"
+        android:textColor="@color/black"
         android:layout_width="375dp"
         android:layout_height="72dp"
         android:layout_marginStart="-1dp"
@@ -132,12 +212,11 @@
         android:layout_marginBottom="230dp"
         android:background="@drawable/rounded_button_tourist"
         android:ems="10"
-        android:fontFamily="@font/font4"
+        android:fontFamily="@font/font6"
         android:gravity="center"
         android:hint="@string/box3"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:textColor="#9E9E9E"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,6 +228,7 @@
 
     <EditText
         android:id="@+id/textView11"
+        android:textColor="@color/black"
         android:layout_width="375dp"
         android:layout_height="72dp"
         android:layout_marginStart="-1dp"
@@ -157,12 +237,11 @@
         android:layout_marginBottom="700dp"
         android:background="@drawable/rounded_button_tourist"
         android:ems="10"
-        android:fontFamily="@font/font4"
+        android:fontFamily="@font/font6"
         android:gravity="center"
         android:hint="@string/box1name"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:textColor="#9E9E9E"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -213,6 +292,8 @@
         app:layout_constraintStart_toStartOf="@+id/toolbar4"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
