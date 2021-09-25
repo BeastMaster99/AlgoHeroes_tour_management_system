@@ -3,8 +3,10 @@ package com.example.madfinalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,20 +36,72 @@ public class EditReview extends AppCompatActivity {
 
         setContentView(R.layout.activity_edit_review);
 
+        reviewObj = new Review();
+
+        Bundle bundle = getIntent().getExtras();
+
+        reviewObj.setReviewId(bundle.getString("reviewId"));
+        reviewObj.setRateValue(bundle.getFloat("rateValue"));
+        reviewObj.setReview(bundle.getString("review"));
+        reviewObj.setHotelId(bundle.getString("hotelId"));
+        reviewObj.setTraverId(bundle.getString("traverId"));
+
         ratingBar = findViewById(R.id.ratingBar);
-        submitBtn = findViewById(R.id.submitBtn);
+        submitBtn = findViewById(R.id.editReviewBtn);
         review = findViewById(R.id.review);
 
+
+        Log.i("getReviewId", reviewObj.getReviewId());
+        Log.i("getReview", reviewObj.getReview());
+        Log.i("getTraverId", reviewObj.getTraverId());
+        Log.i("getHotelId", reviewObj.getHotelId());
+        Log.i("getRateValue", String.valueOf(reviewObj.getRateValue()));
+
+        ratingBar.setRating(reviewObj.getRateValue());
+        review.setText(reviewObj.getReview());
+
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Reviews").child("hotel_id").child("user_id_1");
+        databaseReference = firebaseDatabase.getReference("Reviews").child(reviewObj.getReviewId());
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                rateValue = ratingBar.getRating();
+            }
+        });
+
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "rateValue: " + rateValue + " review: " + review.getText(), Toast.LENGTH_LONG).show();
+                reviewObj.setReview(review.getText().toString());
+                reviewObj.setRateValue(rateValue);
+                addDatatoFirebase(reviewObj);
+                Intent intent = new Intent(view.getContext(), HotelTravelerMainView.class);
+                intent.putExtra("hotelId", reviewObj.getHotelId());
+                view.getContext().startActivity(intent);
+            }
+        });
 
 
-//        submitBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),  "rateValue: " + rateValue + " review: " + review.getText(), Toast.LENGTH_LONG).show();
-//                addDatatoFirebase(rateValue, review.getText().toString());();
-//            }
-//        });
+    }
+
+    private void addDatatoFirebase(Review review) {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                databaseReference.setValue(reviewObj);
+                Toast.makeText(EditReview.this, "Data edited", Toast.LENGTH_SHORT).show();
+
+//                Intent pass
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(EditReview.this, "Fail to edit data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

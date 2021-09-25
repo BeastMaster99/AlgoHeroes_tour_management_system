@@ -41,31 +41,30 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/imageSlider"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:orientation="vertical"
-                android:layout_below="@+id/imageSlider"
                 android:gravity="center_horizontal"
-                android:paddingBottom="50dp"
-                >
+                android:orientation="vertical"
+                android:paddingBottom="50dp">
 
                 <TextView
                     android:id="@+id/hotelName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="36sp"
-                    android:layout_marginTop="15dp"/>
+                    android:textStyle="bold" />
 
 
                 <Button
                     android:id="@+id/reserveBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginStart="60sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="60sp"
                     android:background="@drawable/rounded_button"
                     android:gravity="center"
@@ -79,129 +78,129 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dis_hotel_rating"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/HotelRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="0dp"/>
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dis_hotel_amenities"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/hotelAmenities"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="0dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dis_hotel_Address"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/hotelAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="0dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dis_hotel_Contact"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/hotelContact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="0dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dis_hotel_City"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/hotelCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="0dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dis_hotel_desc"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/hotelDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="0dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/reviewBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
                     android:layout_marginStart="60sp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginEnd="60sp"
                     android:background="@drawable/rounded_button"
                     android:gravity="center"
@@ -215,11 +214,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
                     android:text="@string/user_review_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/travelerReviews"
+                    android:layout_below="@+id/TR_home_action_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"/>
+
             </LinearLayout>
 
         </RelativeLayout>

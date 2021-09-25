@@ -109,6 +109,8 @@
     <string name="longDescription">Sigiriya is one of the most valuable historical monuments of Sri Lanka. Referred by locals as the Eighth Wonder of the World this ancient palace and fortress complex has significant archaeological importance and attracts thousands of tourists every year. It is probably the most visited tourist destination of Sri Lanka.  The palace is located in the heart of the island between the towns of Dambulla and Habarane on a massive rocky plateau 370 meters above the sea level.  Sigiriya rock plateau, formed from magma of an extinct volcano, is 200 meters higher than the surrounding jungles. Its view astonishes the visitors with the unique harmony between the nature and human imagination.  The fortress complex includes remnants of a ruined palace, surrounded by an extensive network of fortifications, vast gardens, ponds, canals, alleys and fountains.</string>
     <string name="editButton">Edit</string>
     <string name="deleteButton">Delete</string>
+    <string name="hotelUserViewPageButton3">Write a Review</string>
+    <string name="hoteluserViewDTopics1">Ratings</string>
 
 
     <string name="hotelBookPageF1">"Check in Date "</string>
@@ -116,6 +118,13 @@
     <string name="hotelBookPageNUM">Number of Rooms</string>
     <string name="hotelBookPageF3">Extra Details(If Required)</string>
     <string name="hoteBookPagePRButton">Proceed</string>
+    <string name="hoteluserViewDTopics7">User Reviews</string>
+    <string name="hoteluserViewDTopics8">You</string>
+    <string name="hoteluserViewDData7_1">The surrounding is really close to the nature. The </string>
+    <string name="hoteluserViewDData7_2">architecture of hotel too is beautiful. We chose a </string>
+    <string name="hoteluserViewDData7_3">forest villa which is spacious enough. You can </string>
+    <string name="hoteluserViewDData7_4">walk around the huge area where the hotel spans.</string>
+
 
     <!--Benuka Strings Start-->
     <string name="hotel_activity_topic">Add Hotel</string>
@@ -159,5 +168,6 @@
     <string name="dis_hotel_desc">Description</string>
     <string name="review_btn">Write a Review</string>
     <string name="user_review_title">User Reviews</string>
+    <string name="user_review_name">You</string>
     <!--Benuka Strings end-->
 </resources>

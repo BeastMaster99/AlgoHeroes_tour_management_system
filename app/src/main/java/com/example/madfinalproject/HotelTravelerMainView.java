@@ -2,9 +2,15 @@ package com.example.madfinalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,10 +18,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HotelTravelerMainView extends AppCompatActivity {
     String hotelId;
@@ -25,8 +35,14 @@ public class HotelTravelerMainView extends AppCompatActivity {
     TextView actionBar, hotelName, HotelRating, hotelAmenities, hotelAddress, hotelContact, hotelCity, hotelDescription;
     ImageView imageBack;
     SliderView sliderView;
+    Button reviewBtn;
+
+    RecyclerView reviewRecycleView;
+    ArrayList<Review> reviews = new ArrayList<>();
 
     Hotel hotel = new Hotel();
+
+    DatabaseReference reviewReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +72,11 @@ public class HotelTravelerMainView extends AppCompatActivity {
                 hotelContact= findViewById(R.id.hotelContact);
                 hotelCity= findViewById(R.id.hotelCity);
                 hotelDescription= findViewById(R.id.hotelDescription);
+
+        reviewRecycleView = findViewById(R.id.travelerReviews);
+
+
+        reviewBtn = findViewById(R.id.reviewBtn);
 
         sliderView = findViewById(R.id.imageSlider);
         //instantiating the slider adapter
@@ -105,6 +126,51 @@ public class HotelTravelerMainView extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(HotelTravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Query reviewsQuery = databaseReference.child("Reviews").orderByChild("hotelId").equalTo(hotelId);
+
+        SessionsTraveler traveler = new SessionsTraveler(this);
+
+        HashMap<String, String> travelerDetails = traveler.getTravelerDetailsFromSessions();
+        String travelerEmail = travelerDetails.get(SessionsTraveler.KEY_EMAIL);
+
+        ReviewsRecyclerAdapter reviewsAdapter = new ReviewsRecyclerAdapter(this, travelerEmail);
+        //setting hotels in the adapter class
+        reviewsAdapter.setReviews(reviews);
+        reviewRecycleView.setAdapter( reviewsAdapter );
+        reviewRecycleView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        //getting the hotels in the database
+        reviewsQuery.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.i("review", snapshot.toString());
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Review review = dataSnapshot.getValue(Review.class);
+                    reviews.add(review);
+                    Log.e("review", review.toString());
+                }
+                reviewsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HotelTravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        reviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HotelTravelerMainView.this,AddReview.class);
+                intent1.putExtra("hotelId", hotelId);
+                startActivity(intent1);
             }
         });
     }
