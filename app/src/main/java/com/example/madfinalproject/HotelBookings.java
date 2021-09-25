@@ -2,8 +2,9 @@ package com.example.madfinalproject;
 
 public class HotelBookings {
     private String hotelName;
-    private String hotelOwnerEmail;
+    private String hotelId;
     private String travelerEmail;
+    private String hotelOwnerEmail;
     private String travelerContactNumber;
     private String travelerFirstName;
     private String checkInDate;
@@ -12,19 +13,27 @@ public class HotelBookings {
     private String extraDetails;
 
     public HotelBookings() {
-
     }
 
-    public HotelBookings(String hotelName, String hotelOwnerEmail, String travelerEmail, String travelerContactNumber, String travelerFirstName, String checkInDate, String checkOutDate, String numberOfRooms, String extraDetails) {
+    public HotelBookings(String hotelName, String hotelId, String travelerEmail, String hotelOwnerEmail, String travelerContactNumber, String travelerFirstName, String checkInDate, String checkOutDate, String numberOfRooms, String extraDetails) {
         this.hotelName = hotelName;
-        this.hotelOwnerEmail = hotelOwnerEmail;
+        this.hotelId = hotelId;
         this.travelerEmail = travelerEmail;
+        this.hotelOwnerEmail = hotelOwnerEmail;
         this.travelerContactNumber = travelerContactNumber;
         this.travelerFirstName = travelerFirstName;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
         this.extraDetails = extraDetails;
+    }
+
+    public String getHotelOwnerEmail() {
+        return hotelOwnerEmail;
+    }
+
+    public void setHotelOwnerEmail(String hotelOwnerEmail) {
+        this.hotelOwnerEmail = hotelOwnerEmail;
     }
 
     public String getHotelName() {
@@ -35,12 +44,12 @@ public class HotelBookings {
         this.hotelName = hotelName;
     }
 
-    public String getHotelOwnerEmail() {
-        return hotelOwnerEmail;
+    public String getHotelId() {
+        return hotelId;
     }
 
-    public void setHotelOwnerEmail(String hotelOwnerEmail) {
-        this.hotelOwnerEmail = hotelOwnerEmail;
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
     }
 
     public String getTravelerEmail() {
@@ -100,3 +109,4 @@ public class HotelBookings {
     }
 
 }
+

@@ -11,4 +11,5 @@
     <color name="inputField_color">#D6FBE9</color>
     <color name="inputText_color">#9E9E9E</color>
     <color name="menu_background">#E5E5E5</color>
+    <color name="red">#FF0707</color>
 </resources>

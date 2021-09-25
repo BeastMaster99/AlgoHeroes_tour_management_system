@@ -70,6 +70,14 @@
     <string name="hotelBookPageF3">Extra Details(If Required)</string>
     <string name="hoteBookPagePRButton">Proceed</string>
 
+
+    <string name="travelerAllBookingsHotelName">Jetwing Vil Uyana</string>
+    <string name="travelerAllBookingsRoomType">Garden Dwelling</string>
+    <string name="travelerAllBookingsDate">25/9/2021 To 27/9/2021</string>
+    <string name="numberOfRooms">3 Rooms</string>
+    <string name="bookingUserViewEditButton">Edit</string>
+    <string name="bookingUserViewDeleteButton">Cancel</string>
+
     <!--Benuka Strings Start-->
     <string name="hotel_activity_topic">Add Hotel</string>
     <string name="dummy_title">Title</string>

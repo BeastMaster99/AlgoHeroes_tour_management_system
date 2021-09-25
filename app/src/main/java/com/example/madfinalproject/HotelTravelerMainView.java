@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class HotelTravelerMainView extends AppCompatActivity {
     TextView actionBar, hotelName, HotelRating, hotelAmenities, hotelAddress, hotelContact, hotelCity, hotelDescription;
     ImageView imageBack;
     SliderView sliderView;
+    Button reserveBtn;
 
     Hotel hotel = new Hotel();
 
@@ -56,6 +58,9 @@ public class HotelTravelerMainView extends AppCompatActivity {
                 hotelContact= findViewById(R.id.hotelContact);
                 hotelCity= findViewById(R.id.hotelCity);
                 hotelDescription= findViewById(R.id.hotelDescription);
+
+
+        reserveBtn = findViewById(R.id.reserveBtn);
 
         sliderView = findViewById(R.id.imageSlider);
         //instantiating the slider adapter
@@ -105,6 +110,17 @@ public class HotelTravelerMainView extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(HotelTravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        reserveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HotelTravelerMainView.this, BookHotel.class);
+                intent1.putExtra("HotelId", hotelId);
+                intent1.putExtra("hotelName", hotel.getName());
+                intent1.putExtra("hotelOwnerEmail", hotel.getOwner());
+                startActivity(intent1);
             }
         });
     }

@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
         <activity
+            android:name=".TravelerAllBookings"
+            android:exported="true" />
+        <activity
             android:name=".BookHotel"
             android:exported="true" />
         <activity
