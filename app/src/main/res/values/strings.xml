@@ -63,5 +63,52 @@
     <string name="homeActionBarContent">Your Hotels</string>
     <string name="actionBarTitle">MAD UI</string>
 
+    <!-- kalpani and sadeevya strings-->
+    <string name="topic">Room Packages</string>
+    <string name="topicNew">Packages</string>
+    <string name="image1">TODO</string>
+    <string name="box1">Garden Dwelling</string>
+    <string name="box1type">"2 Guests/Room "</string>
+    <!--    <string name="box1roomtype">"2 Guests/Room "</string>-->
+    <string name="box1guest">2 Guests/Room</string>
+    <string name="box1price">LKR137,194/Day</string>
+    <string name="visit">Visit</string>
+    <string name="box2type">Marsh Dwelling</string>
+    <string name="box2guest">3 Guests/Room</string>
+    <string name="box2price">LKR142,629/Day</string>
+    <string name="box3type">Paddy Dwelling</string>
+    <string name="box3guest">2 Guests/Room</string>
+    <string name="box3price">LKR151,690/Day</string>
+    <string name="rating">TODO</string>
+    <string name="string_rating">rating</string>
+    <string name="typeReview">Write Your Review</string>
+    <string name="post">Post</string>
+    <string name="review">Review</string>
+    <string name="editReview">Edit Review</string>
+    <string name="Edit">Edit</string>
+    <string name="editText">"The surrounding is really close to the nature. The architecture of hotel too is beautiful. We chose a forest villa which is spacious enough. You can walk around the huge area where the hotel spans.     "</string>
+    <string name="editR">Edit Your Review</string>
+    <string name="edit2" />
+    <string name="addTouristAttraction">Add A Tourist Attraction</string>
+    <string name="box1name">Name</string>
+    <string name="box2">Address</string>
+    <string name="box3">City</string>
+    <string name="box4">Description</string>
+    <string name="location">Select Location</string>
+    <string name="locationImage">TODO</string>
+    <string name="uploadImages">Upload Images</string>
+    <string name="addHotel">Add Hotel</string>
+    <string name="attractionDetails">Attraction Details</string>
+    <string name="sigiriya">TODO</string>
+    <string name="text1">Sigiriya Rock</string>
+    <string name="text2address">Address</string>
+    <string name="text2address2">8 Ella pahalawewa, Dambulla 21100</string>
+    <string name="text3City">City</string>
+    <string name="text3City2">Sigiriya</string>
+    <string name="text3Description">Description</string>
+    <string name="longDescription">Sigiriya is one of the most valuable historical monuments of Sri Lanka. Referred by locals as the Eighth Wonder of the World this ancient palace and fortress complex has significant archaeological importance and attracts thousands of tourists every year. It is probably the most visited tourist destination of Sri Lanka.  The palace is located in the heart of the island between the towns of Dambulla and Habarane on a massive rocky plateau 370 meters above the sea level.  Sigiriya rock plateau, formed from magma of an extinct volcano, is 200 meters higher than the surrounding jungles. Its view astonishes the visitors with the unique harmony between the nature and human imagination.  The fortress complex includes remnants of a ruined palace, surrounded by an extensive network of fortifications, vast gardens, ponds, canals, alleys and fountains.</string>
+    <string name="editButton">Edit</string>
+    <string name="deleteButton">Delete</string>
+
 
 </resources>

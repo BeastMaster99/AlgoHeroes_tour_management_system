@@ -12,6 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
         <activity
+            android:name=".EditReview"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AddReview"
+            android:exported="true" />
+
+        <activity
             android:name=".TravelerMainView"
             android:exported="true" />
         <activity
@@ -37,13 +51,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
