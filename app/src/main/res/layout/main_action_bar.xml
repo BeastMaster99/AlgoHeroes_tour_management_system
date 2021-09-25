@@ -16,7 +16,8 @@
         android:text="@string/actionBarTitle"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/font4"/>
 
 
 </androidx.appcompat.widget.Toolbar>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HotelTravelerMainView">
+    tools:context=".HotelHotelOwnerMainView">
 
     <include
         android:id="@+id/include"
@@ -41,41 +41,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/imageSlider"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:orientation="vertical"
-                android:layout_below="@+id/imageSlider"
                 android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:paddingBottom="50dp"
-                >
+                android:fontFamily="@font/font4">
 
                 <TextView
                     android:id="@+id/hotelName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="36sp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/font4"/>
-
-
-                <Button
-                    android:id="@+id/reserveBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="60sp"
-                    android:layout_marginEnd="60sp"
-                    android:background="@drawable/rounded_button"
-                    android:gravity="center"
-                    android:padding="7dp"
-                    android:text="@string/reservation_btn"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:backgroundTint="@color/theme_color"
+                    android:textStyle="bold"
                     android:fontFamily="@font/font4"/>
 
 
@@ -206,30 +188,64 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/reviewBtn"
+                    android:id="@+id/mangePkgBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
                     android:layout_marginStart="60sp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginEnd="60sp"
                     android:background="@drawable/rounded_button"
                     android:gravity="center"
                     android:padding="7dp"
-                    android:text="@string/review_btn"
+                    android:text="@string/hotel_pkg_manage_title"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:backgroundTint="@color/theme_color"
                     android:fontFamily="@font/font4"/>
 
+                <Button
+                    android:id="@+id/editHotelBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="60sp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center"
+                    android:padding="7dp"
+                    android:text="@string/hotel_edit_title"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:backgroundTint="@color/theme_color"
+                    android:fontFamily="@font/font4"/>
+
+                <Button
+                    android:id="@+id/deleteHotelBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="60sp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center"
+                    android:padding="7dp"
+                    android:text="@string/hotel_delete_title"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:backgroundTint="@color/red"
+                    android:fontFamily="@font/font4"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="35dp"
                     android:text="@string/user_review_title"
                     android:textColor="@color/black"
-                    android:layout_marginTop="15dp"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
                     android:fontFamily="@font/font4"/>
             </LinearLayout>
 
