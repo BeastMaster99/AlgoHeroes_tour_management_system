@@ -49,12 +49,13 @@ public class SessionsTraveler {
         return travelerData;
     }
 
-    public void checkTravelerGuideLogin(){
+    public boolean checkTravelerGuideLogin(){
         if (userSession.getBoolean(IS_LOGIN,false)){
-            Intent intent = new Intent(context, TravelerMainView.class);
-            context.startActivity(intent);
-
+//            Intent intent = new Intent(context, TravelerMainView.class);
+//            context.startActivity(intent);
+            return true;
         }
+        return false;
     }
 
     public void travelerLogout(){

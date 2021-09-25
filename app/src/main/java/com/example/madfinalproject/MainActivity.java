@@ -31,19 +31,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Intent intent = new Intent(MainActivity.this, SignIn.class);
                 startActivity(intent);
+                finish();
             }
-
-        //creating session hotel owner object and validating the login
-        SessionsHotelOwner sessionsHotelOwner = new SessionsHotelOwner(MainActivity.this);
-        sessionsHotelOwner.checkHotelOwnerLogin();
-
-        //creating session tour guide object and validating the login
-        SessionsTourGuide sessionsTourGuide = new SessionsTourGuide(MainActivity.this);
-        sessionsTourGuide.checkTourGuideLogin();
-
-        //creating session traveler object and validating the login
-        SessionsTraveler sessionsTraveler = new SessionsTraveler(MainActivity.this);
-        sessionsTraveler.checkTravelerGuideLogin();
 
 
         getStart = (Button) findViewById(R.id.landButton);

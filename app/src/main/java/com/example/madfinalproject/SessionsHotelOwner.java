@@ -50,12 +50,11 @@ public class SessionsHotelOwner {
         return hotelOwnerData;
     }
 
-    public void checkHotelOwnerLogin(){
+    public boolean checkHotelOwnerLogin(){
         if (userSession.getBoolean(IS_LOGIN,false)){
-            Intent intent = new Intent(context, HotelOwnerMainView.class);
-            context.startActivity(intent);
-
+            return true;
         }
+        return false;
     }
 
     public void hotelOwnerLogout(){

@@ -49,12 +49,11 @@ public class SessionsTourGuide {
         return tourGuideData;
     }
 
-    public void checkTourGuideLogin(){
+    public boolean checkTourGuideLogin(){
         if (userSession.getBoolean(IS_LOGIN,false)){
-            Intent intent = new Intent(context, TourGuideMainView.class);
-            context.startActivity(intent);
-
+            return true;
         }
+        return false;
     }
 
     public void tourGuideLogout(){

@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -93,8 +94,13 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.TGSignOut:
-                SessionsTourGuide sessionsTourGuide = new SessionsTourGuide(TourGuideMainView.this);
-                sessionsTourGuide.tourGuideLogout();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        SessionsTourGuide sessionsTourGuide = new SessionsTourGuide(TourGuideMainView.this);
+                        sessionsTourGuide.tourGuideLogout();
+                    }
+                }, 250);
                 break;
             case R.id.TGAddAttractions:
                 Intent intent = new Intent(TourGuideMainView.this, addTouristAttraction.class);

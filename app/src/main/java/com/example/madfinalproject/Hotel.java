@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Hotel {
+    private String hotelId;
     private String name;
     private String owner;
     private String address;
@@ -16,7 +17,8 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(String name, String owner, String address, String contact, String description, String city, ArrayList<String> amenities, HashMap<String, String> images) {
+    public Hotel(String hotelId, String name, String owner, String address, String contact, String description, String city, ArrayList<String> amenities, HashMap<String, String> images) {
+        this.hotelId = hotelId;
         this.name = name;
         this.owner = owner;
         this.address = address;
@@ -25,6 +27,14 @@ public class Hotel {
         this.city = city;
         this.amenities = amenities;
         this.images = images;
+    }
+
+    public String getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
     }
 
     public String getName() {

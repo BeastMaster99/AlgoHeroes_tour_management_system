@@ -38,15 +38,27 @@ public class SignIn extends AppCompatActivity {
 
         //creating session hotel owner object and validating the login
         SessionsHotelOwner sessionsHotelOwner = new SessionsHotelOwner(SignIn.this);
-        sessionsHotelOwner.checkHotelOwnerLogin();
+        if (sessionsHotelOwner.checkHotelOwnerLogin() == true){
+            Intent intent = new Intent(this, HotelOwnerMainView.class);
+            startActivity(intent);
+            finish();
+        }
 
         //creating session tour guide object and validating the login
         SessionsTourGuide sessionsTourGuide = new SessionsTourGuide(SignIn.this);
-        sessionsTourGuide.checkTourGuideLogin();
+        if (sessionsTourGuide.checkTourGuideLogin() == true) {
+            Intent intent = new Intent(this, TourGuideMainView.class);
+            startActivity(intent);
+            finish();
+        }
 
         //creating session traveler object and validating the login
         SessionsTraveler sessionsTraveler = new SessionsTraveler(SignIn.this);
-        sessionsTraveler.checkTravelerGuideLogin();
+        if (sessionsTraveler.checkTravelerGuideLogin() == true){
+            Intent intent = new Intent(this, TravelerMainView.class);
+            startActivity(intent);
+            finish();
+        }
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override

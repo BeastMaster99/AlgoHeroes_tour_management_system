@@ -156,7 +156,6 @@
             android:hint="@string/travelerRegistrationF5"
             android:importantForAutofill="no"
             android:letterSpacing="0"
-            android:inputType="date"
             android:textColor="@color/edit_text_color"
             android:textSize="20sp"
             app:backgroundTint="@color/inputField_color"
