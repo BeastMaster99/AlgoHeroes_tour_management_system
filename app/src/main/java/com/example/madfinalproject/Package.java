@@ -5,52 +5,31 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Package implements Parcelable {
+public class Package  {
 
     private String name;
     private String nuGuest;
     private String fee;
     private String description;
     //private boolean isCheck='True';
-    private ArrayList<String> amenities;
-    private ArrayList<String> amenities2;
+    private ArrayList<String> roomFeatures;
+    private ArrayList<String> roomTypes;
     private String uuid;
     //private String refundable;
 
     public Package() {
     }
 
-    public Package(String name, String nuGuest, String fee, String description, ArrayList<String> amenities, ArrayList<String> amenities2, String uuid) {
+    public Package(String name, String nuGuest, String fee, String description, ArrayList<String> roomFeatures, ArrayList<String> roomTypes, String uuid) {
         this.name = name;
         this.nuGuest = nuGuest;
         this.fee = fee;
         this.description = description;
-        this.amenities = amenities;
-        this.amenities2 = amenities2;
+        this.roomFeatures = roomFeatures;
+        this.roomTypes = roomTypes;
         this.uuid = uuid;
     }
 
-    protected Package(Parcel in) {
-        name = in.readString();
-        nuGuest = in.readString();
-        fee = in.readString();
-        description = in.readString();
-        amenities = in.createStringArrayList();
-        amenities2 = in.createStringArrayList();
-        uuid = in.readString();
-    }
-
-    public static final Creator<Package> CREATOR = new Creator<Package>() {
-        @Override
-        public Package createFromParcel(Parcel in) {
-            return new Package(in);
-        }
-
-        @Override
-        public Package[] newArray(int size) {
-            return new Package[size];
-        }
-    };
 
     public String getName() {
         return name;
@@ -84,20 +63,20 @@ public class Package implements Parcelable {
         this.description = description;
     }
 
-    public ArrayList<String> getAmenities() {
-        return amenities;
+    public ArrayList<String> getRoomFeatures() {
+        return roomFeatures;
     }
 
-    public void setAmenities(ArrayList<String> amenities) {
-        this.amenities = amenities;
+    public void setRoomFeatures(ArrayList<String> roomFeatures) {
+        this.roomFeatures = roomFeatures;
     }
 
-    public ArrayList<String> getAmenities2() {
-        return amenities2;
+    public ArrayList<String> getRoomTypes() {
+        return roomTypes;
     }
 
-    public void setAmenities2(ArrayList<String> amenities2) {
-        this.amenities2 = amenities2;
+    public void setRoomTypes(ArrayList<String> roomTypes) {
+        this.roomTypes = roomTypes;
     }
 
     public String getUuid() {
@@ -106,21 +85,5 @@ public class Package implements Parcelable {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(nuGuest);
-        parcel.writeString(fee);
-        parcel.writeString(description);
-        parcel.writeStringList(amenities);
-        parcel.writeStringList(amenities2);
-        parcel.writeString(uuid);
     }
 }

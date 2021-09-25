@@ -101,58 +101,58 @@ public class AddPackage extends AppCompatActivity {
                 //storageReference = FirebaseStorage.getInstance().getReference();
                 databaseReference = firebaseDatabase.getReference("Packages");
 
-                ArrayList<String> amenities = new ArrayList<>();
+                ArrayList<String> roomFeatures = new ArrayList<>();
 
                 if (chipAirCondition.isChecked()) {
-                    amenities.add("Air Condition");
+                    roomFeatures.add("Air Condition");
                 }
                 if (chipHouseKeeping.isChecked()) {
-                    amenities.add("House Keeping");
+                    roomFeatures.add("House Keeping");
                 }
                 if (chipTel.isChecked()) {
-                    amenities.add("Telephone");
+                    roomFeatures.add("Telephone");
                 }
                 if (chipSofa.isChecked()) {
-                    amenities.add("Sofa");
+                    roomFeatures.add("Sofa");
                 }
                 if (chipDesk.isChecked()) {
-                    amenities.add("Desk");
+                    roomFeatures.add("Desk");
                 }
                 if (chipSafe.isChecked()) {
-                    amenities.add("Safe");
+                    roomFeatures.add("Safe");
                 }
                 if (chipMiniBar.isChecked()) {
-                    amenities.add("Mini-Bar");
+                    roomFeatures.add("Mini-Bar");
                 }
                 if (chipRefrigerator.isChecked()) {
-                    amenities.add("Refrigerator");
+                    roomFeatures.add("Refrigerator");
                 }
                 if (chipBathRooms.isChecked()) {
-                    amenities.add("Bath Rooms");
+                    roomFeatures.add("Bath Rooms");
                 }
                 if (chipBottledWater.isChecked()) {
-                    amenities.add("Bottled Water");
+                    roomFeatures.add("Bottled Water");
                 }
                 if (chipTV.isChecked()) {
-                    amenities.add("TV");
+                    roomFeatures.add("TV");
                 }
 
-                ArrayList<String> amenities2 = new ArrayList<>();
+                ArrayList<String> roomTypes = new ArrayList<>();
 
                 if (chipCityView.isChecked()) {
-                    amenities.add("City View");
+                    roomTypes.add("City View");
                 }
                 if (chipLandMark.isChecked()) {
-                    amenities.add("Land Mark");
+                    roomTypes.add("Land Mark");
                 }
                 if (chipFamilyRooms.isChecked()) {
-                    amenities.add("Family Rooms");
+                    roomTypes.add("Family Rooms");
                 }
                 if (chipNonSmokingRooms.isChecked()) {
-                    amenities.add("Non-Smoking Rooms");
+                    roomTypes.add("Non-Smoking Rooms");
                 }
                 if (chipSmokingRooms.isChecked()) {
-                    amenities.add("Smoking Rooms");
+                    roomTypes.add("Smoking Rooms");
                 }
 
                 String name = Name.getText().toString();
@@ -164,7 +164,7 @@ public class AddPackage extends AppCompatActivity {
 
 
                 Package pkg = new Package(name, guest, fee, description,
-                        amenities,amenities2,uuid);
+                        roomFeatures,roomTypes,uuid);
 
 
 //        package.setName((Name.getText().toString()));
