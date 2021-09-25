@@ -273,6 +273,16 @@ public class addTouristAttraction extends AppCompatActivity {
             }
         });
 
+        //setting the on click listner to upload button
+        button10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadPlaces();
+            }
+        });
+
+
+
     }
     private String getImgExtension(Uri uri) {
         ContentResolver resolver = getContentResolver();
