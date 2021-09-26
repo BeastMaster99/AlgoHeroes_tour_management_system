@@ -218,7 +218,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:backgroundTint="@color/theme_color"
+                    app:backgroundTint="@color/yellow"
                     android:fontFamily="@font/font4"/>
 
                 <Button
