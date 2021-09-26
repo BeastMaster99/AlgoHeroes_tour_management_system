@@ -205,6 +205,9 @@ public class BookHotel extends AppCompatActivity {
                 extraDetailsText = extraDetails.getText().toString();
 
 
+                //calculating the reservation fee
+                int  reservationFee = Integer.parseInt(numberOfRoomsText) * 4;
+
                 if (checkInDateText.isEmpty() || chekOutDateText.isEmpty()) {
 
                     //Telling user that they must fill the fields
@@ -218,7 +221,7 @@ public class BookHotel extends AppCompatActivity {
                             })
                             .show();
                 } else {
-                    PayPalPayment payment = new PayPalPayment(new BigDecimal(5), "USD", "Hotel Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
+                    PayPalPayment payment = new PayPalPayment(new BigDecimal(reservationFee), "USD", hotelName +" Hotel Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
                     Intent intent = new Intent(BookHotel.this, PaymentActivity.class);
                     intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
                     intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
@@ -231,7 +234,7 @@ public class BookHotel extends AppCompatActivity {
 
     //Creating book hotel method (for update the database)
     private void bookHotel() {
-        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelId, travelerEmail, hotelOwnerEmail,travelerContactNumber, travelerFirstName, checkInDateText,
+        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelId, uuid,travelerEmail, hotelOwnerEmail,travelerContactNumber, travelerFirstName, checkInDateText,
                 chekOutDateText, numberOfRoomsText, extraDetailsText);
         databaseReference.child("Hotel Bookings").child(uuid).setValue(hotelBookings).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -243,6 +246,7 @@ public class BookHotel extends AppCompatActivity {
         showNotification();
         Intent intent2 = new Intent(this, TravelerMainView.class);
         startActivity(intent2);
+        finish();
     }
 
 
