@@ -1,6 +1,7 @@
 package com.example.madfinalproject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,7 +34,7 @@ public class BookingRecycleAdapter extends RecyclerView.Adapter<BookingRecycleAd
     HotelBookings hotelBookings;
 
 
-    ArrayList<HotelBookings> list;
+    ArrayList<HotelBookings> list = new ArrayList<>();
 
     //Creating object to access firebase
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
@@ -55,10 +56,9 @@ public class BookingRecycleAdapter extends RecyclerView.Adapter<BookingRecycleAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         int itemPosition = holder.getAdapterPosition();
-        hotelBookings = list.get(position);
-        holder.travelerHotelName.setText(hotelBookings.getHotelName());
-        holder.travelerDuration.setText(hotelBookings.getCheckInDate() + " To " + hotelBookings.getCheckOutDate());
-        holder.travelerNumberOfRooms.setText(hotelBookings.getNumberOfRooms() + " Room(s)");
+        holder.travelerHotelName.setText(list.get(itemPosition).getHotelName());
+        holder.travelerDuration.setText(list.get(itemPosition).getCheckInDate() + " To " + list.get(itemPosition).getCheckOutDate());
+        holder.travelerNumberOfRooms.setText(list.get(itemPosition).getNumberOfRooms() + " Room(s)");
 
         //setup a onclickListener for delete the data form the firebase
         holder.travelerBookingsCancel.setOnClickListener(new View.OnClickListener() {
@@ -86,21 +86,40 @@ public class BookingRecycleAdapter extends RecyclerView.Adapter<BookingRecycleAd
 
             }
         });
+
+        //To redirect to the edit bookings page
+        holder.travelerBookingsEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EditBookHotel.class);
+                intent.putExtra("uuidEdit", list.get(itemPosition).getUuid());
+                intent.putExtra("travelerEmailEdit", list.get(itemPosition).getTravelerEmail());
+                intent.putExtra("travelerFirstNameEdit", list.get(itemPosition).getTravelerFirstName());
+                intent.putExtra("checkInDateEdit", list.get(itemPosition).getCheckInDate());
+                intent.putExtra("checkOutDateEdit", list.get(itemPosition).getCheckOutDate());
+                intent.putExtra("numberOfRoomsEdit",list.get(itemPosition).getNumberOfRooms());
+                intent.putExtra("extraDetailsEdit", list.get(itemPosition).getExtraDetails());
+                intent.putExtra("travelerContact", list.get(itemPosition).getTravelerContactNumber());
+                intent.putExtra("hotelOwnerEmail", list.get(itemPosition).getHotelOwnerEmail());
+                intent.putExtra("hotelId", list.get(itemPosition).getHotelId());
+                intent.putExtra("hotelName", list.get(itemPosition).getHotelName());
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     //For cancel reservation
     private void cancelReservation(int itemPosition) {
-        databaseReference.child("Hotel Bookings").child(hotelBookings.getUuid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("Hotel Bookings").child(list.get(itemPosition).getUuid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     list.clear();
-//                    list.remove(itemPosition);
-//                    notifyItemRemoved(itemPosition);
-//                    notifyItemRangeChanged(itemPosition, list.size());
-                    //notifyDataSetChanged();
+                    notifyDataSetChanged();
                     Intent intent =  new Intent(context, TravelerAllBookings.class);
                     context.startActivity(intent);
+                    ((Activity)context).finish();
                 }
             }
         });
