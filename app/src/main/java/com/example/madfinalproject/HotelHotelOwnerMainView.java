@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
     TextView actionBar, hotelName, HotelRating, hotelAmenities, hotelAddress, hotelContact, hotelCity, hotelDescription;
     ImageView imageBack;
     SliderView sliderView;
+    Button mangePkgBtn;
 
     Hotel hotel = new Hotel();
 
@@ -56,6 +58,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         hotelContact = findViewById(R.id.hotelContact);
         hotelCity = findViewById(R.id.hotelCity);
         hotelDescription = findViewById(R.id.hotelDescription);
+        mangePkgBtn = findViewById(R.id.mangePkgBtn);
 
         sliderView = findViewById(R.id.imageSlider);
         //instantiating the slider adapter
@@ -105,6 +108,13 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(HotelHotelOwnerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        mangePkgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HotelHotelOwnerMainView.this,AllPackages.class);
+                startActivity(intent1);
             }
         });
     }

@@ -1,8 +1,4 @@
 package com.example.madfinalproject;
-
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 
 public class Package  {
@@ -85,5 +81,18 @@ public class Package  {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    @Override
+    public String toString() {
+        return "Package{" +
+                "name='" + name + '\'' +
+                ", nuGuest='" + nuGuest + '\'' +
+                ", fee='" + fee + '\'' +
+                ", description='" + description + '\'' +
+                ", roomFeatures=" + roomFeatures +
+                ", roomTypes=" + roomTypes +
+                ", uuid='" + uuid + '\'' +
+                '}';
     }
 }

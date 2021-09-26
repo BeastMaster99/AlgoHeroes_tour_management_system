@@ -4,30 +4,30 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
+//import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+//import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+//import android.widget.ImageView;
+//import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
+//import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.material.chip.Chip;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.paypal.android.sdk.payments.PayPalPayment;
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.PaymentActivity;
-
-import java.math.BigDecimal;
+//import com.google.firebase.storage.FirebaseStorage;
+//import com.google.firebase.storage.StorageReference;
+//import com.paypal.android.sdk.payments.PayPalPayment;
+//import com.paypal.android.sdk.payments.PayPalService;
+//import com.paypal.android.sdk.payments.PaymentActivity;
+//
+//import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -35,11 +35,9 @@ public class AddPackage extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    //StorageReference storageReference;
 
-    //ArrayList<Uri> imageURIs = new ArrayList<>();
 
-    TextView title;
+//    TextView title;
     EditText Name, numberOfGuest, feePerDay, packageDescription, numRooms;
     Button packageSubmitBtn;
     Chip chipAirCondition, chipHouseKeeping, chipTel, chipSofa, chipDesk, chipSafe,
@@ -102,7 +100,7 @@ public class AddPackage extends AppCompatActivity {
                 databaseReference = firebaseDatabase.getReference("Packages");
 
                 ArrayList<String> roomFeatures = new ArrayList<>();
-
+                //get data from chips
                 if (chipAirCondition.isChecked()) {
                     roomFeatures.add("Air Condition");
                 }
@@ -159,20 +157,9 @@ public class AddPackage extends AppCompatActivity {
                 String guest = numberOfGuest.getText().toString();
                 String fee = feePerDay.getText().toString();
                 String description =packageDescription.getText().toString();
-
-
-
-
+                //passing data
                 Package pkg = new Package(name, guest, fee, description,
                         roomFeatures,roomTypes,uuid);
-
-
-//        package.setName((Name.getText().toString()));
-//        package.setNuGuest((numberOfGuest.getText().toString()));
-//        package.setFee(feePerDay.getText().toString());
-//        package.setDescription((packageDescription.getText().toString()));
-//        package.setAmenities((amenities));
-//        package.setAmenities2((amenities2));
 
 
                 databaseReference.addValueEventListener(new ValueEventListener() {

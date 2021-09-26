@@ -144,6 +144,11 @@
     <string name="nu_of_rooms">Number of Rooms</string>
     <string name="refundable">Refundable</string>
     <string name="add_package">Add Package</string>
+    <string name="package_name1">Package Name</string>
+    <string name="package_guest1">Package Guest</string>
+    <string name="package_price1">Package Price</string>
+
+    <string name="visit">Visit</string>
 
     <!--Admin View Package-->
     <!--<string name="app_name">Package Details</string>-->
