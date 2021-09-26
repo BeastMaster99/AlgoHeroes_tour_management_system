@@ -179,6 +179,7 @@
     <string name="hotel_pkg_manage_title">Room Packages</string>
     <string name="hotel_edit_title">Edit Details</string>
     <string name="hotel_delete_title">Delete Hotel</string>
+    <string name="edit_hotel">Edit Hotel</string>
     <!--Benuka Strings end-->
     <string name="user_review_name">You</string>
 </resources>

@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
         <activity
-
             android:name=".EditReview"
             android:exported="true" />
         <activity
@@ -25,9 +24,11 @@
             android:name=".EditBookHotel"
             android:exported="true" />
         <activity
+            android:name=".EditHotel"
+            android:exported="true" />
+        <activity
             android:name=".HotelHotelOwnerMainView"
             android:exported="true" />
-
         <activity
             android:name=".BookHotel"
             android:exported="true" />
@@ -40,7 +41,6 @@
         <activity
             android:name=".AddHotel"
             android:exported="true" />
-
         <activity
             android:name=".TravelerMainView"
             android:exported="true" />

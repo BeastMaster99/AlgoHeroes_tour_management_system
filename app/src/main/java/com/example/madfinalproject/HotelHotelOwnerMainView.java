@@ -37,7 +37,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
     TextView actionBar, hotelName, HotelRating, hotelAmenities, hotelAddress, hotelContact, hotelCity, hotelDescription;
     ImageView imageBack;
     SliderView sliderView;
-    Button deleteHotelBtn;
+    Button deleteHotelBtn, editHotelBtn;
 
     Hotel hotel = new Hotel();
 
@@ -75,6 +75,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         hotelDescription = findViewById(R.id.hotelDescription);
 
         deleteHotelBtn = findViewById(R.id.deleteHotelBtn);
+        editHotelBtn = findViewById(R.id.editHotelBtn);
 
         sliderView = findViewById(R.id.imageSlider);
         //instantiating the slider adapter
@@ -127,6 +128,17 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
                 Toast.makeText(HotelHotelOwnerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        //edit hotels functionality
+        editHotelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HotelHotelOwnerMainView.this, EditHotel.class);
+                intent.putExtra("hotelObj", hotel);
+                startActivity(intent);
+            }
+        });
+
 
         //delete hotels functionality
         deleteHotelBtn.setOnClickListener(new View.OnClickListener() {
