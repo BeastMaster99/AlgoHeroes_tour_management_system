@@ -147,30 +147,18 @@
     <string name="package_name1">Package Name</string>
     <string name="package_guest1">Package Guest</string>
     <string name="package_price1">Package Price</string>
-
     <string name="visit">Visit</string>
+    <string name="title">Title</string>
 
     <!--Admin View Package-->
     <!--<string name="app_name">Package Details</string>-->
     <string name="package_name">Garden Dewlling</string>
     <string name="guest_count">Guest Count</string>
-    <string name="guest_count_number">2</string>
     <string name="room_features">Room Features</string>
-    <string name="sentence1">Air Conditioning, Housekeeping, Telephone, Sofa,</string>
-    <string name="sentence2">Desk, Safe, Minibar, Refrigerator, Private</string>
-    <string name="sentence3">Bathrooms, Bottled Water, Televison</string>
     <string name="rooms_types">Room Types</string>
-    <string name="sentence4">Landmark view, Family Rooms, Smorking Rooms</string>
     <string name="fee_per_day">Fee per Day</string>
-    <!--<string name="price">LKR 137194.00</string>
-    <string name="description">Description</string>-->
-    <string name="sentence5">Spend two night in a charming Deluxe Landmark</string>
-    <string name="sentence6">View Room and start the day with a breakfast </string>
-    <string name="sentence7">served at the restaurant.</string>
     <string name="excellency_ratings">Excellency Ratings</string>
-    <string name="rating">9.8</string>
     <!--<string name="refundable">Refundable</string>-->
-    <string name="yes">Yes</string>
     <string name="edit_package">Edit Package</string>
     <string name="delete">Delete Package</string>
     <!--End-->

@@ -1,31 +1,47 @@
 package com.example.madfinalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class AllPackages extends AppCompatActivity {
 
-    private RecyclerView allPackagesRecView;
+    ImageView imageBack,addPkgBtn;
+    TextView actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_packages);
 
-        //allPackagesRecView = findViewById(R.id.allPackagesRecView);
+        //action bar
+        actionBar = findViewById(R.id.actionBar);
+        actionBar.setText("All Package");
 
-//        ArrayList<Package> packages = new ArrayList<>();
-//        packages.add(new Package("Hertage Kandalama", "3", "1200.00", "hvghjvlhlv","1"));
+        imageBack= findViewById(R.id.imageBack);
 
-//        PackageRecViewAdapter adapter = new PackageRecViewAdapter(this);
-//        adapter.setPackages(packages);
-//
-//        allPackagesRecView.setAdapter(adapter);
-//        allPackagesRecView.setLayoutManager(new LinearLayoutManager(this));
+        addPkgBtn = findViewById(R.id.addPkgBtn);
+
+        //back button
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AllPackages.super.onBackPressed();
+            }
+        });
+
+        //Add button
+        addPkgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AllPackages.this,AddPackage.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

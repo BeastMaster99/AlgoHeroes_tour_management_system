@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 //import android.widget.ImageView;
 //import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.google.android.gms.tasks.OnFailureListener;
@@ -37,13 +39,15 @@ public class AddPackage extends AppCompatActivity {
     DatabaseReference databaseReference;
 
 
-//    TextView title;
+    TextView actionBar;
     EditText Name, numberOfGuest, feePerDay, packageDescription, numRooms;
     Button packageSubmitBtn;
     Chip chipAirCondition, chipHouseKeeping, chipTel, chipSofa, chipDesk, chipSafe,
             chipMiniBar, chipRefrigerator, chipBathRooms, chipBottledWater, chipTV;
     Chip chipCityView, chipLandMark, chipFamilyRooms, chipNonSmokingRooms,
             chipSmokingRooms;
+    ImageView imageBack;
+
     //IconSwitch switch1;
 
     String uuid;
@@ -58,7 +62,11 @@ public class AddPackage extends AppCompatActivity {
         //generating a UUID for package id
         uuid = UUID.randomUUID().toString();
 
-        //title = findViewById(R.id.actionBar);
+        //action bar
+        actionBar = findViewById(R.id.actionBar);
+        actionBar.setText("Add Package");
+
+        imageBack= findViewById(R.id.imageBack);
 
         packageSubmitBtn = findViewById(R.id.packageSubmitBtn);
 
@@ -86,8 +94,16 @@ public class AddPackage extends AppCompatActivity {
         chipNonSmokingRooms = findViewById(R.id.chipNonSmokingRooms);
         chipSmokingRooms = findViewById(R.id.chipSmokingRooms);
 
+
         //switch1 = findViewById(R.id.switch1);
 
+        //back button
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddPackage.super.onBackPressed();
+            }
+        });
         firebaseDatabase = FirebaseDatabase.getInstance();
         //databaseReference = firebaseDatabase.getReference("Packages")
 
