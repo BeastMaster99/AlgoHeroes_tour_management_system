@@ -1,9 +1,10 @@
 package com.example.madfinalproject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Hotel {
+public class Hotel implements Serializable {
     private String hotelId;
     private String name;
     private String owner;

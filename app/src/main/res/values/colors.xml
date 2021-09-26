@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
+    <color name="yellow">#FFC107</color>
     <color name="theme_color">#4FDB98</color>
     <color name="inputField_color">#D6FBE9</color>
     <color name="inputText_color">#9E9E9E</color>
