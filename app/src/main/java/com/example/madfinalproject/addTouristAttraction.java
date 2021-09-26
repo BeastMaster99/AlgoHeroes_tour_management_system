@@ -24,7 +24,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
+//import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -37,6 +37,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -51,16 +52,23 @@ public class addTouristAttraction extends AppCompatActivity {
     ImageView imageView6,  placeImg1, placeImg2, placeImg3, placeImg4, placeImg5;
     Button button6, button10;
 
-    String uuid;
+    String uuid, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getSupportActionBar().hide(); //Hide the action bar
+
         setContentView(R.layout.activity_add_tourist_attraction);
 
         //Generating a UUID for place id
         uuid = UUID.randomUUID().toString();
+
+        //getting the current tour guide
+        SessionsTourGuide tourGuide = new SessionsTourGuide(this);
+
+        HashMap<String, String> tourGuideDetails = tourGuide.getTourGuideDetailsFromSessions();
+        email = tourGuideDetails.get(SessionsTourGuide.KEY_EMAIL);
+
 
         imageView6 = findViewById(R.id.imageView6);
 
@@ -273,7 +281,7 @@ public class addTouristAttraction extends AppCompatActivity {
             }
         });
 
-        //setting the on click listner to upload button
+        //setting the on click listener to upload button
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -301,6 +309,7 @@ public class addTouristAttraction extends AppCompatActivity {
         AttractionPlaces attractionPlaces = new AttractionPlaces();
 
         attractionPlaces.setName(textView11.getText().toString());
+        attractionPlaces.setTourGuide(email);
         attractionPlaces.setAddress((textView12.getText().toString()));
         attractionPlaces.setDescription((textView19.getText().toString()));
         attractionPlaces.setCity(textView13.getText().toString());

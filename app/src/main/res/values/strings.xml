@@ -108,8 +108,11 @@
     <string name="editButton">Edit</string>
     <string name="deleteButton">Delete</string>
     <string name="addAttractions">Add Attractions</string>
-
-
+    <string name="yourTouristAttractions">Your Tourist Attractions</string>
+    <string name="todo1">TODO</string>
+    <string name="todo2">TODO</string>
+    <string name="todo3">TODO</string>
+    <string name="todo4">TODO</string>
 
 
     <string name="hotelBookPageF1">"Check in Date "</string>
