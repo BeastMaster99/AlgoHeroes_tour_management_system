@@ -6,17 +6,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class TourGuideMainView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -24,7 +37,12 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
     NavigationView navigationView;
     TextView title;
     Toolbar toolbar;
+    RecyclerView recyclerView;
 
+    ArrayList<AttractionPlaces> attractionPlaces = new ArrayList<>();
+    DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +53,23 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
         title = findViewById(R.id.homeActionBarTitle);
         toolbar = findViewById(R.id.TG_home_action_bar);
 
-        setSupportActionBar(toolbar);//adding the action bar
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//Disabling the default title
+        recyclerView = findViewById(R.id.placesRecView);
 
-        title.setText("Attractions");//Passing the new title
+        setSupportActionBar(toolbar);//adding the action bar
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);//Disabling the default title
+
+        title.setText("Your Tourist Attractions");//Passing the new title
+
+        //hotel database Ref
+        DatabaseReference placesRef = databaseReference.child("Places");
+
+        //creating session tour guide object and validating the login
+        SessionsTourGuide sessionsTourGuide1 = new SessionsTourGuide(TourGuideMainView.this);
+        if (sessionsTourGuide1.checkTourGuideLogin() == false) {
+            Intent intent = new Intent(this, SignIn.class);
+            startActivity(intent);
+            finish();
+        }
 
         //Setting the header menu
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_menu_TG);
@@ -56,7 +87,7 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
         //Navigation item select
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Setting the hotel owner name in navigation
+        //Setting the tour guide name in navigation
         SessionsTourGuide sessionsTourGuide = new SessionsTourGuide(TourGuideMainView.this);
         HashMap<String,String> TourGuideDetails = sessionsTourGuide.getTourGuideDetailsFromSessions();
 
@@ -74,6 +105,34 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
 
         //Setting user name in the navigation
         ownerName.setText(firstName + " " + lastName);
+
+        //instantiating the adapter obj
+        placeRecyclerAdapter adapter = new placeRecyclerAdapter(this);
+        //setting places in the adapter class
+        adapter.setAttractionPlaces(attractionPlaces);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //getting the places in the database
+        placesRef.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    AttractionPlaces place = dataSnapshot.getValue(AttractionPlaces.class);
+                    attractionPlaces.add(place);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(TourGuideMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
 
     }
 
@@ -101,6 +160,11 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
                     }
                 }, 250);
                 break;
+            case R.id.TGAddAttractions:
+                Intent intent = new Intent(TourGuideMainView.this, addTouristAttraction.class);
+                startActivity(intent);
+                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

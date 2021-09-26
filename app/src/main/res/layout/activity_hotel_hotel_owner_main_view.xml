@@ -46,7 +46,8 @@
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingBottom="50dp">
+                android:paddingBottom="50dp"
+                android:fontFamily="@font/font4">
 
                 <TextView
                     android:id="@+id/hotelName"
@@ -56,7 +57,8 @@
                     android:text="@string/dummy_title"
                     android:textColor="@color/black"
                     android:textSize="36sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
 
                 <TextView
@@ -66,7 +68,8 @@
                     android:text="@string/dis_hotel_rating"
                     android:textColor="@color/black"
                     android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:id="@+id/HotelRating"
@@ -75,7 +78,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
-
+                    android:fontFamily="@font/font4"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -86,7 +89,8 @@
                     android:text="@string/dis_hotel_amenities"
                     android:textColor="@color/black"
                     android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:id="@+id/hotelAmenities"
@@ -95,7 +99,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
-
+                    android:fontFamily="@font/font4"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -106,7 +110,8 @@
                     android:text="@string/dis_hotel_Address"
                     android:textColor="@color/black"
                     android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:id="@+id/hotelAddress"
@@ -115,7 +120,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
-
+                    android:fontFamily="@font/font4"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -126,7 +131,8 @@
                     android:text="@string/dis_hotel_Contact"
                     android:textColor="@color/black"
                     android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:id="@+id/hotelContact"
@@ -135,7 +141,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
-
+                    android:fontFamily="@font/font4"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -146,7 +152,8 @@
                     android:text="@string/dis_hotel_City"
                     android:textColor="@color/black"
                     android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:id="@+id/hotelCity"
@@ -155,7 +162,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
-
+                    android:fontFamily="@font/font4"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -166,7 +173,8 @@
                     android:text="@string/dis_hotel_desc"
                     android:textColor="@color/black"
                     android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:id="@+id/hotelDescription"
@@ -175,7 +183,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dummy_title"
-
+                    android:fontFamily="@font/font4"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -193,7 +201,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:backgroundTint="@color/theme_color" />
+                    app:backgroundTint="@color/theme_color"
+                    android:fontFamily="@font/font4"/>
 
                 <Button
                     android:id="@+id/editHotelBtn"
@@ -209,7 +218,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:backgroundTint="@color/theme_color" />
+                    app:backgroundTint="@color/yellow"
+                    android:fontFamily="@font/font4"/>
 
                 <Button
                     android:id="@+id/deleteHotelBtn"
@@ -225,7 +235,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:backgroundTint="@color/red" />
+                    app:backgroundTint="@color/red"
+                    android:fontFamily="@font/font4"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -234,7 +245,8 @@
                     android:text="@string/user_review_title"
                     android:textColor="@color/black"
                     android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font4"/>
             </LinearLayout>
 
         </RelativeLayout>

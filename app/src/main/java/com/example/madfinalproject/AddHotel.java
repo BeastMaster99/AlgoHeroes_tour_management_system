@@ -469,8 +469,10 @@ public class AddHotel extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(AddHotel.this, HotelOwnerMainView.class);
+                        Intent intent = new Intent(AddHotel.this, HotelHotelOwnerMainView.class);
+                        intent.putExtra("hotelId", uuid);
                         startActivity(intent);
+                        finish();
                     }
                 }, 20000);
     }

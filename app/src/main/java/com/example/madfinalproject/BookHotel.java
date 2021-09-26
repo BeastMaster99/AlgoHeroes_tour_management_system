@@ -54,7 +54,8 @@ public class BookHotel extends AppCompatActivity {
     Button checkInDate, checkOutDate, bookHotelSubmitButton;
     int year, month, day;
     AlertDialog.Builder builder;
-    String checkInDateText, chekOutDateText, numberOfRoomsText, extraDetailsText, travelerEmail, travelerFirstName, travelerContactNumber, hotelName, hotelOwnerEmail, uuid;
+    String checkInDateText, chekOutDateText, numberOfRoomsText, extraDetailsText, travelerEmail, travelerFirstName, travelerContactNumber, hotelName,
+            hotelId, uuid, hotelOwnerEmail;
 
     //Creating object to access firebase
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
@@ -79,6 +80,14 @@ public class BookHotel extends AppCompatActivity {
         checkOutDate = findViewById(R.id.checkOutDate);
         extraDetails = findViewById(R.id.bookHotelExtraDetails);
         bookHotelSubmitButton = findViewById(R.id.bookHotelSubmitButton);
+
+
+        //Getting the hotel id and hotel name
+        Intent intent1 = getIntent();
+        hotelId = intent1.getStringExtra("HotelId");
+        hotelName = intent1.getStringExtra("hotelName");
+        hotelOwnerEmail = intent1.getStringExtra("hotelOwnerEmail");
+
 
 
         builder = new AlertDialog.Builder(this);//Creating the dialog object
@@ -130,6 +139,8 @@ public class BookHotel extends AppCompatActivity {
                         checkInDate.setText(date);
                     }
                 }, year, month, day);
+                //Disabling the past dates
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
             }
         });
@@ -146,6 +157,8 @@ public class BookHotel extends AppCompatActivity {
                         checkOutDate.setText(date);
                     }
                 }, year, month, day);
+                //Disabling the past dates
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
             }
         });
@@ -192,6 +205,9 @@ public class BookHotel extends AppCompatActivity {
                 extraDetailsText = extraDetails.getText().toString();
 
 
+                //calculating the reservation fee
+                int  reservationFee = Integer.parseInt(numberOfRoomsText) * 4;
+
                 if (checkInDateText.isEmpty() || chekOutDateText.isEmpty()) {
 
                     //Telling user that they must fill the fields
@@ -205,7 +221,7 @@ public class BookHotel extends AppCompatActivity {
                             })
                             .show();
                 } else {
-                    PayPalPayment payment = new PayPalPayment(new BigDecimal(5), "USD", "Hotel Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
+                    PayPalPayment payment = new PayPalPayment(new BigDecimal(reservationFee), "USD", hotelName +" Hotel Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
                     Intent intent = new Intent(BookHotel.this, PaymentActivity.class);
                     intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
                     intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
@@ -218,7 +234,7 @@ public class BookHotel extends AppCompatActivity {
 
     //Creating book hotel method (for update the database)
     private void bookHotel() {
-        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelOwnerEmail, travelerEmail, travelerContactNumber, travelerFirstName, checkInDateText,
+        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelId, uuid,travelerEmail, hotelOwnerEmail,travelerContactNumber, travelerFirstName, checkInDateText,
                 chekOutDateText, numberOfRoomsText, extraDetailsText);
         databaseReference.child("Hotel Bookings").child(uuid).setValue(hotelBookings).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -230,6 +246,7 @@ public class BookHotel extends AppCompatActivity {
         showNotification();
         Intent intent2 = new Intent(this, TravelerMainView.class);
         startActivity(intent2);
+        finish();
     }
 
 
@@ -237,9 +254,10 @@ public class BookHotel extends AppCompatActivity {
     private void showNotification(){
 
         String title = "Hi " + travelerFirstName;
-        String body = "You have successfully reserved " + "Jetwing Vill Uyana" + "form " + checkInDate + "to " + checkOutDate;
+        String body = "You have successfully reserved " + hotelName + " form " + checkInDate + "to " + checkOutDate;
 
-        Intent intent = new Intent(this, TravelerMainView.class);
+        //Redirect to the traveler all bookings activity
+        Intent intent = new Intent(this, TravelerAllBookings.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 

@@ -23,7 +23,7 @@
 
     </com.google.android.material.navigation.NavigationView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -31,11 +31,17 @@
             android:id="@+id/TG_home_action_bar"
             layout="@layout/main_action_bar"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/placesRecView"
+            android:layout_below="@+id/TG_home_action_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"/>
 
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

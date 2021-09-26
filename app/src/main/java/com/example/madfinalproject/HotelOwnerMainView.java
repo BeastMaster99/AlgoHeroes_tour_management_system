@@ -69,6 +69,14 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
         ImageView backImage = (ImageView)headerView.findViewById(R.id.backImageMenuBar);
         TextView ownerName = (TextView)headerView.findViewById(R.id.userNameText);
 
+        //creating session hotel owner object and validating the login
+        SessionsHotelOwner sessionsHotelOwner = new SessionsHotelOwner(HotelOwnerMainView.this);
+        if (sessionsHotelOwner.checkHotelOwnerLogin() == false){
+            Intent intent = new Intent(this, SignIn.class);
+            startActivity(intent);
+            finish();
+        }
+
         //Creating the navigation drawer
         navigationView.bringToFront();
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(HotelOwnerMainView.this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

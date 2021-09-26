@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".addTouristAttraction">
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="375dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1000dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/font4"
+            android:text="@string/uploadImages"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#D6FBE9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="680dp"
+            android:layout_marginBottom="1000dp"
+            android:text="@string/maxImages"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/hotelImgContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView20"
+            android:layout_marginTop="910dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/placeImg1"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="@string/hotel_img1_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/placeImg2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img2_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/placeImg3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img3_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/placeImg4"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img4_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/placeImg5"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@string/hotel_img5_desc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="375dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginBottom="1000dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/font4"
+            android:text="@string/addAttractions"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/theme_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="375dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="-200dp"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/font4"
+        android:text="@string/uploadImages"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:backgroundTint="#D6FBE9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/textView19"
+            android:layout_width="375dp"
+            android:layout_height="371dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="325dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1000dp"
+            android:background="@drawable/rounded_button_tourist"
+            android:ems="10"
+            android:fontFamily="@font/font6"
+            android:gravity="center_horizontal"
+            android:hint="@string/box4"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:minLines="11"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.004"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/textView12"
+            android:layout_width="375dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="-340dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="700dp"
+            android:background="@drawable/rounded_button_tourist"
+            android:ems="10"
+            android:fontFamily="@font/font6"
+            android:gravity="center"
+            android:hint="@string/box2"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.339"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/textView13"
+            android:layout_width="375dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1000dp"
+            android:background="@drawable/rounded_button_tourist"
+            android:ems="10"
+            android:fontFamily="@font/font6"
+            android:gravity="center"
+            android:hint="@string/box3"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.266"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/textView11"
+            android:layout_width="375dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="-410dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1000dp"
+            android:background="@drawable/rounded_button_tourist"
+            android:ems="10"
+            android:fontFamily="@font/font6"
+            android:gravity="center"
+            android:hint="@string/box1name"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.397"
+            tools:ignore="TextContrastCheck" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="@color/theme_color"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="350dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/image1"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar4"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar4"
+        app:layout_constraintStart_toStartOf="@+id/toolbar4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/font6"
+        android:text="@string/addTouristAttraction"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbar4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
