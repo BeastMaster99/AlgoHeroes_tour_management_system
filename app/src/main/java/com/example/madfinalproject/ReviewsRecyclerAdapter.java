@@ -32,6 +32,11 @@ public class ReviewsRecyclerAdapter extends RecyclerView.Adapter<ReviewsRecycler
         this.travelerEmail = travelerEmail;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,7 +51,13 @@ public class ReviewsRecyclerAdapter extends RecyclerView.Adapter<ReviewsRecycler
         holder.review.setText(reviews.get(position).getReview());
         holder.rateValue.setRating(reviews.get(position).getRateValue());
 
-        if(reviews.get(position).getTraverId().equals(travelerEmail)){
+        holder.setIsRecyclable(false);
+
+
+//        Log.i("left", reviews.get(position).getTravelerId());
+//        Log.i("right", travelerEmail);
+
+        if(reviews.get(position).getTravelerId().equals(travelerEmail)){
             holder.editReviewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -55,7 +66,8 @@ public class ReviewsRecyclerAdapter extends RecyclerView.Adapter<ReviewsRecycler
                     intent.putExtra("rateValue", reviews.get(itemPosition).getRateValue());
                     intent.putExtra("review", reviews.get(itemPosition).getReview());
                     intent.putExtra("hotelId", reviews.get(itemPosition).getHotelId());
-                    intent.putExtra("traverId", reviews.get(itemPosition).getTraverId());
+                    intent.putExtra("fullName", reviews.get(itemPosition).getFullName());
+                    intent.putExtra("travelerId", reviews.get(itemPosition).getTravelerId());
                     context.startActivity(intent);
                 }
             });

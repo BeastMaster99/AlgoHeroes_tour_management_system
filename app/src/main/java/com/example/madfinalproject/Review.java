@@ -4,7 +4,7 @@ public class Review {
     private float rateValue;
     private String review;
     private String hotelId;
-    private String traverId;
+    private String travelerId;
     private String reviewId;
 
     public String getFullName() {
@@ -20,14 +20,16 @@ public class Review {
     public Review() {
     }
 
-    public Review(float rateValue, String review, String hotelId, String traverId, String reviewId, String fullName) {
+    public Review(float rateValue, String review, String hotelId, String travelerId, String reviewId, String fullName) {
         this.rateValue = rateValue;
         this.review = review;
         this.hotelId = hotelId;
-        this.traverId = traverId;
+        this.travelerId = travelerId;
         this.reviewId = reviewId;
         this.fullName = fullName;
     }
+
+
 
     public float getRateValue() {
         return rateValue;
@@ -53,12 +55,12 @@ public class Review {
         this.hotelId = hotelId;
     }
 
-    public String getTraverId() {
-        return traverId;
+    public String getTravelerId() {
+        return travelerId;
     }
 
-    public void setTraverId(String traverId) {
-        this.traverId = traverId;
+    public void setTravelerId(String traverId) {
+        this.travelerId = traverId;
     }
 
     public String getReviewId() {

@@ -44,18 +44,13 @@ public class EditReview extends AppCompatActivity {
         reviewObj.setRateValue(bundle.getFloat("rateValue"));
         reviewObj.setReview(bundle.getString("review"));
         reviewObj.setHotelId(bundle.getString("hotelId"));
-        reviewObj.setTraverId(bundle.getString("traverId"));
+        reviewObj.setFullName(bundle.getString("fullName"));
+        reviewObj.setTravelerId(bundle.getString("travelerId"));
 
         ratingBar = findViewById(R.id.ratingBar);
         submitBtn = findViewById(R.id.editReviewBtn);
         review = findViewById(R.id.review);
 
-
-        Log.i("getReviewId", reviewObj.getReviewId());
-        Log.i("getReview", reviewObj.getReview());
-        Log.i("getTraverId", reviewObj.getTraverId());
-        Log.i("getHotelId", reviewObj.getHotelId());
-        Log.i("getRateValue", String.valueOf(reviewObj.getRateValue()));
 
         ratingBar.setRating(reviewObj.getRateValue());
         review.setText(reviewObj.getReview());
@@ -73,10 +68,12 @@ public class EditReview extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "rateValue: " + rateValue + " review: " + review.getText(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "rateValue: " + " review: " + review.getText()+ rateValue, Toast.LENGTH_LONG).show();
+//
                 reviewObj.setReview(review.getText().toString());
                 reviewObj.setRateValue(rateValue);
                 addDatatoFirebase(reviewObj);
+
                 Intent intent = new Intent(view.getContext(), HotelTravelerMainView.class);
                 intent.putExtra("hotelId", reviewObj.getHotelId());
                 view.getContext().startActivity(intent);
@@ -87,14 +84,13 @@ public class EditReview extends AppCompatActivity {
     }
 
     private void addDatatoFirebase(Review review) {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 databaseReference.setValue(reviewObj);
                 Toast.makeText(EditReview.this, "Data edited", Toast.LENGTH_SHORT).show();
 
-//                Intent pass
 
             }
 

@@ -147,23 +147,22 @@ public class HotelTravelerMainView extends AppCompatActivity {
         String travelerEmail = travelerDetails.get(SessionsTraveler.KEY_EMAIL);
 
         ReviewsRecyclerAdapter reviewsAdapter = new ReviewsRecyclerAdapter(this, travelerEmail);
-        //setting hotels in the adapter class
+
         reviewsAdapter.setReviews(reviews);
         reviewRecycleView.setAdapter( reviewsAdapter );
         reviewRecycleView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        //getting the hotels in the database
+
         reviewsQuery.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.i("review", snapshot.toString());
 
+                reviews.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Review review = dataSnapshot.getValue(Review.class);
                     reviews.add(review);
-                    Log.e("review", review.toString());
                 }
                 reviewsAdapter.notifyDataSetChanged();
             }

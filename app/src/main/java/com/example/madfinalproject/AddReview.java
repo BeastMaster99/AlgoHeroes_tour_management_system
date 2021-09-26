@@ -98,11 +98,11 @@ public class AddReview extends AppCompatActivity {
         reviewObj.setReview(review);
         reviewObj.setRateValue(rateValue);
         reviewObj.setHotelId(hotelId);;
-        reviewObj.setTraverId(traverId);
+        reviewObj.setTravelerId(traverId);
         reviewObj.setReviewId(reviewId);
         reviewObj.setFullName(fullName);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
