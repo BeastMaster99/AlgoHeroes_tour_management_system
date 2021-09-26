@@ -84,7 +84,6 @@
     <string name="review">Review</string>
     <string name="editReview">Edit Review</string>
     <string name="Edit">Edit</string>
-    <string name="editText">"The surrounding is really close to the nature. The architecture of hotel too is beautiful. We chose a forest villa which is spacious enough. You can walk around the huge area where the hotel spans.     "</string>
     <string name="editR">Edit Your Review</string>
     <string name="edit2" />
     <string name="addTouristAttraction">Add A Tourist Attraction</string>
@@ -97,14 +96,9 @@
     <string name="uploadImages">Upload Images</string>
     <string name="addHotel">Add Hotel</string>
     <string name="attractionDetails">Attraction Details</string>
-    <string name="sigiriya">TODO</string>
-    <string name="text1">Sigiriya Rock</string>
     <string name="text2address">Address</string>
-    <string name="text2address2">8 Ella pahalawewa, Dambulla 21100</string>
     <string name="text3City">City</string>
-    <string name="text3City2">Sigiriya</string>
     <string name="text3Description">Description</string>
-    <string name="longDescription">Sigiriya is one of the most valuable historical monuments of Sri Lanka. Referred by locals as the Eighth Wonder of the World this ancient palace and fortress complex has significant archaeological importance and attracts thousands of tourists every year. It is probably the most visited tourist destination of Sri Lanka.  The palace is located in the heart of the island between the towns of Dambulla and Habarane on a massive rocky plateau 370 meters above the sea level.  Sigiriya rock plateau, formed from magma of an extinct volcano, is 200 meters higher than the surrounding jungles. Its view astonishes the visitors with the unique harmony between the nature and human imagination.  The fortress complex includes remnants of a ruined palace, surrounded by an extensive network of fortifications, vast gardens, ponds, canals, alleys and fountains.</string>
     <string name="editButton">Edit</string>
     <string name="deleteButton">Delete</string>
     <string name="addAttractions">Add Attractions</string>
@@ -115,11 +109,30 @@
     <string name="todo4">TODO</string>
 
 
+    <string name="hotelUserViewPageButton3">Write a Review</string>
+    <string name="hoteluserViewDTopics1">Ratings</string>
+
+
     <string name="hotelBookPageF1">"Check in Date "</string>
     <string name="hotelBookPageF2">Check Out Date</string>
     <string name="hotelBookPageNUM">Number of Rooms</string>
     <string name="hotelBookPageF3">Extra Details(If Required)</string>
     <string name="hoteBookPagePRButton">Proceed</string>
+    <string name="hoteluserViewDTopics7">User Reviews</string>
+    <string name="hoteluserViewDTopics8">You</string>
+    <string name="hoteluserViewDData7_1">The surrounding is really close to the nature. The </string>
+    <string name="hoteluserViewDData7_2">architecture of hotel too is beautiful. We chose a </string>
+    <string name="hoteluserViewDData7_3">forest villa which is spacious enough. You can </string>
+    <string name="hoteluserViewDData7_4">walk around the huge area where the hotel spans.</string>
+
+
+
+    <string name="travelerAllBookingsHotelName">Jetwing Vil Uyana</string>
+    <string name="travelerAllBookingsRoomType">Garden Dwelling</string>
+    <string name="travelerAllBookingsDate">25/9/2021 To 27/9/2021</string>
+    <string name="numberOfRooms">3 Rooms</string>
+    <string name="bookingUserViewEditButton">Edit</string>
+    <string name="bookingUserViewDeleteButton">Cancel</string>
 
 
     <!--Benuka Strings Start-->
@@ -153,7 +166,7 @@
     <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
     <string name="chooseImgCount">Choose Up To 5 Images</string>
     <string name="traveler_hotel_title">Explore Hotels</string>
-    <string name="maxImages">Select upto 5 images</string>
+    <string name="maxImages">Select up to 5 images</string>
     <string name="hotel_detail_title">Hotel Details</string>
     <string name="visit_btn">Visit</string>
     <string name="reservation_btn">Make a Reservation</string>
@@ -165,6 +178,11 @@
     <string name="dis_hotel_desc">Description</string>
     <string name="review_btn">Write a Review</string>
     <string name="user_review_title">User Reviews</string>
+    <string name="hotel_pkg_manage_title">Room Packages</string>
+    <string name="hotel_edit_title">Edit Details</string>
+    <string name="hotel_delete_title">Delete Hotel</string>
     <!--Benuka Strings end-->
+
+    <string name="user_review_name">You</string>
 
 </resources>

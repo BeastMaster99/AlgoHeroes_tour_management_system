@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -61,6 +62,14 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
 
         //hotel database Ref
         DatabaseReference placesRef = databaseReference.child("Places");
+
+        //creating session tour guide object and validating the login
+        SessionsTourGuide sessionsTourGuide1 = new SessionsTourGuide(TourGuideMainView.this);
+        if (sessionsTourGuide1.checkTourGuideLogin() == false) {
+            Intent intent = new Intent(this, SignIn.class);
+            startActivity(intent);
+            finish();
+        }
 
         //Setting the header menu
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_menu_TG);

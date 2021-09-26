@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BookHotel">
+    tools:context=".EditBookHotel">
 
     <include
         android:id="@+id/include"
         layout="@layout/action_bar" />
 
     <Button
-        android:id="@+id/checkInDate"
+        android:id="@+id/checkInDateEdit"
         android:layout_width="@dimen/ButtonWidth"
         android:layout_height="@dimen/ButtonHeight"
         android:layout_marginTop="20dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <Button
-        android:id="@+id/checkOutDate"
+        android:id="@+id/checkOutDateEdit"
         android:layout_width="@dimen/ButtonWidth"
         android:layout_height="@dimen/ButtonHeight"
         android:layout_marginTop="15dp"
@@ -46,7 +46,7 @@
         app:backgroundTint="@color/inputField_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkInDate" />
+        app:layout_constraintTop_toBottomOf="@+id/checkInDateEdit" />
 
     <TextView
         android:id="@+id/textView2"
@@ -61,10 +61,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOutDate" />
+        app:layout_constraintTop_toBottomOf="@+id/checkOutDateEdit" />
 
     <Spinner
-        android:id="@+id/numberOfRooms"
+        android:id="@+id/numberOfRoomsEdit"
         android:layout_width="112dp"
         android:layout_height="43dp"
         android:layout_marginTop="20dp"
@@ -76,23 +76,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/checkOutDate"
+        app:layout_constraintTop_toBottomOf="@+id/checkOutDateEdit"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/numberOfRooms"
-        app:layout_constraintEnd_toEndOf="@+id/numberOfRooms"
+        app:layout_constraintBottom_toBottomOf="@+id/numberOfRoomsEdit"
+        app:layout_constraintEnd_toEndOf="@+id/numberOfRoomsEdit"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="@+id/numberOfRooms"
-        app:layout_constraintTop_toTopOf="@+id/numberOfRooms"
+        app:layout_constraintStart_toStartOf="@+id/numberOfRoomsEdit"
+        app:layout_constraintTop_toTopOf="@+id/numberOfRoomsEdit"
         app:layout_constraintVertical_bias="0.578"
         app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
 
     <EditText
-        android:id="@+id/bookHotelExtraDetails"
+        android:id="@+id/bookHotelExtraDetailsEdit"
         android:layout_width="@dimen/ButtonWidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/bookHotelSubmitButton"
+        android:id="@+id/bookHotelSubmitButtonEdit"
         android:layout_width="@dimen/ButtonWidth"
         android:layout_height="@dimen/ButtonHeight"
         android:layout_marginTop="28dp"
@@ -130,6 +130,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookHotelExtraDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/bookHotelExtraDetailsEdit" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

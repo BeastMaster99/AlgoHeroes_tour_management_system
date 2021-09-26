@@ -54,6 +54,14 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
 
         recyclerView = findViewById(R.id.hotelsRecView);
 
+        //creating session traveler object and validating the login
+        SessionsTraveler sessionsTraveler1 = new SessionsTraveler(TravelerMainView.this);
+        if (sessionsTraveler1.checkTravelerGuideLogin() == false){
+            Intent intent = new Intent(this, SignIn.class);
+            startActivity(intent);
+            finish();
+        }
+
 
         setSupportActionBar(toolbar);//adding the action bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);//Disabling the default title
@@ -149,6 +157,17 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                     }
                 }, 250);
                 break;
+
+            case R.id.TRHotels:
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(TravelerMainView.this, TravelerAllBookings.class);
+                        startActivity(intent);
+                    }
+                }, 250);
+                break;
+
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);

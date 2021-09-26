@@ -471,6 +471,7 @@ public class AddHotel extends AppCompatActivity {
                     public void run() {
                         Intent intent = new Intent(AddHotel.this, HotelOwnerMainView.class);
                         startActivity(intent);
+                        finish();
                     }
                 }, 20000);
     }

@@ -7,8 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
     <color name="theme_color">#4FDB98</color>
     <color name="inputField_color">#D6FBE9</color>
     <color name="inputText_color">#9E9E9E</color>
     <color name="menu_background">#E5E5E5</color>
+    <color name="topic_color">#21995F</color>
 </resources>
