@@ -292,6 +292,8 @@ public class addTouristAttraction extends AppCompatActivity {
 
 
     }
+
+    //aaa
     private String getImgExtension(Uri uri) {
         ContentResolver resolver = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
@@ -308,6 +310,7 @@ public class addTouristAttraction extends AppCompatActivity {
 
         AttractionPlaces attractionPlaces = new AttractionPlaces();
 
+        attractionPlaces.setPlaceId(uuid);
         attractionPlaces.setName(textView11.getText().toString());
         attractionPlaces.setTourGuide(email);
         attractionPlaces.setAddress((textView12.getText().toString()));
