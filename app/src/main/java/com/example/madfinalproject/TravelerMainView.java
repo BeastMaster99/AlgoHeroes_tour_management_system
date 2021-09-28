@@ -9,14 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
+
 
 public class TravelerMainView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -40,9 +40,14 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     ImageView searchBtm, closeImgPop;
     RecyclerView recyclerView;
     RelativeLayout beforeSearch, afterSearch;
+    EditText searchText;
 
     ArrayList<Hotel> hotels = new ArrayList<>();
     DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+
+    //instantiating the adapter obj
+    HotelRecyclerAdapter adapter = new HotelRecyclerAdapter(this);
+    DatabaseReference hotelRef;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -63,9 +68,11 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
 
         closeImgPop = findViewById(R.id.closeImgPop);
 
+        searchText = findViewById(R.id.searchText);
+
         //creating session traveler object and validating the login
         SessionsTraveler sessionsTraveler1 = new SessionsTraveler(TravelerMainView.this);
-        if (sessionsTraveler1.checkTravelerGuideLogin() == false){
+        if (!sessionsTraveler1.checkTravelerGuideLogin()){
             Intent intent = new Intent(this, SignIn.class);
             startActivity(intent);
             finish();
@@ -74,7 +81,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         title.setText(R.string.traveler_hotel_title);//Passing the new title
 
         //hotel database Ref
-        DatabaseReference hotelRef = databaseReference.child("Hotels");
+        hotelRef = databaseReference.child("Hotels");
 
         //Setting the header menu
         NavigationView navigationView = findViewById(R.id.nav_menu_TR);
@@ -127,8 +134,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         //Setting user name in the navigation
         ownerName.setText(firstName + ' ' + lastName);
 
-        //instantiating the adapter obj
-        HotelRecyclerAdapter adapter = new HotelRecyclerAdapter(this);
+
         //setting hotels in the adapter class
         adapter.setHotels(hotels);
         recyclerView.setAdapter(adapter);
@@ -152,6 +158,44 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             }
         });
 
+        searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    String searchInput = searchText.getText().toString();
+                    searchHotels(searchInput.toLowerCase());
+                    return true;
+                }
+                return false;
+            }
+        });
+
+    }
+
+    private void searchHotels(String searchInput){
+        hotels.clear();
+        //getting the hotels in the database
+        hotelRef.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Hotel hotel = dataSnapshot.getValue(Hotel.class);
+                    assert hotel != null;
+                    if (hotel.getName().toLowerCase().contains(searchInput) ||
+                            hotel.getCity().toLowerCase().contains(searchInput) ||
+                            hotel.getDescription().toLowerCase().contains(searchInput)) {
+                        hotels.add(hotel);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //Avoiding closing the the current activity when user press back button
