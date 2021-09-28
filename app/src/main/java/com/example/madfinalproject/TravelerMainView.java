@@ -62,10 +62,6 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             finish();
         }
 
-
-        setSupportActionBar(toolbar);//adding the action bar
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);//Disabling the default title
-
         title.setText(R.string.traveler_hotel_title);//Passing the new title
 
         //hotel database Ref
@@ -168,6 +164,15 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                 }, 250);
                 break;
 
+            case R.id.TRfavourite:
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(TravelerMainView.this, TravellerFavouriteHotels.class);
+                        startActivity(intent);
+                    }
+                }, 250);
+                break;
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);

@@ -126,7 +126,6 @@
     <string name="hoteluserViewDData7_4">walk around the huge area where the hotel spans.</string>
 
 
-
     <string name="travelerAllBookingsHotelName">Jetwing Vil Uyana</string>
     <string name="travelerAllBookingsRoomType">Garden Dwelling</string>
     <string name="travelerAllBookingsDate">25/9/2021 To 27/9/2021</string>
@@ -182,6 +181,8 @@
     <string name="hotel_edit_title">Edit Details</string>
     <string name="hotel_delete_title">Delete Hotel</string>
     <string name="edit_hotel">Edit Hotel</string>
+    <string name="fav_btn">Add To Favourites</string>
+    <string name="fav_title">Your Favourites</string>
     <!--Benuka Strings end-->
 
 
