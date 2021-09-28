@@ -129,35 +129,20 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             public void onClick(View view) {
                 afterSearch.setVisibility(View.GONE);
                 beforeSearch.setVisibility(View.VISIBLE);
+                loadData(); //on search close all the hotels will be loaded
             }
         });
 
+        //load all the hotels when the activity is created
+        loadData();
+
         //Setting user name in the navigation
         ownerName.setText(firstName + ' ' + lastName);
-
 
         //setting hotels in the adapter class
         adapter.setHotels(hotels);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        //getting the hotels in the database
-        hotelRef.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Hotel hotel = dataSnapshot.getValue(Hotel.class);
-                    hotels.add(hotel);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
         // on IME keyboard action search
         searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -178,6 +163,27 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             public void onClick(View view) {
                 String searchInput = searchText.getText().toString();
                 searchHotels(searchInput.toLowerCase().trim());
+            }
+        });
+    }
+
+    private void loadData(){
+        hotels.clear();
+        //getting the hotels in the database
+        hotelRef.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Hotel hotel = dataSnapshot.getValue(Hotel.class);
+                    hotels.add(hotel);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
