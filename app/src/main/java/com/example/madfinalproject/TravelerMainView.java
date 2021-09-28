@@ -37,7 +37,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
     TextView title;
     Toolbar toolbar;
-    ImageView searchBtm, closeImgPop;
+    ImageView searchBtm, closeImgPop, searchbtn;
     RecyclerView recyclerView;
     RelativeLayout beforeSearch, afterSearch;
     EditText searchText;
@@ -69,6 +69,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         closeImgPop = findViewById(R.id.closeImgPop);
 
         searchText = findViewById(R.id.searchText);
+        searchbtn = findViewById(R.id.searchbtn);
 
         //creating session traveler object and validating the login
         SessionsTraveler sessionsTraveler1 = new SessionsTraveler(TravelerMainView.this);
@@ -158,45 +159,58 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             }
         });
 
+        // on IME keyboard action search
         searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     String searchInput = searchText.getText().toString();
-                    searchHotels(searchInput.toLowerCase());
+                    searchHotels(searchInput.toLowerCase().trim());
                     return true;
                 }
                 return false;
             }
         });
 
-    }
-
-    private void searchHotels(String searchInput){
-        hotels.clear();
-        //getting the hotels in the database
-        hotelRef.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
+        //on search button click
+        searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Hotel hotel = dataSnapshot.getValue(Hotel.class);
-                    assert hotel != null;
-                    if (hotel.getName().toLowerCase().contains(searchInput) ||
-                            hotel.getCity().toLowerCase().contains(searchInput) ||
-                            hotel.getDescription().toLowerCase().contains(searchInput)) {
-                        hotels.add(hotel);
-                    }
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                String searchInput = searchText.getText().toString();
+                searchHotels(searchInput.toLowerCase().trim());
             }
         });
     }
+
+
+    private void searchHotels(String searchInput){
+        if(!searchInput.isEmpty()) {
+            hotels.clear();
+            //getting the hotels in the database
+            hotelRef.addValueEventListener(new ValueEventListener() {
+                @SuppressLint("NotifyDataSetChanged")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Hotel hotel = dataSnapshot.getValue(Hotel.class);
+                        assert hotel != null;
+                        if (hotel.getName().toLowerCase().contains(searchInput) ||
+                                hotel.getCity().toLowerCase().contains(searchInput) ||
+                                hotel.getDescription().toLowerCase().contains(searchInput)) {
+                            hotels.add(hotel);
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
 
     //Avoiding closing the the current activity when user press back button
     @Override
