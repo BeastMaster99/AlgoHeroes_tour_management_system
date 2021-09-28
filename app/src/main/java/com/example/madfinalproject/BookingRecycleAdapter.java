@@ -118,8 +118,8 @@ public class BookingRecycleAdapter extends RecyclerView.Adapter<BookingRecycleAd
                     list.clear();
                     notifyDataSetChanged();
                     Intent intent =  new Intent(context, TravelerAllBookings.class);
-                    context.startActivity(intent);
                     ((Activity)context).finish();
+                    context.startActivity(intent);
                 }
             }
         });
