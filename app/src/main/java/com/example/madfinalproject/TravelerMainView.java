@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
@@ -36,7 +37,9 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
     TextView title;
     Toolbar toolbar;
+    ImageView searchBtm, closeImgPop;
     RecyclerView recyclerView;
+    RelativeLayout beforeSearch, afterSearch;
 
     ArrayList<Hotel> hotels = new ArrayList<>();
     DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
@@ -50,9 +53,15 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         drawerLayout = findViewById(R.id.drawlayout3);
         navigationView = findViewById(R.id.nav_menu_TR);
         title = findViewById(R.id.homeActionBarTitle);
-        toolbar = findViewById(R.id.TR_home_action_bar);
+        toolbar = findViewById(R.id.homeActionBar);
+        searchBtm = findViewById(R.id.searchBtm);
 
         recyclerView = findViewById(R.id.hotelsRecView);
+
+        beforeSearch = findViewById(R.id.beforeSearch);
+        afterSearch = findViewById(R.id.afterSearch);
+
+        closeImgPop = findViewById(R.id.closeImgPop);
 
         //creating session traveler object and validating the login
         SessionsTraveler sessionsTraveler1 = new SessionsTraveler(TravelerMainView.this);
@@ -95,6 +104,23 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             @Override
             public void onClick(View view) {
                 drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        //handling search elements
+        searchBtm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                beforeSearch.setVisibility(View.GONE);
+                afterSearch.setVisibility(View.VISIBLE);
+            }
+        });
+
+        closeImgPop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                afterSearch.setVisibility(View.GONE);
+                beforeSearch.setVisibility(View.VISIBLE);
             }
         });
 
