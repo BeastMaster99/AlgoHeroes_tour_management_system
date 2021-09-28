@@ -50,7 +50,7 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
         drawerLayout = findViewById(R.id.drawlayout);
         navigationView = findViewById(R.id.nav_menu);
         title = findViewById(R.id.homeActionBarTitle);
-        toolbar = findViewById(R.id.home_action_bar);
+        toolbar = findViewById(R.id.homeActionBar);
 
         recyclerView = findViewById(R.id.hotelsRecViewOwner);
 
