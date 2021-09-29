@@ -3,12 +3,15 @@ package com.example.madfinalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +27,8 @@ import java.util.Objects;
 public class TouristAttractionAllView extends AppCompatActivity {
 
     TextView title;
-    Toolbar toolbar;
     RecyclerView recyclerView;
+    ImageView backImage;
 
     ArrayList<AttractionPlaces> attractionPlaces = new ArrayList<>();
     DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
@@ -36,15 +39,13 @@ public class TouristAttractionAllView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tourist_attraction_all_view);
 
-        title = findViewById(R.id.homeActionBarTitle);
-        toolbar = findViewById(R.id.TG_home_action_bar);
+        title = findViewById(R.id.actionBar);
 
         recyclerView = findViewById(R.id.placeRecView);
 
-        setSupportActionBar(toolbar);//adding the action bar
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);//Disabling the default title
-
         title.setText("Tourist Attractions");//Passing the new title
+
+        backImage = findViewById(R.id.imageBack);
 
         //place database Ref
         DatabaseReference placesRef = databaseReference.child("Places");
@@ -55,6 +56,14 @@ public class TouristAttractionAllView extends AppCompatActivity {
         adapter.setAttractionPlaces(attractionPlaces);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //setting the onClick listener for the back button
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TouristAttractionAllView.super.onBackPressed();
+            }
+        });
 
         //getting the places in the database
         placesRef.addValueEventListener(new ValueEventListener() {
