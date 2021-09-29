@@ -37,12 +37,16 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
     TextView actionBar, hotelName, HotelRating, hotelAmenities, hotelAddress, hotelContact, hotelCity, hotelDescription;
     ImageView imageBack;
     SliderView sliderView;
+
+    Button mangePkgBtn;
+
     Button deleteHotelBtn, editHotelBtn;
+
 
     Hotel hotel = new Hotel();
 
     HashMap<String, String> images = new HashMap<>();
-    
+
     DatabaseReference hotelRef;
 
     @Override
@@ -73,6 +77,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         hotelContact = findViewById(R.id.hotelContact);
         hotelCity = findViewById(R.id.hotelCity);
         hotelDescription = findViewById(R.id.hotelDescription);
+        mangePkgBtn = findViewById(R.id.mangePkgBtn);
 
         deleteHotelBtn = findViewById(R.id.deleteHotelBtn);
         editHotelBtn = findViewById(R.id.editHotelBtn);
@@ -89,7 +94,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         sliderView.startAutoCycle();
 
         //hotel database Ref
-         hotelRef = databaseReference.child("Hotels").child(hotelId);
+        hotelRef = databaseReference.child("Hotels").child(hotelId);
 
         //getting the hotels in the database
         hotelRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -129,6 +134,15 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
             }
         });
 
+        mangePkgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HotelHotelOwnerMainView.this, AllPackages.class);
+                startActivity(intent1);
+            }
+        });
+
+
         //edit hotels functionality
         editHotelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,9 +179,9 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         });
     }
 
-    private void deleteData(){
+    private void deleteData() {
         StorageReference imageRef;
-        for (Map.Entry<String,String> entry : images.entrySet()){
+        for (Map.Entry<String, String> entry : images.entrySet()) {
             imageRef = FirebaseStorage.getInstance().getReferenceFromUrl(entry.getValue());
             imageRef.delete().addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -189,7 +203,11 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(HotelHotelOwnerMainView.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
+
+
 }
+

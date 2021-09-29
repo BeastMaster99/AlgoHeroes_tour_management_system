@@ -51,7 +51,7 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
         drawerLayout = findViewById(R.id.drawlayout2);
         navigationView = findViewById(R.id.nav_menu_TG);
         title = findViewById(R.id.homeActionBarTitle);
-        toolbar = findViewById(R.id.TG_home_action_bar);
+        toolbar = findViewById(R.id.homeActionBar);
 
         recyclerView = findViewById(R.id.placesRecView);
 

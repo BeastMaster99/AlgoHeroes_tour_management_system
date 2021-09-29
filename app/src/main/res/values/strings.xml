@@ -55,6 +55,7 @@
     <string name="MenuTGGetHelp">Get Help</string>
     <string name="MenuTGSignOut">Sign Out</string>
     <string name="MenuTRYourProfile">Your profile</string>
+    <string name="MenuTRTouristAttraction">Tourist Attractions</string>
     <string name="MenuTRHotels">Your Bookings</string>
     <string name="MenuTRfavourite">Favourite</string>
     <string name="MenuTRSignOut">Sign Out</string>
@@ -133,6 +134,13 @@
     <string name="bookingUserViewEditButton">Edit</string>
     <string name="bookingUserViewDeleteButton">Cancel</string>
 
+    <string name="hotelOwnerAllBookingsCheckIn">25/9/2021</string>
+    <string name="hotelOwnerAllBookingsCheckOut">27/9/2021</string>
+    <string name="hotelOwnerAllBookingsRooms">3 Room(s)</string>
+    <string name="hotelOwnerAllTravelerName">Eranda</string>
+    <string name="hotelOwnerAllBookingsContactText">Contact</string>
+    <string name="hotelOwnerAllBookingsEmail">Email</string>
+
 
     <!--Benuka Strings Start-->
     <string name="hotel_activity_topic">Add Hotel</string>
@@ -181,7 +189,55 @@
     <string name="hotel_edit_title">Edit Details</string>
     <string name="hotel_delete_title">Delete Hotel</string>
     <string name="edit_hotel">Edit Hotel</string>
+    <string name="fav_btn">Add To Favourites</string>
+    <string name="fav_title">Your Favourites</string>
+    <string name="searchHotels">Search Hotels</string>
     <!--Benuka Strings end-->
+
+
+    <!--Kavindu Strings Start-->
+    <!--<string name="app_name">Add Packages</string>-->
+    <string name="number">Number of Guest</string>
+    <string name="price">Price per Day</string>
+    <string name="choose_room_features">Choose Room Features</string>
+    <string name="air">Air Conditioned</string>
+    <string name="housekeeping">Housekeeping</string>
+    <string name="tel">Telephone</string>
+    <string name="sofa">Sofa</string>
+    <string name="desk">Desk</string>
+    <string name="safe">Safe</string>
+    <string name="minibar">Minibar</string>
+    <string name="refrigerator">Refrigerator</string>
+    <string name="private_bathrooms">Private Bathrooms</string>
+    <string name="bottled_water">Bottled Water</string>
+    <string name="television">Television</string>
+    <string name="choose_room_types">Choose Room Types</string>
+    <string name="city_view">City View</string>
+    <string name="landmark_view">Landmark View</string>
+    <string name="family_rooms">Family Rooms</string>
+    <string name="non_smoking_rooms">Non-Smoking Rooms</string>
+    <string name="smoking_rooms">Smoking Rooms</string>
+    <string name="nu_of_rooms">Number of Rooms</string>
+    <string name="refundable">Refundable</string>
+    <string name="add_package">Add Package</string>
+    <string name="package_name1">Package Name</string>
+    <string name="package_guest1">Package Guest</string>
+    <string name="package_price1">Package Price</string>
+    <string name="title">Title</string>
+
+    <!--Admin View Package-->
+    <!--<string name="app_name">Package Details</string>-->
+    <string name="package_name">Garden Dewlling</string>
+    <string name="guest_count">Guest Count</string>
+    <string name="room_features">Room Features</string>
+    <string name="rooms_types">Room Types</string>
+    <string name="fee_per_day">Fee per Day</string>
+    <string name="excellency_ratings">Excellency Ratings</string>
+    <!--<string name="refundable">Refundable</string>-->
+    <string name="edit_package">Edit Package</string>
+    <string name="delete">Delete Package</string>
+    <!--End-->
+    <!--Kavindu String End-->
 
     <string name="user_review_name">You</string>
     <string name="placeAddress" />
@@ -206,6 +262,7 @@
     <string name="select_images">Select Images</string>
     <string name="add_tourist_attraction">Add Tourist Attraction</string>
     <string name="addTouristAttraction1">Add Tourist Attraction</string>
+
 
 
 </resources>

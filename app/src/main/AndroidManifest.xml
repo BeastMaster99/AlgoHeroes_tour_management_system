@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:name=".NotificationHelper"
@@ -27,6 +28,12 @@
             android:name=".tourguideSingleView"
             android:exported="true" />
         <activity
+            android:name=".HotelOwnerAllBookings"
+            android:exported="true" />
+        <activity
+            android:name=".TravellerFavouriteHotels"
+            android:exported="true" />
+        <activity
             android:name=".EditReview"
             android:exported="true" />
         <activity
@@ -37,6 +44,24 @@
             android:exported="true" />
         <activity
             android:name=".EditHotel"
+            android:exported="true" />
+        <activity
+            android:name=".AllPackages"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PackageMainView"
+            android:exported="true" />
+        <activity
+            android:name=".AddPackage"
             android:exported="true" />
         <activity
             android:name=".HotelHotelOwnerMainView"
@@ -80,15 +105,8 @@
         <activity
             android:name=".SignIn"
             android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>
