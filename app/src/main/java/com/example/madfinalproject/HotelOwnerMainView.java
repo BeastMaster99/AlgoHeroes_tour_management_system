@@ -170,6 +170,16 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
                     }
                 }, 250);
                 break;
+
+            case R.id.HOTouristAttraction:
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(HotelOwnerMainView.this, TouristAttractionAllView.class);
+                        startActivity(intent);
+                    }
+                }, 250);
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

@@ -24,7 +24,8 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-//import android.widget.TextView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -41,6 +42,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.UUID;
 
+
 public class addTouristAttraction extends AppCompatActivity {
 
     DatabaseReference databaseReference;
@@ -48,9 +50,12 @@ public class addTouristAttraction extends AppCompatActivity {
 
     ArrayList<Uri> imageURIs = new ArrayList<>();
 
+    TextView title;
     EditText textView11, textView12, textView13, textView19;
-    ImageView imageView6,  placeImg1, placeImg2, placeImg3, placeImg4, placeImg5;
+    ImageView imageBack, placeImg1, placeImg2, placeImg3, placeImg4, placeImg5;
     Button button6, button10;
+
+    RelativeLayout mainLayout, progressBarLayout;
 
     String uuid, email;
 
@@ -70,7 +75,8 @@ public class addTouristAttraction extends AppCompatActivity {
         email = tourGuideDetails.get(SessionsTourGuide.KEY_EMAIL);
 
 
-        imageView6 = findViewById(R.id.imageView6);
+        title = findViewById(R.id.actionBar);
+        imageBack = findViewById(R.id.imageBack);
 
         button10 = findViewById(R.id.button10);
         button6 = findViewById(R.id.button6);
@@ -86,8 +92,14 @@ public class addTouristAttraction extends AppCompatActivity {
         placeImg4 = findViewById(R.id.placeImg4);
         placeImg5 = findViewById(R.id.placeImg5);
 
+        mainLayout = findViewById(R.id.mainLayout);
+        progressBarLayout = findViewById(R.id.progressBarLayout);
+
+        //setting the activity title
+        title.setText(R.string.addTouristAttraction1);
+
         //setting the onClick listener for the back button
-        imageView6.setOnClickListener(new View.OnClickListener() {
+        imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addTouristAttraction.super.onBackPressed();
@@ -302,11 +314,11 @@ public class addTouristAttraction extends AppCompatActivity {
 
     private void uploadPlaces(){
 
+        mainLayout.setVisibility(View.GONE);
+        progressBarLayout.setVisibility(View.VISIBLE);
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
         storageReference = FirebaseStorage.getInstance().getReference();
-
-
 
         AttractionPlaces attractionPlaces = new AttractionPlaces();
 

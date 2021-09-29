@@ -37,11 +37,12 @@
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/drawable/ic_sri_lanka_sigiriya_rocks_landscape_wallpaper_preview.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/drawable/rounded_button_tourist.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/drawable/shape.xml" value="0.1" />
+        <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout-v21/action_bar.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_add_hotel.xml" value="0.25" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_add_tourist_attraction.xml" value="0.18" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_book_hotel.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_edit_hotel.xml" value="0.1" />
-        <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_edit_tourist_attraction.xml" value="0.1095890410958904" />
+        <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_edit_tourist_attraction.xml" value="0.17" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_hotel_hotel_owner_main_view.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_hotel_owner_main_view.xml" value="0.18" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_hotel_owner_registration.xml" value="0.1" />
@@ -52,6 +53,8 @@
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_tour_guide_main_view.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_tour_guide_registration.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_tourguide_single_view.xml" value="0.15" />
+        <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_tourist_attraction_all_view.xml" value="0.1" />
+        <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_tourist_attractions_view.xml" value="0.1361111111111111" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_traveler_main_view.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_traveler_registration.xml" value="0.1" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_your_tourist_attractions.xml" value="0.1" />

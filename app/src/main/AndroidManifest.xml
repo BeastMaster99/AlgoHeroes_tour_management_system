@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
         <activity
+            android:name=".TouristAttractionAllView"
+            android:exported="true" />
+        <activity
+            android:name=".TouristAttractionsView"
+            android:exported="true" />
+        <activity
             android:name=".editTouristAttraction"
             android:exported="true" />
         <activity
