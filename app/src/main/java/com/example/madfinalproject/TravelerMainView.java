@@ -269,5 +269,4 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         return true;
     }
 
-
 }
