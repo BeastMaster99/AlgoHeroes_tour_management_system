@@ -52,15 +52,16 @@ public class HotelOwnerAllBookingsAdapter extends RecyclerView.Adapter<HotelOwne
             }
         });
 
-//        //To redirect user to the email
-//        holder.HOAllBookingsEmail.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_SEND);
-//                intent.setData(Uri.parse("mailto:" + list.get(itemPosition).getTravelerEmail()));
-//                context.startActivity(intent);
-//            }
-//        });
+        //To redirect user to the email
+        holder.HOAllBookingsEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[] {list.get(itemPosition).getTravelerEmail()});
+                intent.setType("message/rfc822");
+                context.startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+            }
+        });
     }
 
     @Override
