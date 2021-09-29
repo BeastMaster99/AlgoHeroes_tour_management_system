@@ -57,7 +57,13 @@ public class HotelOwnerAllBookingsAdapter extends RecyclerView.Adapter<HotelOwne
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[] {list.get(itemPosition).getTravelerEmail()});
+
+                String email = list.get(itemPosition).getTravelerEmail();
+                email = email.replace(",", ".");
+
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[] {email});
+                intent.putExtra(Intent.EXTRA_SUBJECT, "");
+                intent.putExtra(Intent.EXTRA_TEXT, "");
                 intent.setType("message/rfc822");
                 context.startActivity(Intent.createChooser(intent, "Choose an Email client :"));
             }
