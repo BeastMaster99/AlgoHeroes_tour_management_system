@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class placeRecyclerAdapter extends RecyclerView.Adapter<placeRecyclerAdapter.ViewHolder> {
+public class TouristAttractionsRecyclerAdapter extends RecyclerView.Adapter<TouristAttractionsRecyclerAdapter.ViewHolder>{
     private ArrayList<AttractionPlaces> attractionPlaces = new ArrayList<>();
     private final Context context;
 
-    public placeRecyclerAdapter(Context context) {
+    public TouristAttractionsRecyclerAdapter(Context context) {
         this.context = context;
     }
 
@@ -30,7 +30,7 @@ public class placeRecyclerAdapter extends RecyclerView.Adapter<placeRecyclerAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TouristAttractionsRecyclerAdapter.ViewHolder holder, int position) {
         int itemPosition = holder.getAdapterPosition();
         holder.placeName.setText(attractionPlaces.get(position).getName());
         holder.placeCity.setText(attractionPlaces.get(position).getCity());
@@ -49,7 +49,7 @@ public class placeRecyclerAdapter extends RecyclerView.Adapter<placeRecyclerAdap
         holder.visitPlaceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, tourguideSingleView.class);
+                Intent intent = new Intent(context, TouristAttractionsView.class);
                 intent.putExtra("placeId", attractionPlaces.get(itemPosition).getPlaceId());
                 context.startActivity(intent);
             }
@@ -78,4 +78,5 @@ public class placeRecyclerAdapter extends RecyclerView.Adapter<placeRecyclerAdap
             visitPlaceBtn = itemView.findViewById(R.id.visitPlaceBtn);
         }
     }
+
 }

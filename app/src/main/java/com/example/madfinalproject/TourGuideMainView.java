@@ -60,7 +60,7 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
 
         title.setText("Your Tourist Attractions");//Passing the new title
 
-        //hotel database Ref
+        //place database Ref
         DatabaseReference placesRef = databaseReference.child("Places");
 
         //creating session tour guide object and validating the login
@@ -93,7 +93,7 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
 
         String firstName = TourGuideDetails.get(SessionsHotelOwner.KEY_FIRSTNAME);
         String lastName = TourGuideDetails.get(SessionsHotelOwner.KEY_LASTNAME);
-
+        String tourguideEmail = TourGuideDetails.get(SessionsTourGuide.KEY_EMAIL);
 
         //Setting onclick listener for the back button
         backImage.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +120,11 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     AttractionPlaces place = dataSnapshot.getValue(AttractionPlaces.class);
-                    attractionPlaces.add(place);
+                    if(place.getTourGuide().equalsIgnoreCase(tourguideEmail)){
+                        attractionPlaces.add(place);
+
+                    }
+
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -165,8 +169,22 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
                 startActivity(intent);
                 break;
 
+            case R.id.TGAllAttractions:
+                Intent intent1 = new Intent(TourGuideMainView.this, TouristAttractionAllView.class);
+                startActivity(intent1);
+                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //to refresh on restart
+        finish();
+        startActivity(getIntent()); //starting same activity by using the same intent
+    }
+
 }

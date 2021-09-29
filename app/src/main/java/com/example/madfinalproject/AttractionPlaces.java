@@ -1,8 +1,9 @@
 package com.example.madfinalproject;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class AttractionPlaces {
+public class AttractionPlaces implements Serializable {
     private String placeId;
     private String tourGuide;
     private String name;

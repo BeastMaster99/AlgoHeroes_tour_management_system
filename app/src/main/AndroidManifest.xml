@@ -16,6 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
         <activity
+            android:name=".TouristAttractionAllView"
+            android:exported="true" />
+        <activity
+            android:name=".TouristAttractionsView"
+            android:exported="true" />
+        <activity
+            android:name=".editTouristAttraction"
+            android:exported="true" />
+        <activity
+            android:name=".tourguideSingleView"
+            android:exported="true" />
+        <activity
             android:name=".HotelOwnerAllBookings"
             android:exported="true" />
         <activity
@@ -93,6 +105,8 @@
         <activity
             android:name=".SignIn"
             android:exported="true" />
+
+
     </application>
 
 </manifest>
