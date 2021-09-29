@@ -55,6 +55,7 @@
     <string name="MenuTGGetHelp">Get Help</string>
     <string name="MenuTGSignOut">Sign Out</string>
     <string name="MenuTRYourProfile">Your profile</string>
+    <string name="MenuTRTouristAttraction">Tourist Attractions</string>
     <string name="MenuTRHotels">Your Bookings</string>
     <string name="MenuTRfavourite">Favourite</string>
     <string name="MenuTRSignOut">Sign Out</string>
@@ -132,6 +133,13 @@
     <string name="numberOfRooms">3 Rooms</string>
     <string name="bookingUserViewEditButton">Edit</string>
     <string name="bookingUserViewDeleteButton">Cancel</string>
+
+    <string name="hotelOwnerAllBookingsCheckIn">25/9/2021</string>
+    <string name="hotelOwnerAllBookingsCheckOut">27/9/2021</string>
+    <string name="hotelOwnerAllBookingsRooms">3 Room(s)</string>
+    <string name="hotelOwnerAllTravelerName">Eranda</string>
+    <string name="hotelOwnerAllBookingsContactText">Contact</string>
+    <string name="hotelOwnerAllBookingsEmail">Email</string>
 
 
     <!--Benuka Strings Start-->
