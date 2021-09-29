@@ -169,8 +169,22 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
                 startActivity(intent);
                 break;
 
+            case R.id.TGAllAttractions:
+                Intent intent1 = new Intent(TourGuideMainView.this, TouristAttractionAllView.class);
+                startActivity(intent1);
+                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //to refresh on restart
+        finish();
+        startActivity(getIntent()); //starting same activity by using the same intent
+    }
+
 }

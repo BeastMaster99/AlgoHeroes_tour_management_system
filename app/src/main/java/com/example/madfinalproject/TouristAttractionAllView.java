@@ -75,4 +75,13 @@ public class TouristAttractionAllView extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //to refresh on restart
+        finish();
+        startActivity(getIntent()); //starting same activity by using the same intent
+    }
+
+
 }
