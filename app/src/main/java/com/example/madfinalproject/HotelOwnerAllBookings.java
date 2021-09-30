@@ -41,7 +41,7 @@ public class HotelOwnerAllBookings extends AppCompatActivity {
         title = findViewById(R.id.actionBar);
 
         //Setting page title
-        title.setText("Your Bookings");
+        title.setText("Bookings");
 
         //Setup a onclick listener for the back image
         backImage.setOnClickListener(new View.OnClickListener() {

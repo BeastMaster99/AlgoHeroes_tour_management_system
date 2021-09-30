@@ -53,7 +53,7 @@ public class BookingRecycleAdapter extends RecyclerView.Adapter<BookingRecycleAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         int itemPosition = holder.getAdapterPosition();
         holder.travelerHotelName.setText(list.get(itemPosition).getHotelName());
@@ -103,6 +103,7 @@ public class BookingRecycleAdapter extends RecyclerView.Adapter<BookingRecycleAd
                 intent.putExtra("hotelOwnerEmail", list.get(itemPosition).getHotelOwnerEmail());
                 intent.putExtra("hotelId", list.get(itemPosition).getHotelId());
                 intent.putExtra("hotelName", list.get(itemPosition).getHotelName());
+                ((Activity)context).finish();
                 context.startActivity(intent);
 
             }
@@ -111,7 +112,8 @@ public class BookingRecycleAdapter extends RecyclerView.Adapter<BookingRecycleAd
 
     //For cancel reservation
     private void cancelReservation(int itemPosition) {
-        databaseReference.child("Hotel Bookings").child(list.get(itemPosition).getUuid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("Hotel Bookings").child(list.get(itemPosition).getUuid()).removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {

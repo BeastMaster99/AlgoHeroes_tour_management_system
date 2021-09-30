@@ -39,10 +39,18 @@ import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 
+import org.joda.time.Days;
+import org.joda.time.Period;
+import org.joda.time.PeriodType;
+
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 
 public class BookHotel extends AppCompatActivity {
@@ -52,10 +60,10 @@ public class BookHotel extends AppCompatActivity {
     TextView title;
     EditText extraDetails;
     Button checkInDate, checkOutDate, bookHotelSubmitButton;
-    int year, month, day;
+    int year, month, day, numberOfDays, reservationFee;
     AlertDialog.Builder builder;
     String checkInDateText, chekOutDateText, numberOfRoomsText, extraDetailsText, travelerEmail, travelerFirstName, travelerContactNumber, hotelName,
-            hotelId, uuid, hotelOwnerEmail;
+            hotelId, uuid, hotelOwnerEmail, date1, date2, alertLine1, alertLine2;
 
     //Creating object to access firebase
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
@@ -87,7 +95,6 @@ public class BookHotel extends AppCompatActivity {
         hotelId = intent1.getStringExtra("HotelId");
         hotelName = intent1.getStringExtra("hotelName");
         hotelOwnerEmail = intent1.getStringExtra("hotelOwnerEmail");
-
 
 
         builder = new AlertDialog.Builder(this);//Creating the dialog object
@@ -135,8 +142,8 @@ public class BookHotel extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                         month = month + 1;
-                        String date = dayOfMonth + "/" + month + "/" + year;
-                        checkInDate.setText(date);
+                        date1 = dayOfMonth + "/" + month + "/" + year;
+                        checkInDate.setText(date1);
                     }
                 }, year, month, day);
                 //Disabling the past dates
@@ -153,12 +160,21 @@ public class BookHotel extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                         month = month + 1;
-                        String date = dayOfMonth + "/" + month + "/" + year;
-                        checkOutDate.setText(date);
+                        date2 = dayOfMonth + "/" + month + "/" + year;
+                        checkOutDate.setText(date2);
                     }
                 }, year, month, day);
-                //Disabling the past dates
-                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+
+                //disabling the date selected before
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                long getCheckInDate = 0;
+                try {
+                    Date date = simpleDateFormat.parse(date1);
+                    getCheckInDate = date.getTime();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                datePickerDialog.getDatePicker().setMinDate(getCheckInDate);
                 datePickerDialog.show();
             }
         });
@@ -218,16 +234,58 @@ public class BookHotel extends AppCompatActivity {
                             .show();
                 } else {
 
+                    //calculating the number of dates
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    try {
+                        Date date1 = simpleDateFormat.parse(checkInDateText);
+                        Date date2 = simpleDateFormat.parse(chekOutDateText);
 
+                        long TrCheckInDate = date1.getTime();
+                        long TrCheckOutDate = date2.getTime();
+
+                        if (TrCheckInDate <= TrCheckOutDate) {
+                            Period period = new Period(TrCheckInDate, TrCheckOutDate, PeriodType.days());
+                            numberOfDays = period.getDays();
+                        }
+
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
 
                     //calculating the reservation fee
-                    int  reservationFee = Integer.parseInt(numberOfRoomsText) * 4;
+                    if(numberOfDays == 0){
+                        reservationFee = Integer.parseInt(numberOfRoomsText) * 2 + 4;
+                        alertLine1 = "You have selected " + numberOfRoomsText + " room(s) for 1 day in " + hotelName + ".";
+                        alertLine2 = "This will cost you $ " + reservationFee + ".00";
+                    } else {
+                        reservationFee = Integer.parseInt(numberOfRoomsText) * 2 + numberOfDays * 4;
+                        alertLine1 = "You have selected " + numberOfRoomsText + " room(s) for " + numberOfDays + " days in " + hotelName + ".";
+                        alertLine2 = "This will cost you $ " + reservationFee + ".00";
+                    }
 
-                    PayPalPayment payment = new PayPalPayment(new BigDecimal(reservationFee), "USD", hotelName +" Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
-                    Intent intent = new Intent(BookHotel.this, PaymentActivity.class);
-                    intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
-                    intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-                    onStartActivityResultLauncherForPaymentGateway.launch(intent);
+                    new AlertDialog.Builder(BookHotel.this)
+                            .setTitle("Hi " + travelerFirstName + ",")
+                            .setMessage(alertLine1 + "\n" + alertLine2 + "\n" + "Are you sure that you want to continue?")
+                            .setCancelable(true)
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            })
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    PayPalPayment payment = new PayPalPayment(new BigDecimal(reservationFee), "USD", hotelName + " Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
+                                    Intent intent = new Intent(BookHotel.this, PaymentActivity.class);
+                                    intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
+                                    intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+                                    onStartActivityResultLauncherForPaymentGateway.launch(intent);
+
+                                }
+                            })
+                            .show();
                 }
             }
         });
@@ -236,7 +294,7 @@ public class BookHotel extends AppCompatActivity {
 
     //Creating book hotel method (for update the database)
     private void bookHotel() {
-        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelId, uuid,travelerEmail, hotelOwnerEmail,travelerContactNumber, travelerFirstName, checkInDateText,
+        HotelBookings hotelBookings = new HotelBookings(hotelName, hotelId, uuid, travelerEmail, hotelOwnerEmail, travelerContactNumber, travelerFirstName, checkInDateText,
                 chekOutDateText, numberOfRoomsText, extraDetailsText);
         databaseReference.child("Hotel Bookings").child(uuid).setValue(hotelBookings).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -253,7 +311,7 @@ public class BookHotel extends AppCompatActivity {
 
 
     //Creating the notification
-    private void showNotification(){
+    private void showNotification() {
 
         String title = "Hi " + travelerFirstName;
         String body = "You have successfully reserved " + hotelName + " form " + checkInDate + "to " + checkOutDate;
