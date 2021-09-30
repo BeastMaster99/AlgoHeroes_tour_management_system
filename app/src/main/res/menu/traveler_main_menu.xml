@@ -8,6 +8,10 @@
             android:title="@string/MenuTRYourProfile" />
 
         <item
+            android:id="@+id/TRTouristAttraction"
+            android:title="@string/MenuTRTouristAttraction" />
+
+        <item
             android:id="@+id/TRHotels"
             android:title="@string/MenuTRHotels" />
 

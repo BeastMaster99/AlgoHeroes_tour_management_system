@@ -9,15 +9,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
@@ -28,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
+
 
 public class TravelerMainView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -36,10 +37,17 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
     TextView title;
     Toolbar toolbar;
+    ImageView searchBtm, closeImgPop, searchbtn;
     RecyclerView recyclerView;
+    RelativeLayout beforeSearch, afterSearch;
+    EditText searchText;
 
     ArrayList<Hotel> hotels = new ArrayList<>();
     DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+
+    //instantiating the adapter obj
+    HotelRecyclerAdapter adapter = new HotelRecyclerAdapter(this);
+    DatabaseReference hotelRef;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -50,26 +58,31 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         drawerLayout = findViewById(R.id.drawlayout3);
         navigationView = findViewById(R.id.nav_menu_TR);
         title = findViewById(R.id.homeActionBarTitle);
-        toolbar = findViewById(R.id.TR_home_action_bar);
+        toolbar = findViewById(R.id.homeActionBar);
+        searchBtm = findViewById(R.id.searchBtm);
 
         recyclerView = findViewById(R.id.hotelsRecView);
 
+        beforeSearch = findViewById(R.id.beforeSearch);
+        afterSearch = findViewById(R.id.afterSearch);
+
+        closeImgPop = findViewById(R.id.closeImgPop);
+
+        searchText = findViewById(R.id.searchText);
+        searchbtn = findViewById(R.id.searchbtn);
+
         //creating session traveler object and validating the login
         SessionsTraveler sessionsTraveler1 = new SessionsTraveler(TravelerMainView.this);
-        if (sessionsTraveler1.checkTravelerGuideLogin() == false){
+        if (!sessionsTraveler1.checkTravelerGuideLogin()){
             Intent intent = new Intent(this, SignIn.class);
             startActivity(intent);
             finish();
         }
 
-
-        setSupportActionBar(toolbar);//adding the action bar
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);//Disabling the default title
-
         title.setText(R.string.traveler_hotel_title);//Passing the new title
 
         //hotel database Ref
-        DatabaseReference hotelRef = databaseReference.child("Hotels");
+        hotelRef = databaseReference.child("Hotels");
 
         //Setting the header menu
         NavigationView navigationView = findViewById(R.id.nav_menu_TR);
@@ -102,16 +115,60 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             }
         });
 
+        //handling search elements
+        searchBtm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                beforeSearch.setVisibility(View.GONE);
+                afterSearch.setVisibility(View.VISIBLE);
+            }
+        });
+
+        closeImgPop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                afterSearch.setVisibility(View.GONE);
+                beforeSearch.setVisibility(View.VISIBLE);
+                loadData(); //on search close all the hotels will be loaded
+            }
+        });
+
+        //load all the hotels when the activity is created
+        loadData();
+
         //Setting user name in the navigation
         ownerName.setText(firstName + ' ' + lastName);
 
-        //instantiating the adapter obj
-        HotelRecyclerAdapter adapter = new HotelRecyclerAdapter(this);
         //setting hotels in the adapter class
         adapter.setHotels(hotels);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // on IME keyboard action search
+        searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    String searchInput = searchText.getText().toString();
+                    searchHotels(searchInput.toLowerCase().trim());
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        //on search button click
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchInput = searchText.getText().toString();
+                searchHotels(searchInput.toLowerCase().trim());
+            }
+        });
+    }
+
+    private void loadData(){
+        hotels.clear();
         //getting the hotels in the database
         hotelRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -129,8 +186,37 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                 Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
+
+    private void searchHotels(String searchInput){
+        if(!searchInput.isEmpty()) {
+            hotels.clear();
+            //getting the hotels in the database
+            hotelRef.addValueEventListener(new ValueEventListener() {
+                @SuppressLint("NotifyDataSetChanged")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Hotel hotel = dataSnapshot.getValue(Hotel.class);
+                        assert hotel != null;
+                        if (hotel.getName().toLowerCase().contains(searchInput) ||
+                                hotel.getCity().toLowerCase().contains(searchInput) ||
+                                hotel.getDescription().toLowerCase().contains(searchInput)) {
+                            hotels.add(hotel);
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(TravelerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
 
     //Avoiding closing the the current activity when user press back button
     @Override
@@ -168,11 +254,19 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                 }, 250);
                 break;
 
+            case R.id.TRfavourite:
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(TravelerMainView.this, TravellerFavouriteHotels.class);
+                        startActivity(intent);
+                    }
+                }, 250);
+                break;
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 }

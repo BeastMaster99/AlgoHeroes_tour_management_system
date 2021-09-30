@@ -27,6 +27,20 @@
         <item name="chipBackgroundColor">@color/chip_background_color</item>
     </style>
 
+        <!--Kavindu Chip Style-->
+    <style name="custom_chip_style" parent="Widget.MaterialComponents.Chip.Choice">
+
+        <item name="chipBackgroundColor">@color/chip_background_colour</item>
+    </style>
+
+    <!--End Chip Styles-->
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/grey</item>
+        <item name="colorControlActivated">@color/theme_color</item>
+    </style>
+
+
 
 
 

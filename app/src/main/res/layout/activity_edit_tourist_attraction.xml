@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editTouristAttraction">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/action_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include"
+        android:layout_marginTop="18dp"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="16dp">
+
+            <EditText
+                android:id="@+id/placeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/inputField_color"
+                android:gravity="center"
+                android:hint="@string/name"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/edit_text_color"
+                android:textSize="20sp"
+                tools:ignore="TextContrastCheck"
+                android:importantForAutofill="no"
+                android:fontFamily="@font/font4"/>
+
+            <EditText
+                android:id="@+id/placeAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeName"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/inputField_color"
+                android:gravity="center"
+                android:hint="@string/address"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:ignore="TextContrastCheck"
+                android:importantForAutofill="no"
+                android:fontFamily="@font/font4"/>
+
+            <EditText
+                android:id="@+id/placeDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeAddress"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/inputField_color"
+                android:gravity="center_horizontal"
+                android:hint="@string/description"
+                android:inputType="textMultiLine"
+                android:minLines="12"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck"
+                android:importantForAutofill="no"
+                android:fontFamily="@font/font4"/>
+
+            <EditText
+                android:id="@+id/placeCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeDescription"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/inputField_color"
+                android:fontFamily="@font/font4"
+                android:gravity="center"
+                android:hint="@string/city"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/placeImgUploadBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeCity"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/rounded_button"
+                android:gravity="center"
+                android:padding="11dp"
+                android:text="@string/edit_images"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:backgroundTint="@color/inputField_color"
+                android:fontFamily="@font/font4"/>
+
+            <TextView
+                android:id="@+id/maxImgPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/placeImgUploadBtn"
+                android:text="@string/choose_up_to_5_images"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/font4"/>
+
+            <LinearLayout
+                android:id="@+id/placeImgContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/maxImgPrompt"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/placeImg1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    android:visibility="gone"
+                    android:contentDescription="@string/place_image_1" />
+
+                <ImageView
+                    android:id="@+id/placeImg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="7dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    android:visibility="gone"
+                    android:contentDescription="@string/place_image_2"/>
+
+                <ImageView
+                    android:id="@+id/placeImg3"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="7dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    android:visibility="gone"
+                    android:contentDescription="@string/place_image_3"/>
+
+                <ImageView
+                    android:id="@+id/placeImg4"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="7dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    android:visibility="gone"
+                    android:contentDescription="@string/place_image_4"/>
+
+                <ImageView
+                    android:id="@+id/placeImg5"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="7dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    android:visibility="gone"
+                    android:contentDescription="@string/place_image_5"/>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/placeSubmitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeImgContainer"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/rounded_button"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="@string/edit_attractions"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/theme_color"
+                android:fontFamily="@font/font4"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/progressBarLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone">
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uploading_your_data_pls_wait"
+            android:layout_below="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

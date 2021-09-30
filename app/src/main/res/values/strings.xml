@@ -55,6 +55,7 @@
     <string name="MenuTGGetHelp">Get Help</string>
     <string name="MenuTGSignOut">Sign Out</string>
     <string name="MenuTRYourProfile">Your profile</string>
+    <string name="MenuTRTouristAttraction">Tourist Attractions</string>
     <string name="MenuTRHotels">Your Bookings</string>
     <string name="MenuTRfavourite">Favourite</string>
     <string name="MenuTRSignOut">Sign Out</string>
@@ -62,14 +63,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="homeActionBarContent">Your Hotels</string>
     <string name="actionBarTitle">MAD UI</string>
-
-    <!-- kalpani and sadeevya strings-->
     <string name="topic">Room Packages</string>
     <string name="topicNew">Packages</string>
     <string name="image1">TODO</string>
     <string name="box1">Garden Dwelling</string>
     <string name="box1type">"2 Guests/Room "</string>
-    <!--    <string name="box1roomtype">"2 Guests/Room "</string>-->
+    <string name="box1roomtype">"2 Guests/Room "</string>
     <string name="box1guest">2 Guests/Room</string>
     <string name="box1price">LKR137,194/Day</string>
     <string name="visit">Visit</string>
@@ -86,7 +85,6 @@
     <string name="review">Review</string>
     <string name="editReview">Edit Review</string>
     <string name="Edit">Edit</string>
-    <string name="editText">"The surrounding is really close to the nature. The architecture of hotel too is beautiful. We chose a forest villa which is spacious enough. You can walk around the huge area where the hotel spans.     "</string>
     <string name="editR">Edit Your Review</string>
     <string name="edit2" />
     <string name="addTouristAttraction">Add A Tourist Attraction</string>
@@ -99,16 +97,19 @@
     <string name="uploadImages">Upload Images</string>
     <string name="addHotel">Add Hotel</string>
     <string name="attractionDetails">Attraction Details</string>
-    <string name="sigiriya">TODO</string>
-    <string name="text1">Sigiriya Rock</string>
     <string name="text2address">Address</string>
-    <string name="text2address2">8 Ella pahalawewa, Dambulla 21100</string>
     <string name="text3City">City</string>
-    <string name="text3City2">Sigiriya</string>
     <string name="text3Description">Description</string>
-    <string name="longDescription">Sigiriya is one of the most valuable historical monuments of Sri Lanka. Referred by locals as the Eighth Wonder of the World this ancient palace and fortress complex has significant archaeological importance and attracts thousands of tourists every year. It is probably the most visited tourist destination of Sri Lanka.  The palace is located in the heart of the island between the towns of Dambulla and Habarane on a massive rocky plateau 370 meters above the sea level.  Sigiriya rock plateau, formed from magma of an extinct volcano, is 200 meters higher than the surrounding jungles. Its view astonishes the visitors with the unique harmony between the nature and human imagination.  The fortress complex includes remnants of a ruined palace, surrounded by an extensive network of fortifications, vast gardens, ponds, canals, alleys and fountains.</string>
     <string name="editButton">Edit</string>
     <string name="deleteButton">Delete</string>
+    <string name="addAttractions">Add Attractions</string>
+    <string name="yourTouristAttractions">Your Tourist Attractions</string>
+    <string name="todo1">TODO</string>
+    <string name="todo2">TODO</string>
+    <string name="todo3">TODO</string>
+    <string name="todo4">TODO</string>
+
+
     <string name="hotelUserViewPageButton3">Write a Review</string>
     <string name="hoteluserViewDTopics1">Ratings</string>
 
@@ -126,13 +127,20 @@
     <string name="hoteluserViewDData7_4">walk around the huge area where the hotel spans.</string>
 
 
-
     <string name="travelerAllBookingsHotelName">Jetwing Vil Uyana</string>
     <string name="travelerAllBookingsRoomType">Garden Dwelling</string>
     <string name="travelerAllBookingsDate">25/9/2021 To 27/9/2021</string>
     <string name="numberOfRooms">3 Rooms</string>
     <string name="bookingUserViewEditButton">Edit</string>
     <string name="bookingUserViewDeleteButton">Cancel</string>
+
+    <string name="hotelOwnerAllBookingsCheckIn">25/9/2021</string>
+    <string name="hotelOwnerAllBookingsCheckOut">27/9/2021</string>
+    <string name="hotelOwnerAllBookingsRooms">3 Room(s)</string>
+    <string name="hotelOwnerAllTravelerName">Eranda</string>
+    <string name="hotelOwnerAllBookingsContactText">Contact</string>
+    <string name="hotelOwnerAllBookingsEmail">Email</string>
+
 
     <!--Benuka Strings Start-->
     <string name="hotel_activity_topic">Add Hotel</string>
@@ -165,6 +173,7 @@
     <string name="hotelUploadProgress">Uploading Your Data.. Please Wait!</string>
     <string name="chooseImgCount">Choose Up To 5 Images</string>
     <string name="traveler_hotel_title">Explore Hotels</string>
+    <string name="maxImages">Select up to 5 images</string>
     <string name="hotel_detail_title">Hotel Details</string>
     <string name="visit_btn">Visit</string>
     <string name="reservation_btn">Make a Reservation</string>
@@ -179,6 +188,81 @@
     <string name="hotel_pkg_manage_title">Room Packages</string>
     <string name="hotel_edit_title">Edit Details</string>
     <string name="hotel_delete_title">Delete Hotel</string>
+    <string name="edit_hotel">Edit Hotel</string>
+    <string name="fav_btn">Add To Favourites</string>
+    <string name="fav_title">Your Favourites</string>
+    <string name="searchHotels">Search Hotels</string>
     <!--Benuka Strings end-->
+
+
+    <!--Kavindu Strings Start-->
+    <!--<string name="app_name">Add Packages</string>-->
+    <string name="number">Number of Guest</string>
+    <string name="price">Price per Day</string>
+    <string name="choose_room_features">Choose Room Features</string>
+    <string name="air">Air Conditioned</string>
+    <string name="housekeeping">Housekeeping</string>
+    <string name="tel">Telephone</string>
+    <string name="sofa">Sofa</string>
+    <string name="desk">Desk</string>
+    <string name="safe">Safe</string>
+    <string name="minibar">Minibar</string>
+    <string name="refrigerator">Refrigerator</string>
+    <string name="private_bathrooms">Private Bathrooms</string>
+    <string name="bottled_water">Bottled Water</string>
+    <string name="television">Television</string>
+    <string name="choose_room_types">Choose Room Types</string>
+    <string name="city_view">City View</string>
+    <string name="landmark_view">Landmark View</string>
+    <string name="family_rooms">Family Rooms</string>
+    <string name="non_smoking_rooms">Non-Smoking Rooms</string>
+    <string name="smoking_rooms">Smoking Rooms</string>
+    <string name="nu_of_rooms">Number of Rooms</string>
+    <string name="refundable">Refundable</string>
+    <string name="add_package">Add Package</string>
+    <string name="package_name1">Package Name</string>
+    <string name="package_guest1">Package Guest</string>
+    <string name="package_price1">Package Price</string>
+    <string name="title">Title</string>
+
+    <!--Admin View Package-->
+    <!--<string name="app_name">Package Details</string>-->
+    <string name="package_name">Garden Dewlling</string>
+    <string name="guest_count">Guest Count</string>
+    <string name="room_features">Room Features</string>
+    <string name="rooms_types">Room Types</string>
+    <string name="fee_per_day">Fee per Day</string>
+    <string name="excellency_ratings">Excellency Ratings</string>
+    <!--<string name="refundable">Refundable</string>-->
+    <string name="edit_package">Edit Package</string>
+    <string name="delete">Delete Package</string>
+    <!--End-->
+    <!--Kavindu String End-->
+
     <string name="user_review_name">You</string>
+    <string name="placeAddress" />
+    <string name="name">Name</string>
+    <string name="place_image_1">place Image 1</string>
+    <string name="choose_up_to_5_images">Choose up to 5 images</string>
+    <string name="edit_images">Edit Images</string>
+    <string name="city">City</string>
+    <string name="description">Description</string>
+    <string name="address">Address</string>
+    <string name="place_image_2">place Image 2</string>
+    <string name="place_image_3">place Image 3</string>
+    <string name="place_image_4">place Image 4</string>
+    <string name="place_image_5">place Image 5</string>
+    <string name="edit_attractions">Edit Attractions</string>
+    <string name="uploading_your_data_pls_wait">Uploading Your data...Pls wait</string>
+    <string name="edit_details">Edit Details</string>
+    <string name="delete_place">Delete Place</string>
+    <string name="todo">TODO</string>
+    <string name="string_todo">todo1</string>
+    <string name="editTouristAttraction">Edit Tourist Attraction</string>
+    <string name="select_images">Select Images</string>
+    <string name="add_tourist_attraction">Add Tourist Attraction</string>
+    <string name="addTouristAttraction1">Add Tourist Attraction</string>
+
+
+
 </resources>

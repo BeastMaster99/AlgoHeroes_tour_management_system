@@ -221,7 +221,7 @@ public class BookHotel extends AppCompatActivity {
                             })
                             .show();
                 } else {
-                    PayPalPayment payment = new PayPalPayment(new BigDecimal(reservationFee), "USD", hotelName +" Hotel Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
+                    PayPalPayment payment = new PayPalPayment(new BigDecimal(reservationFee), "USD", hotelName +" Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
                     Intent intent = new Intent(BookHotel.this, PaymentActivity.class);
                     intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
                     intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);

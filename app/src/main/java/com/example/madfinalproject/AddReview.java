@@ -81,6 +81,7 @@ public class AddReview extends AppCompatActivity {
                 addDatatoFirebase(rateValue, review.getText().toString(), hotelId, travelerEmail, reviewId, fullName);
                 Intent intent = new Intent(view.getContext(), HotelTravelerMainView.class);
                 intent.putExtra("hotelId", reviewObj.getHotelId());
+                finish();
                 view.getContext().startActivity(intent);
             }
         });
@@ -88,7 +89,7 @@ public class AddReview extends AppCompatActivity {
         goBackkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),  "rateValue: " + rateValue + " review: " + review.getText(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),  "Thank You For The Feedback", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
         });

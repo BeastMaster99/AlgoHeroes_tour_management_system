@@ -52,6 +52,7 @@ public class HotelRecyclerAdapter extends RecyclerView.Adapter<HotelRecyclerAdap
                 Intent intent = new Intent(context, HotelTravelerMainView.class);
                 intent.putExtra("hotelId", hotels.get(itemPosition).getHotelId());
                 context.startActivity(intent);
+
             }
         });
     }
