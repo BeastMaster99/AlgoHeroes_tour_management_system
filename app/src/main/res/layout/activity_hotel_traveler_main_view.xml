@@ -213,6 +213,7 @@
                     android:layout_marginTop="50dp"
                     android:layout_marginStart="60sp"
                     android:layout_marginEnd="60sp"
+                    android:layout_marginBottom="15dp"
                     android:background="@drawable/rounded_button"
                     android:gravity="center"
                     android:padding="7dp"
@@ -223,15 +224,6 @@
                     app:backgroundTint="@color/theme_color"
                     android:fontFamily="@font/font4"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:text="@string/user_review_title"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/font4"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/travelerReviews"

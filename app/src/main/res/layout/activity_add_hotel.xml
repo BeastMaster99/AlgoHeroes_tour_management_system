@@ -288,16 +288,16 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/inputField_color"
+                android:fontFamily="@font/font4"
                 android:gravity="center_horizontal"
                 android:hint="@string/hotel_description"
+                android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 android:minLines="12"
                 android:padding="20dp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                tools:ignore="TextContrastCheck,TextContrastCheck"
-                android:importantForAutofill="no"
-                android:fontFamily="@font/font4"/>
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
             <EditText
                 android:id="@+id/hotelCity"

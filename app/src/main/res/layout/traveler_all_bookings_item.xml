@@ -23,6 +23,7 @@
             android:layout_centerVertical="true"
             android:gravity="center_horizontal"
             android:orientation="vertical"
+            android:paddingTop="5dp"
             android:paddingBottom="10dp">
 
             <TextView
@@ -31,7 +32,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font4"
                 android:text="@string/travelerAllBookingsHotelName"
-                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
