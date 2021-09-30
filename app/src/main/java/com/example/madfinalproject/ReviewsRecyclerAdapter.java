@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ReviewsRecyclerAdapter extends RecyclerView.Adapter<ReviewsRecyclerAdapter.ViewHolder> {
-
     private ArrayList<Review> reviews = new ArrayList<>();
     private final Context context;
     private String travelerEmail;
@@ -53,9 +52,6 @@ public class ReviewsRecyclerAdapter extends RecyclerView.Adapter<ReviewsRecycler
 
         holder.setIsRecyclable(false);
 
-
-//        Log.i("left", reviews.get(position).getTravelerId());
-//        Log.i("right", travelerEmail);
 
         if(reviews.get(position).getTravelerId().equals(travelerEmail)){
             holder.editReviewBtn.setOnClickListener(new View.OnClickListener() {

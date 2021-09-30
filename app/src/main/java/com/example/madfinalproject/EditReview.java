@@ -68,7 +68,7 @@ public class EditReview extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "rateValue: " + " review: " + review.getText()+ rateValue, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Thank You For The Feedback", Toast.LENGTH_LONG).show();
 //
                 reviewObj.setReview(review.getText().toString());
                 reviewObj.setRateValue(rateValue);
@@ -77,6 +77,7 @@ public class EditReview extends AppCompatActivity {
                 Intent intent = new Intent(view.getContext(), HotelTravelerMainView.class);
                 intent.putExtra("hotelId", reviewObj.getHotelId());
                 view.getContext().startActivity(intent);
+                finish();
             }
         });
 

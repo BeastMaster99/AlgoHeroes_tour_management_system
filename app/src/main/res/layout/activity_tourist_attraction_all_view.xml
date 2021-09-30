@@ -7,12 +7,12 @@
     tools:context=".TouristAttractionAllView">
 
     <include
-        android:id="@+id/TG_home_action_bar"
-        layout="@layout/main_action_bar"/>
+        android:id="@+id/action_bar"
+        layout="@layout/action_bar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/placeRecView"
-        android:layout_below="@+id/TG_home_action_bar"
+        android:layout_below="@+id/action_bar"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"/>
