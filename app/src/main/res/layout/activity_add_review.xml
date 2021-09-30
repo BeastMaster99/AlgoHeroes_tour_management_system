@@ -14,8 +14,7 @@
         android:layout_marginStart="-1dp"
         android:layout_marginTop="300dp"
         android:layout_marginEnd="1dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
+        android:maxLines="12"
         android:background="@drawable/rounded_review_text_area"
         android:ems="10"
         android:fontFamily="@font/font6"
@@ -29,12 +28,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.435"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:padding="20dp"/>
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="245dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="310dp"
         android:numStars="5"
         android:stepSize="0.5"
@@ -43,7 +43,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:theme="@style/RatingBar"/>
 
     <ImageView
         android:id="@+id/imageView2"
@@ -101,7 +102,7 @@
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="375dp"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_button"
         android:fontFamily="@font/font4"
@@ -115,6 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
