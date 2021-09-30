@@ -247,6 +247,13 @@
                     android:textSize="26sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/font4"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/travelerReviewsOwner"
+                    android:layout_below="@+id/TR_home_action_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"/>
             </LinearLayout>
 
         </RelativeLayout>

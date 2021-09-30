@@ -2,7 +2,10 @@ package com.example.madfinalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -26,6 +30,7 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,8 +47,11 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
     Hotel hotel = new Hotel();
 
     HashMap<String, String> images = new HashMap<>();
-    
-    DatabaseReference hotelRef;
+
+    RecyclerView reviewRecycleView;
+    ArrayList<Review> reviews = new ArrayList<>();
+
+    DatabaseReference hotelRef, reviewReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +81,8 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
         hotelContact = findViewById(R.id.hotelContact);
         hotelCity = findViewById(R.id.hotelCity);
         hotelDescription = findViewById(R.id.hotelDescription);
+
+        reviewRecycleView = findViewById(R.id.travelerReviewsOwner);
 
         deleteHotelBtn = findViewById(R.id.deleteHotelBtn);
 
@@ -151,7 +161,34 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
                         .show();
             }
         });
-    }
+
+        Query reviewsQuery = databaseReference.child("Reviews").orderByChild("hotelId").equalTo(hotelId);
+
+        HotelOwnerReviewRecycler reviewsAdapter = new HotelOwnerReviewRecycler(this);
+
+        reviewsAdapter.setReviews(reviews);
+        reviewRecycleView.setAdapter( reviewsAdapter );
+        reviewRecycleView.setLayoutManager(new LinearLayoutManager(this));
+
+        reviewsQuery.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                reviews.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Review review = dataSnapshot.getValue(Review.class);
+                    reviews.add(review);
+                }
+                reviewsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HotelHotelOwnerMainView.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+    });
+}
 
     private void deleteData(){
         StorageReference imageRef;
