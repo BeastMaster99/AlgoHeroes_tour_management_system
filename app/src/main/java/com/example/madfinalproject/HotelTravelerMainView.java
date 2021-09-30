@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
+
 public class HotelTravelerMainView extends AppCompatActivity {
     String hotelId;
 
@@ -48,6 +49,8 @@ public class HotelTravelerMainView extends AppCompatActivity {
 
     Hotel hotel = new Hotel();
     FavouriteHotels favData = new FavouriteHotels();
+
+    float averageRating;
 
 
     @Override
@@ -190,7 +193,7 @@ public class HotelTravelerMainView extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
 
                     hotelName.setText(hotel.getName());
-                    HotelRating.setText("9.6");
+
                     hotelAddress.setText(hotel.getAddress());
                     hotelContact.setText(hotel.getContact());
                     hotelCity.setText(hotel.getCity());
@@ -234,13 +237,17 @@ public class HotelTravelerMainView extends AppCompatActivity {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                float reviewSum = 0;
                 reviews.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Review review = dataSnapshot.getValue(Review.class);
                     reviews.add(review);
+                    reviewSum += review.getRateValue();
                 }
                 reviewsAdapter.notifyDataSetChanged();
+                float avgRating = reviewSum / (float) reviews.size();
+                HotelRating.setText(String.valueOf(avgRating * 2));
+
             }
 
             @Override
