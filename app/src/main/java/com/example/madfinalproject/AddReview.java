@@ -126,7 +126,6 @@ public class AddReview extends AppCompatActivity {
             }
         });
     }
-
 }
 
 
