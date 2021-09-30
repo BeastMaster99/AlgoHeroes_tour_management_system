@@ -73,48 +73,56 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="57dp"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
+                android:layout_marginTop="15dp"
                 tools:ignore="UselessParent">
 
-                <Button
-                    android:id="@+id/HOAllBookingsContact"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
-                    android:drawableRight="@drawable/ic_baseline_call_24"
-                    android:fontFamily="@font/font4"
-                    android:importantForAutofill="no"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/hotelOwnerAllBookingsContactText"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/theme_color"
-                    tools:ignore="RelativeOverlap,TextContrastCheck" />
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:weightSum="2">
 
-                <Button
-                    android:id="@+id/HOAllBookingsEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="160dp"
-                    android:background="@drawable/rounded_button"
-                    android:drawableRight="@drawable/ic_baseline_email_24"
-                    android:fontFamily="@font/font4"
-                    android:importantForAutofill="no"
-                    android:paddingStart="40dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/hotelOwnerAllBookingsEmail"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/theme_color"
-                    tools:ignore="RelativeOverlap" />
+                    <Button
+                        android:id="@+id/HOAllBookingsContact"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:drawableRight="@drawable/ic_baseline_call_24"
+                        android:fontFamily="@font/font4"
+                        android:importantForAutofill="no"
+                        android:text="@string/hotelOwnerAllBookingsContactText"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/theme_color"
+                        tools:ignore="RelativeOverlap,TextContrastCheck" />
+
+                    <Button
+                        android:id="@+id/HOAllBookingsEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/HOAllBookingsContact"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:drawableRight="@drawable/ic_baseline_email_24"
+                        android:fontFamily="@font/font4"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:gravity="center"
+                        android:importantForAutofill="no"
+                        android:text="@string/hotelOwnerAllBookingsEmail"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/theme_color"
+                        tools:ignore="RelativeOverlap" />
+
+                </LinearLayout>
 
 
             </RelativeLayout>

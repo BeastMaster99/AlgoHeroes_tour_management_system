@@ -26,11 +26,11 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
+            android:fontFamily="@font/font4"
             android:text="@string/dummy_title"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/font4"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
