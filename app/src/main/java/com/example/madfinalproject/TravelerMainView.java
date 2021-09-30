@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,12 +22,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -43,7 +46,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     EditText searchText;
 
     ArrayList<Hotel> hotels = new ArrayList<>();
-    DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
 
     //instantiating the adapter obj
     HotelRecyclerAdapter adapter = new HotelRecyclerAdapter(this);
@@ -73,7 +76,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
 
         //creating session traveler object and validating the login
         SessionsTraveler sessionsTraveler1 = new SessionsTraveler(TravelerMainView.this);
-        if (!sessionsTraveler1.checkTravelerGuideLogin()){
+        if (!sessionsTraveler1.checkTravelerGuideLogin()) {
             Intent intent = new Intent(this, SignIn.class);
             startActivity(intent);
             finish();
@@ -101,7 +104,7 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
 
         //Setting the hotel owner name in navigation
         SessionsTraveler sessionsTraveler = new SessionsTraveler(TravelerMainView.this);
-        HashMap<String,String> TravelerDetails = sessionsTraveler.getTravelerDetailsFromSessions();
+        HashMap<String, String> TravelerDetails = sessionsTraveler.getTravelerDetailsFromSessions();
 
         String firstName = TravelerDetails.get(SessionsHotelOwner.KEY_FIRSTNAME);
         String lastName = TravelerDetails.get(SessionsHotelOwner.KEY_LASTNAME);
@@ -167,14 +170,14 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
         });
     }
 
-    private void loadData(){
+    private void loadData() {
         hotels.clear();
         //getting the hotels in the database
         hotelRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Hotel hotel = dataSnapshot.getValue(Hotel.class);
                     hotels.add(hotel);
                 }
@@ -189,8 +192,8 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
     }
 
 
-    private void searchHotels(String searchInput){
-        if(!searchInput.isEmpty()) {
+    private void searchHotels(String searchInput) {
+        if (!searchInput.isEmpty()) {
             hotels.clear();
             //getting the hotels in the database
             hotelRef.addValueEventListener(new ValueEventListener() {
@@ -264,6 +267,15 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                 }, 250);
                 break;
 
+            case R.id.TRTouristAttraction:
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent1 = new Intent(TravelerMainView.this, TouristAttractionAllView.class);
+                        startActivity(intent1);
+                    }
+                }, 250);
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
