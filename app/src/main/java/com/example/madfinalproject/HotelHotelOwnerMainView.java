@@ -206,13 +206,16 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                float reviewSum = 0;
                 reviews.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Review review = dataSnapshot.getValue(Review.class);
                     reviews.add(review);
+                    reviewSum += review.getRateValue();
                 }
                 reviewsAdapter.notifyDataSetChanged();
+                float avgRating = reviewSum / (float) reviews.size();
+                HotelRating.setText(String.valueOf(avgRating * 2));
             }
 
             @Override
