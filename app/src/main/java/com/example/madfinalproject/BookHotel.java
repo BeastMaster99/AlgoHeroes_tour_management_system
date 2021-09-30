@@ -181,7 +181,7 @@ public class BookHotel extends AppCompatActivity {
                             bookHotel();
                         } else {
                             //Telling user that they must pay the fee to reserve hotel
-                            builder.setTitle("Alert!!").setMessage("You must make the payments to reserve this hotel")
+                            builder.setTitle("Alert!!").setMessage("You must make the payments to reserve " + hotelName)
                                     .setCancelable(true)
                                     .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
                                         @Override
@@ -204,10 +204,6 @@ public class BookHotel extends AppCompatActivity {
                 numberOfRoomsText = numberOfRooms.getSelectedItem().toString();
                 extraDetailsText = extraDetails.getText().toString();
 
-
-                //calculating the reservation fee
-                int  reservationFee = Integer.parseInt(numberOfRoomsText) * 4;
-
                 if (checkInDateText.isEmpty() || chekOutDateText.isEmpty()) {
 
                     //Telling user that they must fill the fields
@@ -221,6 +217,12 @@ public class BookHotel extends AppCompatActivity {
                             })
                             .show();
                 } else {
+
+
+
+                    //calculating the reservation fee
+                    int  reservationFee = Integer.parseInt(numberOfRoomsText) * 4;
+
                     PayPalPayment payment = new PayPalPayment(new BigDecimal(reservationFee), "USD", hotelName +" Reservation Fee", PayPalPayment.PAYMENT_INTENT_SALE);
                     Intent intent = new Intent(BookHotel.this, PaymentActivity.class);
                     intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);

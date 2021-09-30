@@ -56,7 +56,7 @@
                 android:fontFamily="@font/font4"
                 android:text="@string/travelerAllBookingsDate"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -67,14 +67,14 @@
                 android:fontFamily="@font/font4"
                 android:text="@string/numberOfRooms"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_marginStart="63dp"
+                android:layout_marginStart="58dp"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 tools:ignore="UselessParent">
@@ -84,28 +84,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_button"
+                    android:drawableRight="@drawable/ic_baseline_edit_24"
                     android:fontFamily="@font/font4"
                     android:importantForAutofill="no"
-                    android:paddingStart="50dp"
-                    android:paddingEnd="50dp"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp"
                     android:text="@string/bookingUserViewEditButton"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@color/theme_color"
+                    app:backgroundTint="@color/yellow"
                     tools:ignore="RelativeOverlap,TextContrastCheck" />
 
                 <Button
                     android:id="@+id/travelerBookingsCancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="150dp"
+                    android:layout_marginStart="160dp"
                     android:background="@drawable/rounded_button"
+                    android:drawableRight="@drawable/ic_baseline_cancel_24"
                     android:fontFamily="@font/font4"
                     android:importantForAutofill="no"
-                    android:paddingStart="30dp"
-                    android:paddingEnd="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     android:text="@string/bookingUserViewDeleteButton"
                     android:textAllCaps="false"
                     android:textColor="@color/white"

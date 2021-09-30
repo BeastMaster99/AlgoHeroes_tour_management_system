@@ -90,13 +90,13 @@ public class HotelOwnerRegistration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Getting values and turn it to Strings
-                String firstNameText = firstNameHotelOwner.getText().toString();
-                String lastNameText = lastNameHotelOwner.getText().toString();
-                String emailText = emailHotelOwner.getText().toString();
-                String contactText = contactHotelOwner.getText().toString();
-                String birthdayText = birthDayHotelOwner.getText().toString();
-                String passwordText = passwordHotelOwner.getText().toString();
-                String reEnterPasswordText = reEnterPasswordHotelOwner.getText().toString();
+                String firstNameText = firstNameHotelOwner.getText().toString().trim();
+                String lastNameText = lastNameHotelOwner.getText().toString().trim();
+                String emailText = emailHotelOwner.getText().toString().trim();
+                String contactText = contactHotelOwner.getText().toString().trim();
+                String birthdayText = birthDayHotelOwner.getText().toString().trim();
+                String passwordText = passwordHotelOwner.getText().toString().trim();
+                String reEnterPasswordText = reEnterPasswordHotelOwner.getText().toString().trim();
 
 
                 String email = encodeUserEmail(emailText);//Encoding the Email
