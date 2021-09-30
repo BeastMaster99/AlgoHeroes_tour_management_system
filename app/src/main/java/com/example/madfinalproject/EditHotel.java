@@ -508,7 +508,27 @@ public class EditHotel extends AppCompatActivity {
         hotelSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadHotel();
+                //validation - if fields are empty
+                if (hotelName.getText().toString().isEmpty() ||
+                        hotelAddress.getText().toString().isEmpty() ||
+                        hotelContact.getText().toString().isEmpty() ||
+                        hotelDescription.getText().toString().isEmpty() ||
+                        hotelCity.getText().toString().isEmpty() ||
+                        imageURIs.size() == 0) {
+
+                    new AlertDialog.Builder(EditHotel.this).setTitle("Alert!!").setMessage("Please Fill All The Fields To Continue!")
+                            .setCancelable(true)
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            })
+                            .show();
+
+                } else {
+                    uploadHotel();
+                }
             }
 
 

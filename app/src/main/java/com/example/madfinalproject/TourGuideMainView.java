@@ -120,9 +120,8 @@ public class TourGuideMainView extends AppCompatActivity implements NavigationVi
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     AttractionPlaces place = dataSnapshot.getValue(AttractionPlaces.class);
-                    if(place.getTourGuide().equalsIgnoreCase(tourguideEmail)){
+                    if(place.getTourGuide().equalsIgnoreCase(tourguideEmail) && place.getImages() != null){
                         attractionPlaces.add(place);
-
                     }
 
                 }

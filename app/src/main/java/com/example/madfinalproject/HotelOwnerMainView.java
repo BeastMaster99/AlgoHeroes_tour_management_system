@@ -120,7 +120,7 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Hotel hotel = dataSnapshot.getValue(Hotel.class);
-                    if (hotel.getOwner().equalsIgnoreCase(ownerEmail)) {
+                    if (hotel.getOwner().equalsIgnoreCase(ownerEmail) && hotel.getImages() != null) {
                         hotels.add(hotel);
                     }
                 }

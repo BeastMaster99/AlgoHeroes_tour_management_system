@@ -179,7 +179,9 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Hotel hotel = dataSnapshot.getValue(Hotel.class);
-                    hotels.add(hotel);
+                    if (hotel.getImages() != null) {
+                        hotels.add(hotel);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -206,7 +208,9 @@ public class TravelerMainView extends AppCompatActivity implements NavigationVie
                         if (hotel.getName().toLowerCase().contains(searchInput) ||
                                 hotel.getCity().toLowerCase().contains(searchInput) ||
                                 hotel.getDescription().toLowerCase().contains(searchInput)) {
-                            hotels.add(hotel);
+                            if (hotel.getImages() != null) {
+                                hotels.add(hotel);
+                            }
                         }
                     }
                     adapter.notifyDataSetChanged();

@@ -201,14 +201,17 @@ public class HotelTravelerMainView extends AppCompatActivity {
 
                     StringBuilder amenities = new StringBuilder();
 
-                    for (int i = 0; i < hotel.getAmenities().size(); i++) {
-                        amenities.append(hotel.getAmenities().get(i));
-                        if (i != hotel.getAmenities().size() - 1) {
-                            amenities.append(", ");
+                    if(hotel.getAmenities() != null) {
+                        for (int i = 0; i < hotel.getAmenities().size(); i++) {
+                            amenities.append(hotel.getAmenities().get(i));
+                            if (i != hotel.getAmenities().size() - 1) {
+                                amenities.append(", ");
+                            }
                         }
+                        hotelAmenities.setText(amenities.toString());
+                    } else {
+                        hotelAmenities.setText("N/A");
                     }
-
-                    hotelAmenities.setText(amenities.toString());
                 }
             }
 

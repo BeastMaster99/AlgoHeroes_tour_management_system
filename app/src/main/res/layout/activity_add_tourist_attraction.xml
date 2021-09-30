@@ -185,6 +185,7 @@
 
 
         </LinearLayout>
+
             <Button
                 android:id="@+id/button10"
                 android:layout_width="match_parent"
@@ -193,6 +194,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/rounded_button"
+                android:fontFamily="@font/font4"
                 android:gravity="center"
                 android:padding="7dp"
                 android:text="@string/add_tourist_attraction"
@@ -200,8 +202,7 @@
                 android:textColor="@color/white"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                app:backgroundTint="@color/theme_color"
-                android:fontFamily="@font/font4"/>
+                app:backgroundTint="@color/theme_color" />
 
 
 
@@ -227,7 +228,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/uploading_your_data_pls_wait"
+            android:text="@string/hotelUploadProgress"
             android:layout_below="@+id/progressBar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
