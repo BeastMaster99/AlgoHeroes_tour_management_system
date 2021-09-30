@@ -72,7 +72,9 @@ public class TouristAttractionAllView extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     AttractionPlaces place = dataSnapshot.getValue(AttractionPlaces.class);
-                    attractionPlaces.add(place);
+                    if(place.getImages() != null) {
+                        attractionPlaces.add(place);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
