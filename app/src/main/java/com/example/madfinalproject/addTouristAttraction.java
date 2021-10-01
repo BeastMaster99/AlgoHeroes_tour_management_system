@@ -380,6 +380,7 @@ public class addTouristAttraction extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(addTouristAttraction.this, TourGuideMainView.class);
                 startActivity(intent);
+                finish();
             }
         }, 20000);
     }
