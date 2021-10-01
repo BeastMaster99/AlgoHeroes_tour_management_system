@@ -12,7 +12,48 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".PackageMainView">
+    tools:context=".PackageMainView"
+    tools:ignore="ExtraText">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/action_bar" />
+
+
+    <TextView
+        android:id="@+id/pName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:gravity="center"
+        android:text="@string/package_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font4"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/packageName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="@string/title"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font4"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pName" />
+        tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/textView"
@@ -23,14 +64,15 @@
         android:text="@string/guest_count"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/packageName1" /> />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/numberOfGuest1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -38,6 +80,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,14 +96,15 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/numberOfGuest1" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/roomFeatures"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -68,6 +112,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,14 +131,15 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/roomFeatures" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/roomTypes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -101,6 +147,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,20 +163,22 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/roomTypes" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/fee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:text="@string/title"
         android:gravity="center"
         android:textAlignment="center"
+        android:fontFamily="@font/font4"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -146,14 +195,15 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/fee" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/description1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -161,6 +211,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -180,14 +231,15 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/description1" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -195,6 +247,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -210,14 +263,15 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/rating" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/refundable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -225,29 +279,64 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="257dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="30dp"
-        android:textAllCaps="false"
-        app:backgroundTint="@color/theme_colour"
-        android:background="@drawable/green_rounded_rectangle"
-        android:text="@string/edit_package"
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/nu_of_rooms"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/refundable" />
+
+    <TextView
+        android:id="@+id/numRooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="@string/title"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font4"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/packageEditBtn"
+        android:layout_width="257dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"
+        app:backgroundTint="@color/yellow"
+        android:background="@drawable/green_rounded_rectangle"
+        android:text="@string/edit_package"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/font4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numRooms" />
+
+    <Button
+        android:id="@+id/packageDeleteBtn"
         android:layout_width="257dp"
         android:layout_height="55dp"
         android:layout_marginTop="15dp"
@@ -255,11 +344,12 @@
         app:backgroundTint="@color/red"
         android:background="@drawable/red_rounded_rectangle"
         android:text="@string/delete"
+        android:fontFamily="@font/font4"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/packageEditBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

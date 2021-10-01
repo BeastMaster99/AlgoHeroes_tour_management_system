@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/drawable-v24/ic_hotel_owner.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/drawable-v24/rounded_button.xml" value="0.21666666666666667" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/drawable/box.xml" value="0.21979166666666666" />
@@ -17,7 +16,11 @@
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout-v21/action_bar_package.xml" value="0.20364583333333333" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_add_hotel.xml" value="0.20052083333333334" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_add_package.xml" value="0.264" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_add_tourist_attraction.xml" value="0.259375" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_all_packages.xml" value="0.264" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_edit_hotel.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_edit_package.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_edit_review.xml" value="0.259375" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_hotel_hotel_owner_main_view.xml" value="0.20052083333333334" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_hotel_owner_main_view.xml" value="0.22552083333333334" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_hotel_owner_registration.xml" value="0.22552083333333334" />
@@ -26,8 +29,12 @@
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_package.xml" value="0.20052083333333334" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_package2.xml" value="0.20052083333333334" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_package_main_view.xml" value="0.2" />
-        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/package_list_items.xml" value="0.2" />
-
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_tour_guide_main_view.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_traveler_package_main_view.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/attraction_list_item.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/hotel_list_item.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/package_list_items.xml" value="0.264" />
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/review_list_item.xml" value="0.259375" />
         <entry key="..\:/Uni/YEAR 2/SEMESTER 2/MAD/ASSIGNMENTS/MAD Project/AlgoHeroes_tour_management_system/app/src/main/res/drawable-v24/ic_baseline_star_half_24.xml" value="0.21180555555555555" />
         <entry key="..\:/Uni/YEAR 2/SEMESTER 2/MAD/ASSIGNMENTS/MAD Project/AlgoHeroes_tour_management_system/app/src/main/res/drawable/box.xml" value="0.29635416666666664" />
         <entry key="..\:/Uni/YEAR 2/SEMESTER 2/MAD/ASSIGNMENTS/MAD Project/AlgoHeroes_tour_management_system/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.29635416666666664" />
@@ -83,7 +90,6 @@
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/menu/hotel_owner_main_menu.xml" value="0.25" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/menu/tour_guide_main_menu.xml" value="0.25" />
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/menu/traveler_main_menu.xml" value="0.22" />
-
         <entry key="app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.2798611111111111" />
         <entry key="app/src/main/res/drawable-v24/ic_login.xml" value="0.2798611111111111" />
         <entry key="app/src/main/res/layout-v21/action_bar.xml" value="0.13993055555555556" />
@@ -95,10 +101,7 @@
         <entry key="app/src/main/res/layout/activity_edit_book_hotel.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_edit_hotel.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
-
-
         <entry key="app/src/main/res/layout/activity_hotel_hotel_owner_main_view.xml" value="0.375" />
-
         <entry key="app/src/main/res/layout/activity_hotel_owner_main_view.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_hotel_owner_registration.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />

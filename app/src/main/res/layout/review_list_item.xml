@@ -7,13 +7,13 @@
     android:layout_marginBottom="10dp">
 
     <LinearLayout
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/box"
         android:gravity="center"
         android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         tools:ignore="UselessParent">
 
         <TextView
@@ -38,9 +38,9 @@
             android:id="@+id/travelerReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="20dp"
+            android:gravity="center_horizontal"
             android:text="@string/hoteluserViewDData7_2" />
 
         <LinearLayout
@@ -52,29 +52,28 @@
                 android:id="@+id/editReviewBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
                 android:background="@drawable/rounded_button"
-                app:backgroundTint="@color/theme_color"
                 android:fontFamily="@font/font4"
                 android:importantForAutofill="no"
                 android:text="Edit"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                android:layout_marginEnd="7dp"
-                />
+                app:backgroundTint="@color/theme_color" />
 
             <Button
                 android:id="@+id/deleteReviewBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
-                app:backgroundTint="@color/red"
                 android:fontFamily="@font/font4"
                 android:importantForAutofill="no"
                 android:text="Delete"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:backgroundTint="@color/red" />
             />
 
         </LinearLayout>

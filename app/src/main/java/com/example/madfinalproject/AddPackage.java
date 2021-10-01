@@ -51,6 +51,7 @@ public class AddPackage extends AppCompatActivity {
     //IconSwitch switch1;
 
     String uuid;
+    String hotelId;
 
 
     @Override
@@ -58,41 +59,48 @@ public class AddPackage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_package);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            hotelId = extras.getString("hotelId");
+
+        }
+        //Toast.makeText(AddPackage.this,"hotel id : "+hotelId,Toast.LENGTH_SHORT).show();
+        System.out.println(hotelId);
 
         //generating a UUID for package id
         uuid = UUID.randomUUID().toString();
 
         //action bar
-        actionBar = findViewById(R.id.actionBar);
+        actionBar           = findViewById(R.id.actionBar);
         actionBar.setText("Add Package");
 
-        imageBack= findViewById(R.id.imageBack);
+        imageBack           = findViewById(R.id.imageBack);
 
-        packageSubmitBtn = findViewById(R.id.packageSubmitBtn);
+        packageSubmitBtn    = findViewById(R.id.packageSubmitBtn);
 
-        Name = findViewById(R.id.Name);
-        numberOfGuest = findViewById(R.id.numberOfGuest);
-        feePerDay = findViewById(R.id.feePerDay);
-        packageDescription = findViewById(R.id.packageDescription);
-        numRooms = findViewById(R.id.numRooms);
+        Name                = findViewById(R.id.Name);
+        numberOfGuest       = findViewById(R.id.numberOfGuest);
+        feePerDay           = findViewById(R.id.feePerDay);
+        packageDescription  = findViewById(R.id.packageDescription);
+        numRooms            = findViewById(R.id.numRooms);
 
-        chipAirCondition = findViewById(R.id.chipAirCondition);
-        chipHouseKeeping = findViewById(R.id.chipHouseKeeping);
-        chipTel = findViewById(R.id.chipTel);
-        chipSofa = findViewById(R.id.chipSofa);
-        chipDesk = findViewById(R.id.chipDesk);
-        chipSafe = findViewById(R.id.chipSafe);
-        chipMiniBar = findViewById(R.id.chipMiniBar);
-        chipRefrigerator = findViewById(R.id.chipRefrigerator);
-        chipBathRooms = findViewById(R.id.chipBathRooms);
-        chipBottledWater = findViewById(R.id.chipBottledWater);
-        chipTV = findViewById(R.id.chipTV);
+        chipAirCondition    = findViewById(R.id.chipAirCondition);
+        chipHouseKeeping    = findViewById(R.id.chipHouseKeeping);
+        chipTel             = findViewById(R.id.chipTel);
+        chipSofa            = findViewById(R.id.chipSofa);
+        chipDesk            = findViewById(R.id.chipDesk);
+        chipSafe            = findViewById(R.id.chipSafe);
+        chipMiniBar         = findViewById(R.id.chipMiniBar);
+        chipRefrigerator    = findViewById(R.id.chipRefrigerator);
+        chipBathRooms       = findViewById(R.id.chipBathRooms);
+        chipBottledWater    = findViewById(R.id.chipBottledWater);
+        chipTV              = findViewById(R.id.chipTV);
 
-        chipCityView = findViewById(R.id.chipCityView);
-        chipLandMark = findViewById(R.id.chipLandMark);
-        chipFamilyRooms = findViewById(R.id.chipFamilyRooms);
+        chipCityView        = findViewById(R.id.chipCityView);
+        chipLandMark        = findViewById(R.id.chipLandMark);
+        chipFamilyRooms     = findViewById(R.id.chipFamilyRooms);
         chipNonSmokingRooms = findViewById(R.id.chipNonSmokingRooms);
-        chipSmokingRooms = findViewById(R.id.chipSmokingRooms);
+        chipSmokingRooms    = findViewById(R.id.chipSmokingRooms);
 
 
         //switch1 = findViewById(R.id.switch1);
@@ -169,21 +177,27 @@ public class AddPackage extends AppCompatActivity {
                     roomTypes.add("Smoking Rooms");
                 }
 
-                String name = Name.getText().toString();
-                String guest = numberOfGuest.getText().toString();
-                String fee = feePerDay.getText().toString();
-                String description =packageDescription.getText().toString();
+                String name         = Name.getText().toString();
+                String guest        = numberOfGuest.getText().toString();
+                String fee          = feePerDay.getText().toString();
+                String description  = packageDescription.getText().toString();
+                String nRooms       = numRooms.getText().toString();
+                //String hotelId      = getIntent().getStringExtra("hotelId");
+
                 //passing data
-                Package pkg = new Package(name, guest, fee, description,
-                        roomFeatures,roomTypes,uuid);
+                Package pkg         = new Package(name, guest, fee, description,
+                        roomFeatures,roomTypes,nRooms,uuid,hotelId);
 
-
-                databaseReference.addValueEventListener(new ValueEventListener() {
+                databaseReference.child(uuid).setValue(pkg);
+                Toast.makeText(AddPackage.this, "Package Added..", Toast.LENGTH_SHORT).show();
+                /*databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         databaseReference.child(uuid).setValue(pkg);
                         Toast.makeText(AddPackage.this, "Package Added..", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddPackage.this, PackageMainView.class));
+                       // startActivity(new Intent(AddPackage.this, PackageMainView.class));
+
+
                     }
 
                     @Override
@@ -191,7 +205,11 @@ public class AddPackage extends AppCompatActivity {
                         Toast.makeText(AddPackage.this, "Error is Occured..", Toast.LENGTH_SHORT).show();
 
                     }
-                });
+                });*/
+                Intent i = new Intent(AddPackage.this, PackageMainView.class);
+                i.putExtra("uuid",uuid);
+                startActivity(i);
+                finish();
             }
         });
     }

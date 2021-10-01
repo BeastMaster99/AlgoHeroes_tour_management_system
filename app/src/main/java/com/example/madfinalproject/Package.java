@@ -1,29 +1,36 @@
 package com.example.madfinalproject;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Package  {
+public class Package implements Serializable {
 
     private String name;
     private String nuGuest;
     private String fee;
     private String description;
-    //private boolean isCheck='True';
     private ArrayList<String> roomFeatures;
     private ArrayList<String> roomTypes;
+    private String nRooms;
     private String uuid;
-    //private String refundable;
+    private String hotelId;
+
+    //private String rating;
 
     public Package() {
     }
 
-    public Package(String name, String nuGuest, String fee, String description, ArrayList<String> roomFeatures, ArrayList<String> roomTypes, String uuid) {
+    public Package(String name, String nuGuest, String fee, String description, ArrayList<String> roomFeatures, ArrayList<String> roomTypes, String nRooms, String uuid, String hotelId) {
         this.name = name;
         this.nuGuest = nuGuest;
         this.fee = fee;
         this.description = description;
         this.roomFeatures = roomFeatures;
         this.roomTypes = roomTypes;
+        this.nRooms = nRooms;
         this.uuid = uuid;
+        this.hotelId = hotelId;
+
+
     }
 
 
@@ -75,12 +82,28 @@ public class Package  {
         this.roomTypes = roomTypes;
     }
 
+    public String getnRooms() {
+        return nRooms;
+    }
+
+    public void setnRooms(String nRooms) {
+        this.nRooms = nRooms;
+    }
+
     public String getUuid() {
         return uuid;
     }
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    public String getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
     }
 
     @Override

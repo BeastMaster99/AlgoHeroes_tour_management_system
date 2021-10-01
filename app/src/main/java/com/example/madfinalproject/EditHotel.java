@@ -84,9 +84,9 @@ public class EditHotel extends AppCompatActivity {
 
         //Starting the paypal service
         Intent intent = new Intent(this, PayPalService.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         startService(intent);
 
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         //getting the current data
         currentHotelData = (Hotel) getIntent().getSerializableExtra("hotelObj");
 

@@ -4,25 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+//import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class PackageMainView extends AppCompatActivity {
+public class TravelerPackageMainView extends AppCompatActivity {
 
     String uuid;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
@@ -30,17 +25,15 @@ public class PackageMainView extends AppCompatActivity {
     TextView actionBar;
     ImageView imageBack;
     TextView packageName1, numberOfGuest1, roomFeatures, roomTypes, fee, description1, rating, refundable,numRooms;
-    Button packageEditBtn, packageDeleteBtn;
+    //Button packageEditBtn, packageDeleteBtn;
     DatabaseReference packageRef;
     Package pkg = new Package();
-
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_package_main_view);
-
+        setContentView(R.layout.activity_traveler_package_main_view);
 
 
         Bundle extras = getIntent().getExtras();
@@ -61,10 +54,9 @@ public class PackageMainView extends AppCompatActivity {
         imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                {PackageMainView.super.onBackPressed();}
+                {TravelerPackageMainView.super.onBackPressed();}
             }
         });
-
 
         packageName1    = findViewById(R.id.packageName1);
         numberOfGuest1  = findViewById(R.id.numberOfGuest1);
@@ -76,21 +68,21 @@ public class PackageMainView extends AppCompatActivity {
         refundable      = findViewById(R.id.refundable);
         numRooms      = findViewById(R.id.numRooms);
 
-        packageEditBtn      = findViewById(R.id.packageEditBtn);
-        packageDeleteBtn    = findViewById(R.id.packageDeleteBtn);
+//        packageEditBtn      = findViewById(R.id.packageEditBtn);
+//        packageDeleteBtn    = findViewById(R.id.packageDeleteBtn);
 
         //package database Ref
         packageRef = databaseReference.child("Packages").child(uuid);
 
         //getting the packages from the database
-        
+
         packageRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                
+
                 if (snapshot.exists()){
-                    
+
                     pkg = snapshot.getValue(Package.class);
                     assert pkg != null;
                     //adapter.notifyDataSetChanged();
@@ -105,9 +97,9 @@ public class PackageMainView extends AppCompatActivity {
 
                     StringBuilder roomFeatures1 = new StringBuilder();
 
-                    for (int j = 0; j < pkg.getRoomFeatures().size(); j++) {
-                        roomFeatures1.append(pkg.getRoomFeatures().get(j));
-                        if (j != pkg.getRoomFeatures().size() - 1) {
+                    for (int a = 0; a < pkg.getRoomFeatures().size(); a++) {
+                        roomFeatures1.append(pkg.getRoomFeatures().get(a));
+                        if (a != pkg.getRoomFeatures().size() - 1) {
                             roomFeatures1.append(", ");
                         }
                     }
@@ -116,9 +108,9 @@ public class PackageMainView extends AppCompatActivity {
 
                     StringBuilder roomTypes1 = new StringBuilder();
 
-                    for (int k = 0; k < pkg.getRoomTypes().size(); k++) {
-                        roomTypes1.append(pkg.getRoomTypes().get(k));
-                        if (k != pkg.getRoomTypes().size() - 1) {
+                    for (int b = 0; b < pkg.getRoomTypes().size(); b++) {
+                        roomTypes1.append(pkg.getRoomTypes().get(b));
+                        if (b != pkg.getRoomTypes().size() - 1) {
                             roomTypes1.append(", ");
                         }
                     }
@@ -128,72 +120,9 @@ public class PackageMainView extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(PackageMainView.this, error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(TravelerPackageMainView.this, error.toString(),Toast.LENGTH_SHORT).show();
             }
         });
-
-        //edit hotels functionality
-        packageEditBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PackageMainView.this, EditPackage.class);
-                intent.putExtra("pkgObj", pkg);
-                startActivity(intent);
-            }
-        });
-
-
-        //delete packages functionality
-        packageDeleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(PackageMainView.this)
-                        .setTitle("Warning")
-                        .setMessage("This package will be permanently deleted! Are you sure that you want to continue?")
-                        .setCancelable(true)
-                        .setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        })
-                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                deletePackage();
-                            }
-                        })
-                        .show();
-            }
-        });
-
-
 
     }
-
-
-
-    private void deletePackage(){
-
-        packageRef.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(PackageMainView.this, "Successfully Deleted the Package", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(PackageMainView.this, AllPackages.class);
-                startActivity(intent);
-                finish();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(PackageMainView.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-
-
-}
 }

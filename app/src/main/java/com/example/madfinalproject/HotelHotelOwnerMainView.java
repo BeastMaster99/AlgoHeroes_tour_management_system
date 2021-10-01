@@ -138,6 +138,7 @@ public class HotelHotelOwnerMainView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(HotelHotelOwnerMainView.this, AllPackages.class);
+                intent1.putExtra("hotelId", hotelId);
                 startActivity(intent1);
             }
         });

@@ -14,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MadFinalProject">
-
+        <activity
+            android:name=".TravelerPackageMainView"
+            android:exported="true" />
+        <activity
+            android:name=".EditPackage"
+            android:exported="true" />
         <activity
             android:name=".EditReview"
             android:exported="true" />
@@ -87,8 +92,6 @@
         <activity
             android:name=".SignIn"
             android:exported="true" />
-
-
     </application>
 
 </manifest>

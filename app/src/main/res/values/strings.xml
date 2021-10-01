@@ -126,7 +126,6 @@
     <string name="hoteluserViewDData7_4">walk around the huge area where the hotel spans.</string>
 
 
-
     <string name="travelerAllBookingsHotelName">Jetwing Vil Uyana</string>
     <string name="travelerAllBookingsRoomType">Garden Dwelling</string>
     <string name="travelerAllBookingsDate">25/9/2021 To 27/9/2021</string>
@@ -219,7 +218,7 @@
 
     <!--Admin View Package-->
     <!--<string name="app_name">Package Details</string>-->
-    <string name="package_name">Garden Dewlling</string>
+    <string name="package_name">Package Name</string>
     <string name="guest_count">Guest Count</string>
     <string name="room_features">Room Features</string>
     <string name="rooms_types">Room Types</string>
