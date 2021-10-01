@@ -88,13 +88,13 @@ public class TourGuideRegistration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Getting values and turn it to Strings
-                String firstNameText = firstNameTourGuide.getText().toString();
-                String lastNameText = lastNameTourGuide.getText().toString();
-                String emailText = emailTourGuide.getText().toString();
-                String contactText = contactTourGuide.getText().toString();
-                String birthdayText = birthDayTourGuide.getText().toString();
-                String passwordText = passwordTourGuide.getText().toString();
-                String reEnterPasswordText = reEnterPasswordTourGuide.getText().toString();
+                String firstNameText = firstNameTourGuide.getText().toString().trim();
+                String lastNameText = lastNameTourGuide.getText().toString().trim();
+                String emailText = emailTourGuide.getText().toString().trim();
+                String contactText = contactTourGuide.getText().toString().trim();
+                String birthdayText = birthDayTourGuide.getText().toString().trim();
+                String passwordText = passwordTourGuide.getText().toString().trim();
+                String reEnterPasswordText = reEnterPasswordTourGuide.getText().toString().trim();
 
                 String email = encodeUserEmail(emailText);//Encoding the Email
 

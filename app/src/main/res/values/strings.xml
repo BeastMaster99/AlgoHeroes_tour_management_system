@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mad Final Project</string>
+    <string name="app_name">Lounge Buddy</string>
     <string name="landImage">LandImage</string>
     <string name="landPageTopic">Plan Your Trips</string>
     <string name="landinPagePara1">Find Thousands of hotels and </string>
@@ -55,6 +55,7 @@
     <string name="MenuTGGetHelp">Get Help</string>
     <string name="MenuTGSignOut">Sign Out</string>
     <string name="MenuTRYourProfile">Your profile</string>
+    <string name="MenuTRTouristAttraction">Tourist Attractions</string>
     <string name="MenuTRHotels">Your Bookings</string>
     <string name="MenuTRfavourite">Favourite</string>
     <string name="MenuTRSignOut">Sign Out</string>
@@ -133,6 +134,13 @@
     <string name="bookingUserViewEditButton">Edit</string>
     <string name="bookingUserViewDeleteButton">Cancel</string>
 
+    <string name="hotelOwnerAllBookingsCheckIn">25/9/2021</string>
+    <string name="hotelOwnerAllBookingsCheckOut">27/9/2021</string>
+    <string name="hotelOwnerAllBookingsRooms">3 Room(s)</string>
+    <string name="hotelOwnerAllTravelerName">Eranda</string>
+    <string name="hotelOwnerAllBookingsContactText">Contact</string>
+    <string name="hotelOwnerAllBookingsEmail">Email</string>
+
 
     <!--Benuka Strings Start-->
     <string name="hotel_activity_topic">Add Hotel</string>
@@ -181,12 +189,14 @@
     <string name="hotel_edit_title">Edit Details</string>
     <string name="hotel_delete_title">Delete Hotel</string>
     <string name="edit_hotel">Edit Hotel</string>
+    <string name="fav_btn">Add To Favourites</string>
+    <string name="fav_title">Your Favourites</string>
+    <string name="searchHotels">Search Hotels</string>
     <!--Benuka Strings end-->
 
 
     <!--Kavindu Strings Start-->
     <!--<string name="app_name">Add Packages</string>-->
-    <string name="name">Name</string>
     <string name="number">Number of Guest</string>
     <string name="price">Price per Day</string>
     <string name="choose_room_features">Choose Room Features</string>
@@ -207,7 +217,6 @@
     <string name="family_rooms">Family Rooms</string>
     <string name="non_smoking_rooms">Non-Smoking Rooms</string>
     <string name="smoking_rooms">Smoking Rooms</string>
-    <string name="description">Description</string>
     <string name="nu_of_rooms">Number of Rooms</string>
     <string name="refundable">Refundable</string>
     <string name="add_package">Add Package</string>
@@ -231,6 +240,29 @@
     <!--Kavindu String End-->
 
     <string name="user_review_name">You</string>
+    <string name="placeAddress" />
+    <string name="name">Name</string>
+    <string name="place_image_1">place Image 1</string>
+    <string name="choose_up_to_5_images">Choose up to 5 images</string>
+    <string name="edit_images">Edit Images</string>
+    <string name="city">City</string>
+    <string name="description">Description</string>
+    <string name="address">Address</string>
+    <string name="place_image_2">place Image 2</string>
+    <string name="place_image_3">place Image 3</string>
+    <string name="place_image_4">place Image 4</string>
+    <string name="place_image_5">place Image 5</string>
+    <string name="edit_attractions">Edit Attractions</string>
+    <string name="uploading_your_data_pls_wait">Uploading Your data...Pls wait</string>
+    <string name="edit_details">Edit Details</string>
+    <string name="delete_place">Delete Place</string>
+    <string name="todo">TODO</string>
+    <string name="string_todo">todo1</string>
+    <string name="editTouristAttraction">Edit Tourist Attraction</string>
+    <string name="select_images">Select Images</string>
+    <string name="add_tourist_attraction">Add Attraction</string>
+    <string name="addTouristAttraction1">Add Tourist Attraction</string>
+
 
 
 </resources>

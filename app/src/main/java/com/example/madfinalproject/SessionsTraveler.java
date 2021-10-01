@@ -1,5 +1,6 @@
 package com.example.madfinalproject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -63,5 +64,6 @@ public class SessionsTraveler {
         editor.commit();
         Intent intent = new Intent(context, SignIn.class);
         context.startActivity(intent);
+        ((Activity)context).finish();
     }
 }

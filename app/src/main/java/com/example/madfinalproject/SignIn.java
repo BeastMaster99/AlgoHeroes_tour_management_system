@@ -78,8 +78,8 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
 
                 //Turning username and password to Strings
-                String userNameText = userName.getText().toString();
-                String passwordText = password.getText().toString();
+                String userNameText = userName.getText().toString().trim();
+                String passwordText = password.getText().toString().trim();
 
                 String email = decodeUserEmail(userNameText);//Encoding the email
 

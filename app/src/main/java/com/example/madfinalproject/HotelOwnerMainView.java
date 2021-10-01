@@ -32,7 +32,7 @@ import java.util.HashMap;
 public class HotelOwnerMainView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ArrayList<Hotel> hotels = new ArrayList<>();
-    DatabaseReference databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -50,7 +50,7 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
         drawerLayout = findViewById(R.id.drawlayout);
         navigationView = findViewById(R.id.nav_menu);
         title = findViewById(R.id.homeActionBarTitle);
-        toolbar = findViewById(R.id.home_action_bar);
+        toolbar = findViewById(R.id.homeActionBar);
 
         recyclerView = findViewById(R.id.hotelsRecViewOwner);
 
@@ -66,12 +66,12 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
         //Setting the header menu
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_menu);
         View headerView = navigationView.inflateHeaderView(R.layout.header_menu);
-        ImageView backImage = (ImageView)headerView.findViewById(R.id.backImageMenuBar);
-        TextView ownerName = (TextView)headerView.findViewById(R.id.userNameText);
+        ImageView backImage = (ImageView) headerView.findViewById(R.id.backImageMenuBar);
+        TextView ownerName = (TextView) headerView.findViewById(R.id.userNameText);
 
         //creating session hotel owner object and validating the login
         SessionsHotelOwner sessionsHotelOwner = new SessionsHotelOwner(HotelOwnerMainView.this);
-        if (sessionsHotelOwner.checkHotelOwnerLogin() == false){
+        if (sessionsHotelOwner.checkHotelOwnerLogin() == false) {
             Intent intent = new Intent(this, SignIn.class);
             startActivity(intent);
             finish();
@@ -88,7 +88,7 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
 
         //Setting the hotel owner name in navigation
         SessionsHotelOwner sessionsManagerHotelOwner = new SessionsHotelOwner(HotelOwnerMainView.this);
-        HashMap <String,String> hotelOwnerDetails = sessionsManagerHotelOwner.getHotelOwnerDetailsFromSessions();
+        HashMap<String, String> hotelOwnerDetails = sessionsManagerHotelOwner.getHotelOwnerDetailsFromSessions();
 
         String firstName = hotelOwnerDetails.get(SessionsHotelOwner.KEY_FIRSTNAME);
         String lastName = hotelOwnerDetails.get(SessionsHotelOwner.KEY_LASTNAME);
@@ -118,9 +118,9 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Hotel hotel = dataSnapshot.getValue(Hotel.class);
-                    if(hotel.getOwner().equalsIgnoreCase(ownerEmail)) {
+                    if (hotel.getOwner().equalsIgnoreCase(ownerEmail) && hotel.getImages() != null) {
                         hotels.add(hotel);
                     }
                 }
@@ -166,6 +166,26 @@ public class HotelOwnerMainView extends AppCompatActivity implements NavigationV
                     @Override
                     public void run() {
                         Intent intent = new Intent(HotelOwnerMainView.this, AddHotel.class);
+                        startActivity(intent);
+                    }
+                }, 250);
+                break;
+
+            case R.id.HOTouristAttraction:
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(HotelOwnerMainView.this, TouristAttractionAllView.class);
+                        startActivity(intent);
+                    }
+                }, 250);
+                break;
+
+            case R.id.HOBookings:
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(HotelOwnerMainView.this, HotelOwnerAllBookings.class);
                         startActivity(intent);
                     }
                 }, 250);

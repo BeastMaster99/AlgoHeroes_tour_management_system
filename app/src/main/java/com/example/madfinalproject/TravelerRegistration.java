@@ -87,13 +87,13 @@ public class TravelerRegistration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Getting values and turn it to Strings
-                String firstNameText = firstNameTraveler.getText().toString();
-                String lastNameText = lastNameTraveler.getText().toString();
-                String emailText = emailTraveler.getText().toString();
-                String contactText = contactTraveler.getText().toString();
-                String birthdayText = birthDayTraveler.getText().toString();
-                String passwordText = passwordTraveler.getText().toString();
-                String reEnterPasswordText = reEnterPasswordTraveler.getText().toString();
+                String firstNameText = firstNameTraveler.getText().toString().trim();
+                String lastNameText = lastNameTraveler.getText().toString().trim();
+                String emailText = emailTraveler.getText().toString().trim();
+                String contactText = contactTraveler.getText().toString().trim();
+                String birthdayText = birthDayTraveler.getText().toString().trim();
+                String passwordText = passwordTraveler.getText().toString().trim();
+                String reEnterPasswordText = reEnterPasswordTraveler.getText().toString().trim();
 
                 String email = encodeUserEmail(emailText);//Encoding the Email
 

@@ -21,7 +21,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class EditBookHotel extends AppCompatActivity {
 
@@ -33,7 +36,7 @@ public class EditBookHotel extends AppCompatActivity {
     int year, month, day;
     AlertDialog.Builder builder;
     String checkInDateTextEdit, chekOutDateTextEdit, numberOfRoomsTextEdit, extraDetailsTextEdit, travelerEmailEdit, travelerFirstNameEdit, travelerContactNumberEdit,
-            hotelNameEdit, hotelIdEdit, uuidEdit, hotelOwnerEmailEdit;
+            hotelNameEdit, hotelIdEdit, uuidEdit, hotelOwnerEmailEdit, date1, date2;
 
 
     //Creating object to access firebase
@@ -92,8 +95,8 @@ public class EditBookHotel extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                         month = month + 1;
-                        String date = dayOfMonth + "/" + month + "/" + year;
-                        checkInDateEdit.setText(date);
+                        date1 = dayOfMonth + "/" + month + "/" + year;
+                        checkInDateEdit.setText(date1);
                     }
                 }, year, month, day);
                 //Disabling the past dates
@@ -110,8 +113,8 @@ public class EditBookHotel extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                         month = month + 1;
-                        String date = dayOfMonth + "/" + month + "/" + year;
-                        checkOutDateEdit.setText(date);
+                        date2 = dayOfMonth + "/" + month + "/" + year;
+                        checkOutDateEdit.setText(date2);
                     }
                 }, year, month, day);
                 //Disabling the past dates

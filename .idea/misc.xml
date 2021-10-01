@@ -29,12 +29,16 @@
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_package.xml" value="0.20052083333333334" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_package2.xml" value="0.20052083333333334" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_package_main_view.xml" value="0.2" />
+
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_tour_guide_main_view.xml" value="0.259375" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/activity_traveler_package_main_view.xml" value="0.259375" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/attraction_list_item.xml" value="0.259375" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/hotel_list_item.xml" value="0.259375" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/package_list_items.xml" value="0.264" />
         <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/review_list_item.xml" value="0.259375" />
+
+        <entry key="..\:/Android Studio/MAD PROJECT/AlgoHeroes_tour_management_system/app/src/main/res/layout/package_list_items.xml" value="0.2" />
+
         <entry key="..\:/Uni/YEAR 2/SEMESTER 2/MAD/ASSIGNMENTS/MAD Project/AlgoHeroes_tour_management_system/app/src/main/res/drawable-v24/ic_baseline_star_half_24.xml" value="0.21180555555555555" />
         <entry key="..\:/Uni/YEAR 2/SEMESTER 2/MAD/ASSIGNMENTS/MAD Project/AlgoHeroes_tour_management_system/app/src/main/res/drawable/box.xml" value="0.29635416666666664" />
         <entry key="..\:/Uni/YEAR 2/SEMESTER 2/MAD/ASSIGNMENTS/MAD Project/AlgoHeroes_tour_management_system/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.29635416666666664" />
@@ -92,34 +96,80 @@
         <entry key="..\:/Users/Acer/Desktop/MAD/AlgoHeroes_tour_management_system/app/src/main/res/menu/traveler_main_menu.xml" value="0.22" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.2798611111111111" />
         <entry key="app/src/main/res/drawable-v24/ic_login.xml" value="0.2798611111111111" />
-        <entry key="app/src/main/res/layout-v21/action_bar.xml" value="0.13993055555555556" />
+
+
+
+        <entry key="app/src/main/res/drawable-v24/ic_traveller_signup.xml" value="0.2798611111111111" />
+        <entry key="app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.2798611111111111" />
+        <entry key="app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.2798611111111111" />
+
+        <entry key="app/src/main/res/drawable/ic_avatar.xml" value="0.2798611111111111" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.40520833333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.2798611111111111" />
+        <entry key="app/src/main/res/layout-v21/action_bar.xml" value="0.25" />
+
+        <entry key="app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.21203703703703702" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2798611111111111" />
+        <entry key="app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2798611111111111" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24_black.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24_white.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.2798611111111111" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/layout-v21/action_bar.xml" value="0.375" />
         <entry key="app/src/main/res/layout-v21/home_actionbar.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/action_bar.xml" value="0.15347222222222223" />
+        <entry key="app/src/main/res/layout/action_bar_search_hotel.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/action_bar_with_fav.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_add_hotel.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_add_review.xml" value="0.20989583333333334" />
+        <entry key="app/src/main/res/layout/activity_add_tourist_attraction.xml" value="0.13993055555555556" />
         <entry key="app/src/main/res/layout/activity_all_hotels_user.xml" value="0.13993055555555556" />
         <entry key="app/src/main/res/layout/activity_book_hotel.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_edit_book_hotel.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_edit_hotel.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
+
         <entry key="app/src/main/res/layout/activity_hotel_hotel_owner_main_view.xml" value="0.375" />
+
+
+        <entry key="app/src/main/res/layout/activity_hotel_hotel_owner_main_view.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_hotel_owner_bookings.xml" value="0.2663230240549828" />
+
+        <entry key="app/src/main/res/layout/activity_hotel_hotel_owner_main_view.xml" value="0.25" />
+
         <entry key="app/src/main/res/layout/activity_hotel_owner_main_view.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_hotel_owner_registration.xml" value="0.2690972222222222" />
+        <entry key="app/src/main/res/layout/activity_hotel_traveler_main_view.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_search_hotels.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_tour_guide_main_view.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_tour_guide_registration.xml" value="0.2690972222222222" />
+        <entry key="app/src/main/res/layout/activity_tourist_attraction_all_view.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/layout/activity_traveler_all_bookings.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/activity_traveler_book_list.xml" value="0.25972222222222224" />
         <entry key="app/src/main/res/layout/activity_traveler_main_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_traveler_registration.xml" value="0.2690972222222222" />
+        <entry key="app/src/main/res/layout/activity_travller_favourite_hotels.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/header_menu.xml" value="0.33" />
         <entry key="app/src/main/res/layout/home_action_bar.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/home_actionbar.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/hotel_list_item.xml" value="0.25" />
+
+        <entry key="app/src/main/res/layout/hotel_owner_all_bookings_item.xml" value="0.2663230240549828" />
         <entry key="app/src/main/res/layout/hotel_owner_main_action_bar.xml" value="0.21319444444444444" />
         <entry key="app/src/main/res/layout/img_slider_item.xml" value="0.13993055555555556" />
         <entry key="app/src/main/res/layout/main_action_bar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/review_list_item.xml" value="0.2690972222222222" />
+
+        <entry key="app/src/main/res/layout/hotel_owner_all_bookings_item.xml" value="0.13993055555555556" />
+        <entry key="app/src/main/res/layout/hotel_owner_main_action_bar.xml" value="0.21319444444444444" />
+        <entry key="app/src/main/res/layout/img_slider_item.xml" value="0.13993055555555556" />
+        <entry key="app/src/main/res/layout/main_action_bar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/ownerreviewlist.xml" value="0.13993055555555556" />
+        <entry key="app/src/main/res/layout/review_list_item.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/tour_guide_main_action_bar.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/layout/traveler_all_bookings_item.xml" value="0.2690972222222222" />
         <entry key="app/src/main/res/menu/hotel_owner_main_menu.xml" value="0.21319444444444444" />

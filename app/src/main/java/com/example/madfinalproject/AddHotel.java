@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -26,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +41,7 @@ import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,6 +71,8 @@ public class AddHotel extends AppCompatActivity {
             .clientId(PayPal.paypalClientID);
 
     String uuid, email;
+
+    Hotel hotel = new Hotel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -343,11 +348,75 @@ public class AddHotel extends AppCompatActivity {
         hotelSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PayPalPayment payment = new PayPalPayment(new BigDecimal(10), "USD", "Hotel Registration Payment", PayPalPayment.PAYMENT_INTENT_SALE);
-                Intent intent = new Intent(AddHotel.this, PaymentActivity.class);
-                intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
-                intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-                onStartActivityResultLauncherForPaymentGateway.launch(intent);
+                //validation - if fields are empty
+                if (hotelName.getText().toString().isEmpty() ||
+                        hotelAddress.getText().toString().isEmpty() ||
+                        hotelContact.getText().toString().isEmpty() ||
+                        hotelDescription.getText().toString().isEmpty() ||
+                        hotelCity.getText().toString().isEmpty() ||
+                        imageURIs.size() == 0) {
+
+                    new AlertDialog.Builder(AddHotel.this).setTitle("Alert!!").setMessage("Please Fill All The Fields To Continue!")
+                            .setCancelable(true)
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            })
+                            .show();
+
+                } else {
+                    //calculating the hotel registration payments
+                    //starting price is 5 USD
+                    int totalPrice = 5;
+
+                    if (chipPetFriendly.isChecked()) {
+                        totalPrice += 5;
+                    }
+                    if (chipFreeParking.isChecked()) {
+                        totalPrice += 0;
+                    }
+                    if (chipBar.isChecked()) {
+                        totalPrice += 3;
+                    }
+                    if (chipWifi.isChecked()) {
+                        totalPrice += 1;
+                    }
+                    if (chipYoga.isChecked()) {
+                        totalPrice += 4;
+                    }
+                    if (chipGym.isChecked()) {
+                        totalPrice += 4;
+                    }
+                    if (chipSpa.isChecked()) {
+                        totalPrice += 4;
+                    }
+                    if (chipSalon.isChecked()) {
+                        totalPrice += 3;
+                    }
+                    if (chipRestaurant.isChecked()) {
+                        totalPrice += 1;
+                    }
+                    if (chipPool.isChecked()) {
+                        totalPrice += 3;
+                    }
+                    if (chipCoffeeShop.isChecked()) {
+                        totalPrice += 1;
+                    }
+                    if (chipAtm.isChecked()) {
+                        totalPrice += 1;
+                    }
+                    if (chipSnackBar.isChecked()) {
+                        totalPrice += 3;
+                    }
+
+                    PayPalPayment payment = new PayPalPayment(new BigDecimal(totalPrice), "USD", "Hotel Registration Payment", PayPalPayment.PAYMENT_INTENT_SALE);
+                    Intent intent = new Intent(AddHotel.this, PaymentActivity.class);
+                    intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
+                    intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+                    onStartActivityResultLauncherForPaymentGateway.launch(intent);
+                }
             }
 
 
@@ -361,124 +430,122 @@ public class AddHotel extends AppCompatActivity {
         return mime.getExtensionFromMimeType(resolver.getType(uri));
     }
 
-    private void uploadHotel(){
-                        mainLayout.setVisibility(View.GONE);
-                progressBarLayout.setVisibility(View.VISIBLE);
+    private void uploadHotel() {
+        mainLayout.setVisibility(View.GONE);
+        progressBarLayout.setVisibility(View.VISIBLE);
 
-                databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
-                storageReference = FirebaseStorage.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mad-project-754dc-default-rtdb.firebaseio.com/");
+        storageReference = FirebaseStorage.getInstance().getReference();
 
-                ArrayList<String> amenities = new ArrayList<>();
+        ArrayList<String> amenities = new ArrayList<>();
 
-                if (chipPetFriendly.isChecked()) {
-                    amenities.add("Pet Friendly");
-                }
-                if (chipFreeParking.isChecked()) {
-                    amenities.add("Free Parking");
-                }
-                if (chipBar.isChecked()) {
-                    amenities.add("Bar");
-                }
-                if (chipWifi.isChecked()) {
-                    amenities.add("Wi-Fi");
-                }
-                if (chipYoga.isChecked()) {
-                    amenities.add("Yoga");
-                }
-                if (chipGym.isChecked()) {
-                    amenities.add("Gym");
-                }
-                if (chipSpa.isChecked()) {
-                    amenities.add("Spa");
-                }
-                if (chipSalon.isChecked()) {
-                    amenities.add("Salon");
-                }
-                if (chipRestaurant.isChecked()) {
-                    amenities.add("Restaurant");
-                }
-                if (chipPool.isChecked()) {
-                    amenities.add("Pool");
-                }
-                if (chipCoffeeShop.isChecked()) {
-                    amenities.add("Coffee Shop");
-                }
-                if (chipAtm.isChecked()) {
-                    amenities.add("ATM");
-                }
-                if (chipSnackBar.isChecked()) {
-                    amenities.add("Snack Bar");
-                }
+        if (chipPetFriendly.isChecked()) {
+            amenities.add("Pet Friendly");
+        }
+        if (chipFreeParking.isChecked()) {
+            amenities.add("Free Parking");
+        }
+        if (chipBar.isChecked()) {
+            amenities.add("Bar");
+        }
+        if (chipWifi.isChecked()) {
+            amenities.add("Wi-Fi");
+        }
+        if (chipYoga.isChecked()) {
+            amenities.add("Yoga");
+        }
+        if (chipGym.isChecked()) {
+            amenities.add("Gym");
+        }
+        if (chipSpa.isChecked()) {
+            amenities.add("Spa");
+        }
+        if (chipSalon.isChecked()) {
+            amenities.add("Salon");
+        }
+        if (chipRestaurant.isChecked()) {
+            amenities.add("Restaurant");
+        }
+        if (chipPool.isChecked()) {
+            amenities.add("Pool");
+        }
+        if (chipCoffeeShop.isChecked()) {
+            amenities.add("Coffee Shop");
+        }
+        if (chipAtm.isChecked()) {
+            amenities.add("ATM");
+        }
+        if (chipSnackBar.isChecked()) {
+            amenities.add("Snack Bar");
+        }
 
-                Hotel hotel = new Hotel();
+        hotel.setName(hotelName.getText().toString());
+        hotel.setOwner(email);
+        hotel.setAddress((hotelAddress.getText().toString()));
+        hotel.setContact(hotelContact.getText().toString());
+        hotel.setDescription((hotelDescription.getText().toString()));
+        hotel.setCity(hotelCity.getText().toString());
+        hotel.setAmenities((amenities));
+        hotel.setHotelId(uuid);
 
-                hotel.setName(hotelName.getText().toString());
-                hotel.setOwner(email);
-                hotel.setAddress((hotelAddress.getText().toString()));
-                hotel.setContact(hotelContact.getText().toString());
-                hotel.setDescription((hotelDescription.getText().toString()));
-                hotel.setCity(hotelCity.getText().toString());
-                hotel.setAmenities((amenities));
-                hotel.setHotelId(uuid);
+        databaseReference.child("Hotels").child(uuid).setValue(hotel).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AddHotel.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-                databaseReference.child("Hotels").child(uuid).setValue(hotel).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AddHotel.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+        //uploading images to fire based storage
+        if (imageURIs.size() != 0) {
+            for (int i = 0; i < imageURIs.size(); i++) {
+                String uuidForImg = UUID.randomUUID().toString();
+                StorageReference newStorageRef = storageReference.child("Hotel_Images").child(uuidForImg + "." + getImgExtension(imageURIs.get(i)));
 
-                //uploading images to fire based storage
-                if (imageURIs.size() != 0) {
-                    for (int i = 0; i < imageURIs.size(); i++) {
-                        String uuidForImg = UUID.randomUUID().toString();
-                        StorageReference newStorageRef = storageReference.child("Hotel_Images").child(uuidForImg + "." + getImgExtension(imageURIs.get(i)));
+                newStorageRef.putFile(imageURIs.get(i))
+                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                String id = UUID.randomUUID().toString();
 
-                        newStorageRef.putFile(imageURIs.get(i))
-                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                //without onSuccess listener URI cannot be grabbed as the method id async
+                                //Objects.requireNonNull is used to handle Null Pointer exception as getReference and getDownloadUrl could throw them.
+                                Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
-                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                        String id = UUID.randomUUID().toString();
-
-                                        //without onSuccess listener URI cannot be grabbed as the method id async
-                                        //Objects.requireNonNull is used to handle Null Pointer exception as getReference and getDownloadUrl could throw them.
-                                        Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                            @Override
-                                            public void onSuccess(Uri uri) {
-                                                databaseReference
-                                                        .child("Hotels")
-                                                        .child(uuid).child("images")
-                                                        .child(id)
-                                                        .setValue(uri.toString());
-                                            }
-                                        });
-
-                                    }
-
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(AddHotel.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    public void onSuccess(Uri uri) {
+                                        databaseReference
+                                                .child("Hotels")
+                                                .child(uuid).child("images")
+                                                .child(id)
+                                                .setValue(uri.toString());
                                     }
                                 });
 
-                    }
-                }
+                            }
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(AddHotel.this, HotelHotelOwnerMainView.class);
-                        intent.putExtra("hotelId", uuid);
-                        startActivity(intent);
-                        finish();
-                    }
-                }, 20000);
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(AddHotel.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+            }
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(AddHotel.this, HotelHotelOwnerMainView.class);
+                intent.putExtra("hotelId", uuid);
+                startActivity(intent);
+                finish();
+            }
+        }, 20000);
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         stopService(new Intent(this, PayPalService.class));
         super.onDestroy();
     }

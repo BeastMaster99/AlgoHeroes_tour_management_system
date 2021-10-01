@@ -68,14 +68,27 @@ public class EditReview extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "rateValue: " + " review: " + review.getText()+ rateValue, Toast.LENGTH_LONG).show();
-//
+                Toast.makeText(getApplicationContext(), "Thank You For The Feedback", Toast.LENGTH_SHORT).show();
+
+                //validating the number of characters
+                if(review.getText().toString().trim().length() < 1){
+                    Toast.makeText(getApplicationContext(),  "Review should be more than 15 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(review.getText().toString().trim().length() > 500){
+                    Toast.makeText(getApplicationContext(),  "Review should be less than 500 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 reviewObj.setReview(review.getText().toString());
                 reviewObj.setRateValue(rateValue);
                 addDatatoFirebase(reviewObj);
 
+
                 Intent intent = new Intent(view.getContext(), HotelTravelerMainView.class);
                 intent.putExtra("hotelId", reviewObj.getHotelId());
+                view.getContext().startActivity(intent);
+                finish();
                 view.getContext().startActivity(intent);
             }
         });

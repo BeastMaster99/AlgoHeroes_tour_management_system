@@ -49,7 +49,7 @@ public class placeRecyclerAdapter extends RecyclerView.Adapter<placeRecyclerAdap
         holder.visitPlaceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, TourGuideMainView.class);
+                Intent intent = new Intent(context, tourguideSingleView.class);
                 intent.putExtra("placeId", attractionPlaces.get(itemPosition).getPlaceId());
                 context.startActivity(intent);
             }

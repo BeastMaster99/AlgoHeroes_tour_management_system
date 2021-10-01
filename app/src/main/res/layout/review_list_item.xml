@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/box"
+        android:backgroundTint="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingTop="10dp"
@@ -23,24 +24,33 @@
             android:fontFamily="@font/font4"
             android:text="@string/hoteluserViewDTopics8"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <RatingBar
             android:id="@+id/travelerRating"
-            android:layout_width="245dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:numStars="5"
             android:stepSize="0.5"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:theme="@style/RatingBar"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:isIndicator="true"
+            />
+
 
         <TextView
             android:id="@+id/travelerReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="20dp"
+
+
+            android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
+            android:textSize="15sp"
+            android:textStyle="bold"
+
             android:text="@string/hoteluserViewDData7_2" />
 
         <LinearLayout
@@ -60,7 +70,8 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:backgroundTint="@color/theme_color" />
+                app:backgroundTint="@color/yellow" />
+
 
             <Button
                 android:id="@+id/deleteReviewBtn"
@@ -74,7 +85,7 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:backgroundTint="@color/red" />
-            />
+
 
         </LinearLayout>
 
